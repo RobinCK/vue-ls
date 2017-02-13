@@ -14,6 +14,7 @@
     "vue",
     "vue-plugin",
     "localstorage",
+    "localstorage watch",
     "local-storage",
     "persistance",
     "lazyload"
