@@ -1,5 +1,5 @@
 /*!
- * vue-ls.js 1.0.0
+ * vue-ls.js 1.0.1
  * (c) 2017 Igor Ognichenko <igor.ognichenko@gmail.com>
  * Released under the MIT License.
  */
@@ -11,6 +11,8 @@
 }(this, (function () { 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -37,7 +39,12 @@ function change(e) {
   }
 
   function emit(listener) {
-    listener(JSON.parse(e.newValue), JSON.parse(e.oldValue), e.url || e.uri);
+    var item = JSON.parse(e.newValue);
+    var oldItem = JSON.parse(e.oldValue);
+    var val = (typeof item === 'undefined' ? 'undefined' : _typeof(item)) === 'object' ? item.value : oldItem;
+    var oldVal = oldItem && (typeof oldItem === 'undefined' ? 'undefined' : _typeof(oldItem)) === 'object' ? oldItem.value : oldItem;
+
+    listener(val, oldVal, e.url || e.uri);
   }
 }
 

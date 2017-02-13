@@ -23,7 +23,12 @@ function change (e) {
   }
 
   function emit (listener) {
-    listener(JSON.parse(e.newValue), JSON.parse(e.oldValue), e.url || e.uri);
+    let item = JSON.parse(e.newValue);
+    let oldItem = JSON.parse(e.oldValue);
+    let val = typeof item === 'object' ? item.value : oldItem;
+    let oldVal = oldItem && typeof oldItem === 'object' ? oldItem.value : oldItem;
+
+    listener(val, oldVal, e.url || e.uri);
   }
 }
 
