@@ -33,6 +33,10 @@ npm run build
 Vue localStorage API.
 
 ``` js
+import VueLocalStorage from 'vue-ls';
+
+Vue.use(new VueLocalStorage);
+
 new Vue({
     el: '#app',
     mounted: function() {

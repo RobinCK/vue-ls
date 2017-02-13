@@ -1,5 +1,5 @@
 /*!
- * vue-ls.js 1.0.1
+ * vue-ls.js 1.0.3
  * (c) 2017 Igor Ognichenko <igor.ognichenko@gmail.com>
  * Released under the MIT License.
  */
