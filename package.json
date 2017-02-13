@@ -1,6 +1,6 @@
 {
   "name": "vue-ls",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "vue.js localStorage plugin",
   "main": "dist/vue-ls.js",
   "scripts": {
