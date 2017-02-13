@@ -2,7 +2,6 @@
 
 Vue plugin for work with LocalStorage from Vue context
 
-[![Build Status](https://travis-ci.org/RobinCK/vue-ls.svg)](https://travis-ci.org/RobinCK/vue-ls)
 [![Dependencies](https://david-dm.org/robinck/vue-ls.svg)](https://david-dm.org/robinck/vue-ls)
 [![devDependencies](https://david-dm.org/robinck/vue-ls/dev-status.svg)](https://david-dm.org/robinck/vue-ls#info=devDependencies&view=table)
 [![NPM version](https://badge.fury.io/js/vue-ls.svg)](http://badge.fury.io/js/vue-ls)
