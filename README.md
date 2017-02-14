@@ -1,6 +1,7 @@
 # vue-ls
 
 Vue plugin for work with LocalStorage from Vue context
+This plugin has been developed thanks to the inspiration of the [local-storage](https://www.npmjs.com/package/local-storage) package
 
 [![Dependencies](https://david-dm.org/robinck/vue-ls.svg)](https://david-dm.org/robinck/vue-ls)
 [![devDependencies](https://david-dm.org/robinck/vue-ls/dev-status.svg)](https://david-dm.org/robinck/vue-ls#info=devDependencies&view=table)
@@ -34,7 +35,14 @@ Vue localStorage API.
 ``` js
 import VueLocalStorage from 'vue-ls';
 
-Vue.use(new VueLocalStorage);
+options = {
+  namespace: 'vuejs__'
+};
+
+Vue.use(new VueLocalStorage, options);
+
+//or
+//Vue.use(new VueLocalStorage);
 
 new Vue({
     el: '#app',
@@ -57,6 +65,39 @@ new Vue({
 });
 ```
 
+## API
+
+## `this.$localStorage.get(name, def)`
+
+Returns value under `name` in local storage. Internally parses the value from JSON before returning it.
+
+- `def`: default null, returned if not set `name`.
+
+## `this.$localStorage.set(name, value, expire)`
+
+Persists `value` under `name` in local storage. Internally converts the `value` to JSON.
+
+- `expire`: default null, life time in milliseconds `name`
+
+## `this.$localStorage.remove(name)`
+
+Removes `name` from local storage. Returns `true` if the property was successfully deleted, and `false` otherwise.
+
+## `this.$localStorage.clear()`
+
+Clears local storage.
+
+## `this.$localStorage.on(name, callback)`
+
+Listen for changes persisted against `name` on other tabs. Triggers `callback` when a change occurs, passing the following arguments.
+
+- `newValue`: the current value for `name` in local storage, parsed from the persisted JSON
+- `oldValue`: the old value for `name` in local storage, parsed from the persisted JSON
+- `url`: the url for the tab where the modification came from
+
+## `this.$localStorage.off(name, callback)`
+
+Removes a listener previously attached with `this.$localStorage.on(name, callback)`.
 
 ## Note
 Some browsers don't support the storage event, and most of the browsers that do support it will only call it when the storage is changed by a different window. So, open your page up in two windows. Click the links in one window and you will probably see the event in the other.
