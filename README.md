@@ -23,6 +23,10 @@ or
 ``` bash
 yarn install vue-ls
 ```
+or
+``` bash
+bower install vue-ls --save
+```
 
 ### Development Setup
 
