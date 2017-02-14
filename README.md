@@ -68,27 +68,27 @@ new Vue({
 
 ## API
 
-## `this.$localStorage.get(name, def)`
+#### `this.$localStorage.get(name, def)`
 
 Returns value under `name` in local storage. Internally parses the value from JSON before returning it.
 
 - `def`: default null, returned if not set `name`.
 
-## `this.$localStorage.set(name, value, expire)`
+#### `this.$localStorage.set(name, value, expire)`
 
 Persists `value` under `name` in local storage. Internally converts the `value` to JSON.
 
 - `expire`: default null, life time in milliseconds `name`
 
-## `this.$localStorage.remove(name)`
+#### `this.$localStorage.remove(name)`
 
 Removes `name` from local storage. Returns `true` if the property was successfully deleted, and `false` otherwise.
 
-## `this.$localStorage.clear()`
+#### `this.$localStorage.clear()`
 
 Clears local storage.
 
-## `this.$localStorage.on(name, callback)`
+#### `this.$localStorage.on(name, callback)`
 
 Listen for changes persisted against `name` on other tabs. Triggers `callback` when a change occurs, passing the following arguments.
 
@@ -96,7 +96,7 @@ Listen for changes persisted against `name` on other tabs. Triggers `callback` w
 - `oldValue`: the old value for `name` in local storage, parsed from the persisted JSON
 - `url`: the url for the tab where the modification came from
 
-## `this.$localStorage.off(name, callback)`
+#### `this.$localStorage.off(name, callback)`
 
 Removes a listener previously attached with `this.$localStorage.on(name, callback)`.
 
@@ -104,3 +104,7 @@ Removes a listener previously attached with `this.$localStorage.on(name, callbac
 Some browsers don't support the storage event, and most of the browsers that do support it will only call it when the storage is changed by a different window. So, open your page up in two windows. Click the links in one window and you will probably see the event in the other.
 
 The assumption is that your page will already know all interactions with localStorage in its own window and only needs notification when a different window changes things. This, of course, is a foolish assumption. But.
+
+
+## License
+MIT © [Igor Ognichenko](https://github.com/RobinCK)
