@@ -1,6 +1,6 @@
 {
   "name": "vue-ls",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "vue.js localStorage plugin",
   "main": "dist/vue-ls.js",
   "scripts": {
@@ -40,6 +40,7 @@
   "semistandard": {
     "ignore": [
       "node_modules",
+      "bower_components",
       "dist"
     ]
   }

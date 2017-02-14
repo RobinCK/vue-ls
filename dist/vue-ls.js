@@ -1,5 +1,5 @@
 /*!
- * vue-ls.js 1.0.5
+ * vue-ls.js 1.0.6
  * (c) 2017 Igor Ognichenko <igor.ognichenko@gmail.com>
  * Released under the MIT License.
  */
@@ -17,6 +17,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var listeners = {};
+
 try {
   var storage = window.localStorage;
   var x = '__storage_test__';
@@ -48,9 +49,9 @@ function change(e) {
   }
 }
 
-var vueLocalStorage = function () {
-  function vueLocalStorage() {
-    _classCallCheck(this, vueLocalStorage);
+var VueLocalStorage = function () {
+  function VueLocalStorage() {
+    _classCallCheck(this, VueLocalStorage);
 
     this.storage = window.localStorage;
 
@@ -69,7 +70,7 @@ var vueLocalStorage = function () {
     });
   }
 
-  _createClass(vueLocalStorage, [{
+  _createClass(VueLocalStorage, [{
     key: 'install',
     value: function install(Vue, options) {
       this.options = Object.assign({
@@ -164,13 +165,13 @@ var vueLocalStorage = function () {
     }
   }]);
 
-  return vueLocalStorage;
+  return VueLocalStorage;
 }();
 
 if (typeof window !== 'undefined' && typeof window.Vue !== 'undefined') {
-  window.Vue.use(new vueLocalStorage());
+  window.Vue.use(new VueLocalStorage());
 }
 
-return vueLocalStorage;
+return VueLocalStorage;
 
 })));
