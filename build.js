@@ -29,16 +29,16 @@ for (var file in buildConfig.files) {
     continue;
   }
 
-  let currentFile = file;
-
-  rollup.rollup({
-    entry: path.resolve(__dirname, 'src/index.js'),
-    plugins: buildConfig.files[file]
-  })
-    .then(bundle => {
-      return write(path.join(__dirname, 'dist/' + currentFile), bundle.generate(buildConfig.writeConfig).code);
+  (function (currentFile) {
+    rollup.rollup({
+      entry: path.resolve(__dirname, 'src/index.js'),
+      plugins: buildConfig.files[file]
     })
-    .catch(console.log);
+      .then(bundle => {
+        return write(path.join(__dirname, 'dist/' + currentFile), bundle.generate(buildConfig.writeConfig).code);
+      })
+      .catch(console.log);
+  })(file)
 }
 
 function getSize (code) {
