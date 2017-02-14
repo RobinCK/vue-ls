@@ -1,6 +1,7 @@
 # vue-ls
 
 Vue plugin for work with LocalStorage from Vue context
+
 This plugin has been developed thanks to the inspiration of the [local-storage](https://www.npmjs.com/package/local-storage) package
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/Flet/semistandard)
