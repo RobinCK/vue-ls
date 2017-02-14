@@ -4,12 +4,11 @@ const rollup = require('rollup');
 const babel = require('rollup-plugin-babel');
 const version = process.env.VERSION || require('./package.json').version;
 
-let banner = `/*!
- * vue-ls.js ${version}
- * (c) ${new Date().getFullYear()} Igor Ognichenko <igor.ognichenko@gmail.com>
- * Released under the MIT License.
- */
-`;
+var banner = "/*!\n" +
+  "* vue-ls.js " + version + "\n" +
+  "* (c) " + (new Date().getFullYear()) + " Igor Ognichenko <igor.ognichenko@gmail.com> \n" +
+  "* Released under the MIT License.\n" +
+  "*/\n";
 
 rollup.rollup({
   entry: path.resolve(__dirname, 'src/index.js'),

@@ -1,8 +1,8 @@
 /*!
- * vue-ls.js 1.0.6
- * (c) 2017 Igor Ognichenko <igor.ognichenko@gmail.com>
- * Released under the MIT License.
- */
+* vue-ls.js 1.0.7
+* (c) 2017 Igor Ognichenko <igor.ognichenko@gmail.com> 
+* Released under the MIT License.
+*/
 
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
