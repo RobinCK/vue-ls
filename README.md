@@ -4,7 +4,7 @@ Vue plugin for work with LocalStorage from Vue context
 This plugin has been developed thanks to the inspiration of the [local-storage](https://www.npmjs.com/package/local-storage) package
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/Flet/semistandard)
-[![Build Status](https://img.shields.io/travis/RobinCK/vue-ls.svg?style=flat-square)](https://travis-ci.org/RobinCK/vue-ls)
+[![Build Status](https://img.shields.io/travis/RobinCK/vue-ls.svg)](https://travis-ci.org/RobinCK/vue-ls)
 [![Dependencies](https://david-dm.org/robinck/vue-ls.svg)](https://david-dm.org/robinck/vue-ls)
 [![devDependencies](https://david-dm.org/robinck/vue-ls/dev-status.svg)](https://david-dm.org/robinck/vue-ls#info=devDependencies&view=table)
 [![Bower version](https://img.shields.io/bower/v/vue-ls.svg)]()
