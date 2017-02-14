@@ -1,5 +1,4 @@
 let listeners = {};
-let inBrowser = typeof window !== 'undefined';
 
 try {
   let storage = window.localStorage;
@@ -32,7 +31,7 @@ function change (e) {
   }
 }
 
-export default class vueLocalStorage {
+export default class VueLocalStorage {
   constructor () {
     this.storage = window.localStorage;
 
@@ -136,7 +135,6 @@ export default class vueLocalStorage {
   }
 }
 
-
 if (typeof window !== 'undefined' && typeof window.Vue !== 'undefined') {
-  window.Vue.use(new vueLocalStorage);
+  window.Vue.use(new VueLocalStorage());
 }
