@@ -3,12 +3,13 @@
 Vue plugin for work with LocalStorage from Vue context
 This plugin has been developed thanks to the inspiration of the [local-storage](https://www.npmjs.com/package/local-storage) package
 
-[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
-[![Build Status](https://travis-ci.org/RobinCK/vue-ls.svg?branch=master)](https://travis-ci.org/RobinCK/vue-ls)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/Flet/semistandard)
+[![Build Status](https://img.shields.io/travis/RobinCK/vue-ls.svg?style=flat-square)](https://travis-ci.org/RobinCK/vue-ls)
 [![Dependencies](https://david-dm.org/robinck/vue-ls.svg)](https://david-dm.org/robinck/vue-ls)
 [![devDependencies](https://david-dm.org/robinck/vue-ls/dev-status.svg)](https://david-dm.org/robinck/vue-ls#info=devDependencies&view=table)
-[![Bower version](https://img.shields.io/bower/v/vue-ls.svg?style=flat-square)]()
-[![NPM version](https://img.shields.io/npm/v/vue-ls.svg?style=flat-square)](https://www.npmjs.com/package/vue-ls)
+[![Bower version](https://img.shields.io/bower/v/vue-ls.svg)]()
+[![NPM version](https://img.shields.io/npm/v/vue-ls.svg)](https://www.npmjs.com/package/vue-ls)
+[![npm](https://img.shields.io/npm/l/vue-ls.svg)](https://github.com/RobinCK/vue-ls/blob/master/LICENSE)
 
 
 [![NPM](https://nodei.co/npm/vue-ls.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-ls/)
