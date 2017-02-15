@@ -1,14 +1,10 @@
-/*!
-* vue-ls.js 1.0.8
-* (c) 2017 Igor Ognichenko <igor.ognichenko@gmail.com> 
-* Released under the MIT License.
-*/
-
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
 	(global['vue-ls'] = factory());
 }(this, (function () { 'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -73,7 +69,7 @@ var VueLocalStorage = function () {
   _createClass(VueLocalStorage, [{
     key: 'install',
     value: function install(Vue, options) {
-      this.options = Object.assign({
+      this.options = _extends({
         namespace: ''
       }, options || {});
 
