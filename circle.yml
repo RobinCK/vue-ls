@@ -13,7 +13,9 @@ dependencies:
   cache_directories:
     - ~/.yarn
     - ~/.cache/yarn
+  override:
+    - NODE_ENV=dev yarn install
 
-test:
-  post:
+compile:
+  override:
     - npm run build
