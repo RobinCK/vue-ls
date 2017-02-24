@@ -16,14 +16,15 @@ This plugin has been developed thanks to the inspiration of the [local-storage](
 [![NPM](https://nodei.co/npm/vue-ls.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-ls/)
 
 ## Install
+Using `npm`
 ``` bash
 npm install vue-ls --save
 ```
-or
+Using `yarn`
 ``` bash
 yarn install vue-ls
 ```
-or
+Using `bower`
 ``` bash
 bower install vue-ls --save
 ```
