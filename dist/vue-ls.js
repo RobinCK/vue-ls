@@ -16,7 +16,7 @@ var Shim = {
     return true;
   },
   removeItem: function removeItem(name) {
-    var found = key in ls;
+    var found = name in ls;
 
     if (found) {
       return delete ls[name];
