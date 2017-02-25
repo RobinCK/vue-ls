@@ -9,6 +9,8 @@ This plugin has been developed thanks to the inspiration of the [local-storage](
 [![Code Climate](https://codeclimate.com/github/RobinCK/vue-ls/badges/gpa.svg)](https://codeclimate.com/github/RobinCK/vue-ls)
 [![Dependencies](https://david-dm.org/robinck/vue-ls.svg)](https://david-dm.org/robinck/vue-ls)
 [![devDependencies](https://david-dm.org/robinck/vue-ls/dev-status.svg)](https://david-dm.org/robinck/vue-ls#info=devDependencies&view=table)
+
+
 [![Bower version](https://img.shields.io/bower/v/vue-ls.svg)]()
 [![NPM version](https://img.shields.io/npm/v/vue-ls.svg)](https://www.npmjs.com/package/vue-ls)
 [![npm](https://img.shields.io/npm/l/vue-ls.svg)](https://github.com/RobinCK/vue-ls/blob/master/LICENSE)

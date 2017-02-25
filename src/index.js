@@ -1,13 +1,22 @@
+import Shim from './shim';
+
 let listeners = {};
 
 try {
-  let storage = window.localStorage;
+  let storage = getStorage();
   let x = '__storage_test__';
 
   storage.setItem(x, x);
   storage.removeItem(x);
 } catch (e) {
   throw new Error('Local storage not supported by this browser');
+}
+
+function getStorage () {
+  return typeof window !== 'undefined' && 'localStorage' in window
+    ? window.localStorage
+    : Shim
+  ;
 }
 
 function change (e) {
@@ -33,7 +42,7 @@ function change (e) {
 
 export default class VueLocalStorage {
   constructor (options) {
-    this.storage = window.localStorage;
+    this.storage = getStorage();
     this.options = Object.assign({
       namespace: ''
     }, options || {});

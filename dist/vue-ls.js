@@ -4,6 +4,33 @@
 	(global['vue-ls'] = factory());
 }(this, (function () { 'use strict';
 
+var ls = {};
+
+var Shim = {
+  getItem: function getItem(name) {
+    return name in ls ? ls[name] : null;
+  },
+  setItem: function setItem(name, value) {
+    ls[name] = value;
+
+    return true;
+  },
+  removeItem: function removeItem(name) {
+    var found = key in ls;
+
+    if (found) {
+      return delete ls[name];
+    }
+
+    return false;
+  },
+  clear: function clear() {
+    ls = {};
+
+    return true;
+  }
+};
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -15,13 +42,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var listeners = {};
 
 try {
-  var storage = window.localStorage;
+  var storage = getStorage();
   var x = '__storage_test__';
 
   storage.setItem(x, x);
   storage.removeItem(x);
 } catch (e) {
   throw new Error('Local storage not supported by this browser');
+}
+
+function getStorage() {
+  return typeof window !== 'undefined' && 'localStorage' in window ? window.localStorage : Shim;
 }
 
 function change(e) {
@@ -49,7 +80,7 @@ var VueLocalStorage = function () {
   function VueLocalStorage(options) {
     _classCallCheck(this, VueLocalStorage);
 
-    this.storage = window.localStorage;
+    this.storage = getStorage();
     this.options = _extends({
       namespace: ''
     }, options || {});
