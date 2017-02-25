@@ -18,4 +18,8 @@ dependencies:
 
 compile:
   override:
-    - npm run build
+    - yarn run build
+
+test:
+  override:
+    - yarn run test

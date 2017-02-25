@@ -8,3 +8,4 @@ install:
 
 script:
   - npm run build
+  - npm test
