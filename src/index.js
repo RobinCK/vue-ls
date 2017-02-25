@@ -32,8 +32,11 @@ function change (e) {
 }
 
 export default class VueLocalStorage {
-  constructor () {
+  constructor (options) {
     this.storage = window.localStorage;
+    this.options = Object.assign({
+      namespace: ''
+    }, options || {});
 
     if (window.addEventListener) {
       window.addEventListener('storage', change, false);
@@ -51,13 +54,16 @@ export default class VueLocalStorage {
   }
 
   install (Vue, options) {
-    this.options = Object.assign({
-      namespace: ''
-    }, options || {});
-
+    this.options = Object.assign(this.options, options || {});
     let _this = this;
     Vue.localStorage = _this;
+    Vue.ls = _this;
     Object.defineProperty(Vue.prototype, '$localStorage', {
+      get () {
+        return _this;
+      }
+    });
+    Object.defineProperty(Vue.prototype, '$ls', {
       get () {
         return _this;
       }

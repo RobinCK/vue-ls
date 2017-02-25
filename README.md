@@ -58,47 +58,56 @@ Vue.use(new VueLocalStorage, options);
 new Vue({
     el: '#app',
     mounted: function() {
-        this.$localStorage.set('foo', 'boo');
+        Vue.ls.set('foo', 'boo');
         //Set expire for item
-        this.$localStorage.set('foo', 'boo', 60 * 60 * 1000); //expiry 1 hour
-        this.$localStorage.get('foo');
-        this.$localStorage.get('boo', 10); //if not set boo returned default 10
+        Vue.ls.set('foo', 'boo', 60 * 60 * 1000); //expiry 1 hour
+        Vue.ls.get('foo');
+        Vue.ls.get('boo', 10); //if not set boo returned default 10
         
         let callback = (val, oldVal, uri) => {
           console.log('localStorage chnage', val);
         } 
         
-        this.$localStorage.on('foo', callback) //watch change foo key and triggered callback
-        this.$localStorage.off('foo', callback) //unwatch
+        Vue.ls.on('foo', callback) //watch change foo key and triggered callback
+        Vue.ls.off('foo', callback) //unwatch
         
-        this.$localStorage.remove('foo');
+        Vue.ls.remove('foo');
     }
 });
 ```
 
+#### Global
+
+- `Vue.ls`
+- `Vue.localStorage` #alias
+ 
+#### Context
+- `this.$ls`
+- `this.$localStorage` #alias
+
 ## API
 
-#### `this.$localStorage.get(name, def)`
+#### `Vue.ls.get(name, def)`
 
 Returns value under `name` in local storage. Internally parses the value from JSON before returning it.
 
 - `def`: default null, returned if not set `name`.
 
-#### `this.$localStorage.set(name, value, expire)`
+#### `Vue.ls.set(name, value, expire)`
 
 Persists `value` under `name` in local storage. Internally converts the `value` to JSON.
 
 - `expire`: default null, life time in milliseconds `name`
 
-#### `this.$localStorage.remove(name)`
+#### `Vue.ls.remove(name)`
 
 Removes `name` from local storage. Returns `true` if the property was successfully deleted, and `false` otherwise.
 
-#### `this.$localStorage.clear()`
+#### `Vue.ls.clear()`
 
 Clears local storage.
 
-#### `this.$localStorage.on(name, callback)`
+#### `Vue.ls.on(name, callback)`
 
 Listen for changes persisted against `name` on other tabs. Triggers `callback` when a change occurs, passing the following arguments.
 
@@ -106,9 +115,9 @@ Listen for changes persisted against `name` on other tabs. Triggers `callback` w
 - `oldValue`: the old value for `name` in local storage, parsed from the persisted JSON
 - `url`: the url for the tab where the modification came from
 
-#### `this.$localStorage.off(name, callback)`
+#### `Vue.ls.off(name, callback)`
 
-Removes a listener previously attached with `this.$localStorage.on(name, callback)`.
+Removes a listener previously attached with `Vue.ls.on(name, callback)`.
 
 ## Note
 Some browsers don't support the storage event, and most of the browsers that do support it will only call it when the storage is changed by a different window. So, open your page up in two windows. Click the links in one window and you will probably see the event in the other.

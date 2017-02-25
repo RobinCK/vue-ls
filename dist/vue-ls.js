@@ -46,10 +46,13 @@ function change(e) {
 }
 
 var VueLocalStorage = function () {
-  function VueLocalStorage() {
+  function VueLocalStorage(options) {
     _classCallCheck(this, VueLocalStorage);
 
     this.storage = window.localStorage;
+    this.options = _extends({
+      namespace: ''
+    }, options || {});
 
     if (window.addEventListener) {
       window.addEventListener('storage', change, false);
@@ -69,13 +72,16 @@ var VueLocalStorage = function () {
   _createClass(VueLocalStorage, [{
     key: 'install',
     value: function install(Vue, options) {
-      this.options = _extends({
-        namespace: ''
-      }, options || {});
-
+      this.options = _extends(this.options, options || {});
       var _this = this;
       Vue.localStorage = _this;
+      Vue.ls = _this;
       Object.defineProperty(Vue.prototype, '$localStorage', {
+        get: function get() {
+          return _this;
+        }
+      });
+      Object.defineProperty(Vue.prototype, '$ls', {
         get: function get() {
           return _this;
         }
