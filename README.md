@@ -6,6 +6,7 @@ This plugin has been developed thanks to the inspiration of the [local-storage](
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/Flet/semistandard)
 [![Build Status](https://img.shields.io/travis/RobinCK/vue-ls.svg)](https://travis-ci.org/RobinCK/vue-ls)
+[![Code Climate](https://codeclimate.com/github/RobinCK/vue-ls/badges/gpa.svg)](https://codeclimate.com/github/RobinCK/vue-ls)
 [![Dependencies](https://david-dm.org/robinck/vue-ls.svg)](https://david-dm.org/robinck/vue-ls)
 [![devDependencies](https://david-dm.org/robinck/vue-ls/dev-status.svg)](https://david-dm.org/robinck/vue-ls#info=devDependencies&view=table)
 [![Bower version](https://img.shields.io/bower/v/vue-ls.svg)]()
