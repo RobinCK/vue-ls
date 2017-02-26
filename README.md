@@ -19,20 +19,27 @@ This plugin has been developed thanks to the inspiration of the [local-storage](
 [![NPM](https://nodei.co/npm/vue-ls.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-ls/)
 
 ## Install
-Using `npm`
+#### CDN
+
+Recommended: https://unpkg.com/vue-ls, which will reflect the latest version as soon as it is published to npm. You can also browse the source of the npm package at https://unpkg.com/vue-ls/
+
+#### npm
+
 ``` bash
 npm install vue-ls --save
 ```
-Using `yarn`
+#### yarn
+
 ``` bash
 yarn install vue-ls
 ```
-Using `bower`
+#### bower
+
 ``` bash
 bower install vue-ls --save
 ```
 
-### Development Setup
+## Development Setup
 
 ``` bash
 # install dependencies
