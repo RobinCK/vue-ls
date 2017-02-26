@@ -23,17 +23,19 @@ This plugin has been developed thanks to the inspiration of the [local-storage](
 
 Recommended: https://unpkg.com/vue-ls, which will reflect the latest version as soon as it is published to npm. You can also browse the source of the npm package at https://unpkg.com/vue-ls/
 
-#### npm
+#### NPM
 
 ``` bash
 npm install vue-ls --save
 ```
-#### yarn
+
+#### Yarn
 
 ``` bash
 yarn install vue-ls
 ```
-#### bower
+
+#### Bower
 
 ``` bash
 bower install vue-ls --save
