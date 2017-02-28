@@ -1,6 +1,11 @@
 .editorconfig
 .gitignore
 .npmignore
+.jshintignore
+.jshintrc
+.travis.yml
 .idea/
 .git/
 _config.yml
+bower.json
+circle.yml
