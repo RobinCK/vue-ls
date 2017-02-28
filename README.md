@@ -18,6 +18,10 @@ This plugin has been developed thanks to the inspiration of the [local-storage](
 
 [![NPM](https://nodei.co/npm/vue-ls.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-ls/)
 
+## Example
+
+[JSFiddle](https://jsfiddle.net/Robin_ck/Lvb2ah5p/)
+
 ## Install
 #### CDN
 
