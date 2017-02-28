@@ -1,5 +1,5 @@
 import test from 'ava';
-import Ls from '../dist/vue-ls';
+import Ls from '../src/index';
 import Vue from 'vue';
 
 Vue.use(new Ls());

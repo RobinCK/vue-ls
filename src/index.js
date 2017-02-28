@@ -13,10 +13,7 @@ try {
 }
 
 function getStorage () {
-  return typeof window !== 'undefined' && 'localStorage' in window
-    ? window.localStorage
-    : Shim
-  ;
+  return typeof window !== 'undefined' && 'localStorage' in window ? window.localStorage : Shim;
 }
 
 function change (e) {

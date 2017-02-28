@@ -6,9 +6,10 @@
   "jsnext:main": "src/index.js",
   "scripts": {
     "build": "node_modules/.bin/gulp",
-    "test": "node_modules/.bin/ava",
+    "test": "node_modules/.bin/nyc node_modules/.bin/ava --esnext",
     "lint": "node_modules/.bin/eslint ./",
-    "hint": "node_modules/.bin/jshint"
+    "hint": "node_modules/.bin/jshint",
+    "report": "npm test && node_modules/.bin/nyc report --reporter=html"
   },
   "dependencies": {},
   "keywords": [
@@ -37,6 +38,8 @@
     "ava": "^0.18.2",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-preset-es2015": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "coveralls": "^2.11.16",
     "eslint": "^3.16.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-rename": "^1.2.2",
@@ -45,6 +48,7 @@
     "gulp-uglify": "^2.0.1",
     "jshint": "^2.9.4",
     "mock-browser": "^0.92.12",
+    "nyc": "^10.1.2",
     "rollup-plugin-babel": "^2.7.1",
     "vue": "^2.1.10"
   },
@@ -56,10 +60,15 @@
     ]
   },
   "ava": {
+    "babel": {
+      "babelrc": true
+    },
     "files": [
       "./test/*.js"
     ],
     "require": [
+      "babel-core/register",
+      "babel-polyfill",
       "./test/mock/browser.js"
     ]
   }
