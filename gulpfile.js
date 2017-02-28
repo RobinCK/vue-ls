@@ -30,8 +30,8 @@ gulp.task('js', function () {
   ;
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', gulp.series('js', function () {
   gulp.watch('./src/*.js', gulp.parallel('js'));
-});
+}));
 
 gulp.task('default', gulp.parallel('js'));
