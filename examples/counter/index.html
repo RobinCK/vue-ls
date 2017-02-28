@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue-ls Synchronized counter example</title>
+</head>
+<body>
+    <h1>Synchronized tab counter</h1>
+    <div id="app">
+        counter: {{counter}}
+        <div>
+            <button type="button" @click="increment()">Increment</button>
+            <button type="button" @click="decrement()">Decrement</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://unpkg.com/vue@2.2.1"></script>
+    <script type="text/javascript" src="../../dist/vue-ls.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    counter: 0
+                };
+            },
+            watch: {
+                counter: function (val) {
+                    this.$ls.set('counter', val)
+                }
+            },
+            created: function () {
+                this.counter = this.$ls.get('counter', 0);
+                var _this = this;
+                this.$ls.on('counter', function (val) {
+                    _this.counter = val;
+                });
+            },
+            methods: {
+                increment: function () {
+                    this.counter++;
+                },
+
+                decrement: function () {
+                    this.counter--;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
