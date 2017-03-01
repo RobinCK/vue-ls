@@ -8,7 +8,6 @@
     ]
   ],
   "plugins": [
-    "transform-object-assign",
-    "transform-es2015-modules-commonjs"
+    "transform-object-assign"
   ]
 }
