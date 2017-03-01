@@ -6,10 +6,11 @@
   "jsnext:main": "src/index.js",
   "scripts": {
     "build": "node_modules/.bin/gulp",
-    "test": "node_modules/.bin/nyc node_modules/.bin/ava --esnext",
+    "test": "node_modules/.bin/nyc node_modules/.bin/ava --tap --esnext",
     "lint": "node_modules/.bin/eslint ./",
     "hint": "node_modules/.bin/jshint",
-    "report": "npm test && node_modules/.bin/nyc report --reporter=html"
+    "report": "npm test && node_modules/.bin/nyc report --reporter=html",
+    "coveralls": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
   },
   "dependencies": {},
   "keywords": [
@@ -68,7 +69,7 @@
       "./test/*.js"
     ],
     "require": [
-      "babel-core/register",
+      "babel-register",
       "babel-polyfill",
       "./test/mock/browser.js"
     ]
