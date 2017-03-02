@@ -28,6 +28,7 @@
     ".jshintignore",
     ".jshintrc",
     ".travis.yml",
+    ".codeclimate.yml",
     ".babelrc",
     ".editorconfig",
     ".npmignore",
