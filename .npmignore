@@ -3,6 +3,7 @@
 .npmignore
 .jshintignore
 .jshintrc
+.codeclimate.yml
 .idea/
 .git/
 _config.yml
