@@ -12,7 +12,7 @@ test.beforeEach(() => {
 
 //mock-browser not supported storage event
 test('Add/Remove event', t => {
-  t.plan(4);
+  t.plan(2);
 
   Vue.ls.on('item_one_test', () => {});
   Vue.ls.on('item_two_test', () => {});
@@ -24,8 +24,8 @@ test('Add/Remove event', t => {
   Vue.ls.off('item_two_test', () => {});
   Vue.ls.off('item_one_test', () => {});
 
-  change({key: 'item_three_test', newValue: JSON.stringify('val'), oldValue: JSON.stringify('old_val')});
   change({key: 'item_three_test', newValue: JSON.stringify({value: 'val', expire: null}), oldValue: JSON.stringify({value: 'old_val', expire: null})});
+  change({key: 'item_undefined_test', newValue: JSON.stringify({value: 'val', expire: null}), oldValue: JSON.stringify({value: 'old_val', expire: null})});
   change();
 });
 

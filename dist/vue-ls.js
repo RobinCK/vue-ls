@@ -42,22 +42,6 @@ Object.defineProperty(memoryStorage, 'length', {
   }
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-  return typeof obj;
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-};
-
-
-
-
-
-
-
-
-
-
-
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -115,17 +99,12 @@ function change(e) {
 
   var all = eventListeners[e.key];
 
-  if (all) {
+  if (typeof all !== 'undefined') {
     all.forEach(emit);
   }
 
   function emit(listener) {
-    var item = JSON.parse(e.newValue);
-    var oldItem = JSON.parse(e.oldValue);
-    var val = (typeof item === 'undefined' ? 'undefined' : _typeof(item)) === 'object' ? item.value : item;
-    var oldVal = oldItem && (typeof oldItem === 'undefined' ? 'undefined' : _typeof(oldItem)) === 'object' ? oldItem.value : oldItem;
-
-    listener(val, oldVal, e.url || e.uri);
+    listener(JSON.parse(e.newValue).value, JSON.parse(e.oldValue).value, e.url || e.uri);
   }
 }
 

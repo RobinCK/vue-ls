@@ -11,17 +11,12 @@ function change (e) {
 
   let all = eventListeners[e.key];
 
-  if (all) {
+  if (typeof all !== 'undefined') {
     all.forEach(emit);
   }
 
   function emit (listener) {
-    let item = JSON.parse(e.newValue);
-    let oldItem = JSON.parse(e.oldValue);
-    let val = typeof item === 'object' ? item.value : item;
-    let oldVal = oldItem && typeof oldItem === 'object' ? oldItem.value : oldItem;
-
-    listener(val, oldVal, e.url || e.uri);
+    listener(JSON.parse(e.newValue).value, JSON.parse(e.oldValue).value, e.url || e.uri);
   }
 }
 
