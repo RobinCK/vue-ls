@@ -30,10 +30,13 @@ test('Removing non-existent itset_item_testen', t => {
 });
 
 test('Get key by index', t => {
+  t.plan(2);
+
   Vue.ls.set('key_item_one_test', 'val_one');
   Vue.ls.set('key_item_two_test', 'val_two');
 
   t.is(Vue.ls.key(1), `${namespace}key_item_two_test`);
+  t.is(Vue.ls.key(100), null);
 });
 
 test('Clear', t => {

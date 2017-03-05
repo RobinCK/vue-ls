@@ -4,11 +4,7 @@ import Ls from '../src/index';
 import {change} from '../src/storage';
 import Vue from 'vue';
 
-const namespace = 'test__';
-
-Vue.use(Ls, {
-  namespace: namespace
-});
+Vue.use(Ls);
 
 test.beforeEach(() => {
   window.localStorage.clear();
@@ -16,7 +12,7 @@ test.beforeEach(() => {
 
 //mock-browser not supported storage event
 test('Add/Remove event', t => {
-  t.plan(2);
+  t.plan(4);
 
   Vue.ls.on('item_one_test', () => {});
   Vue.ls.on('item_two_test', () => {});
@@ -29,6 +25,7 @@ test('Add/Remove event', t => {
   Vue.ls.off('item_one_test', () => {});
 
   change({key: 'item_three_test', newValue: JSON.stringify('val'), oldValue: JSON.stringify('old_val')});
+  change({key: 'item_three_test', newValue: JSON.stringify({value: 'val', expire: null}), oldValue: JSON.stringify({value: 'old_val', expire: null})});
   change();
 });
 
