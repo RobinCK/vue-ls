@@ -66,10 +66,10 @@ options = {
   namespace: 'vuejs__'
 };
 
-Vue.use(new VueLocalStorage, options);
+Vue.use(VueLocalStorage, options);
 
 //or
-//Vue.use(new VueLocalStorage);
+//Vue.use(VueLocalStorage);
 
 new Vue({
     el: '#app',
