@@ -40,13 +40,13 @@ class Storage {
     });
 
     if (typeof window !== 'undefined') {
-      for (let eventName of this.options.events) {
+      for (let i in this.options.events) {
         if (window.addEventListener) {
-          window.addEventListener(eventName, change, false);
+          window.addEventListener(this.options.events[i], change, false);
         } else if (window.attachEvent) {
-          window.attachEvent(`on${eventName}`, change);
+          window.attachEvent(`on${this.options.events[i]}`, change);
         } else {
-          window[`on${eventName}`] = change;
+          window[`on${this.options.events[i]}`] = change;
         }
       }
     }
@@ -105,8 +105,8 @@ class Storage {
       removedKeys.push(key);
     }
 
-    for (let key of removedKeys) {
-      this.storage.removeItem(key);
+    for (let key in removedKeys) {
+      this.storage.removeItem(removedKeys[key]);
     }
   }
 
@@ -133,4 +133,4 @@ export {
   Storage,
   change,
   eventListeners
-}
+};

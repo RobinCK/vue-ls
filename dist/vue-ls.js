@@ -146,34 +146,13 @@ var Storage = function () {
     });
 
     if (typeof window !== 'undefined') {
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = this.options.events[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var eventName = _step.value;
-
-          if (window.addEventListener) {
-            window.addEventListener(eventName, change, false);
-          } else if (window.attachEvent) {
-            window.attachEvent('on' + eventName, change);
-          } else {
-            window['on' + eventName] = change;
-          }
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
+      for (var i in this.options.events) {
+        if (window.addEventListener) {
+          window.addEventListener(this.options.events[i], change, false);
+        } else if (window.attachEvent) {
+          window.attachEvent('on' + this.options.events[i], change);
+        } else {
+          window['on' + this.options.events[i]] = change;
         }
       }
     }
@@ -239,29 +218,8 @@ var Storage = function () {
         removedKeys.push(key);
       }
 
-      var _iteratorNormalCompletion2 = true;
-      var _didIteratorError2 = false;
-      var _iteratorError2 = undefined;
-
-      try {
-        for (var _iterator2 = removedKeys[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-          var _key = _step2.value;
-
-          this.storage.removeItem(_key);
-        }
-      } catch (err) {
-        _didIteratorError2 = true;
-        _iteratorError2 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion2 && _iterator2.return) {
-            _iterator2.return();
-          }
-        } finally {
-          if (_didIteratorError2) {
-            throw _iteratorError2;
-          }
-        }
+      for (var _key in removedKeys) {
+        this.storage.removeItem(removedKeys[_key]);
       }
     }
   }, {
