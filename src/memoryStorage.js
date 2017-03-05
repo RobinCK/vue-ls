@@ -1,6 +1,6 @@
 let ls = {};
 
-export default {
+const memoryStorage = {
   getItem (name) {
     return name in ls ? ls[name] : null;
   },
@@ -25,5 +25,19 @@ export default {
     ls = {};
 
     return true;
+  },
+
+  key (index) {
+    let keys = Object.keys(ls);
+
+    return typeof keys[index] !== 'undefined' ? keys[index] : null;
   }
 };
+
+Object.defineProperty(memoryStorage, 'length', {
+  get () {
+    return Object.keys(ls).length;
+  }
+});
+
+export default memoryStorage;

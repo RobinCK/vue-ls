@@ -1,152 +1,22 @@
-import Shim from './shim';
+import ls from './localStorage';
 
-let listeners = {};
-
-try {
-  let storage = getStorage();
-  let x = '__storage_test__';
-
-  storage.setItem(x, x);
-  storage.removeItem(x);
-} catch (e) {
-  throw new Error('Local storage not supported by this browser');
-}
-
-function getStorage () {
-  return typeof window !== 'undefined' && 'localStorage' in window ? window.localStorage : Shim;
-}
-
-function change (e) {
-  if (!e) {
-    e = window.event;
-  }
-
-  let all = listeners[e.key];
-
-  if (all) {
-    all.forEach(emit);
-  }
-
-  function emit (listener) {
-    let item = JSON.parse(e.newValue);
-    let oldItem = JSON.parse(e.oldValue);
-    let val = typeof item === 'object' ? item.value : oldItem;
-    let oldVal = oldItem && typeof oldItem === 'object' ? oldItem.value : oldItem;
-
-    listener(val, oldVal, e.url || e.uri);
-  }
-}
-
-export default class VueLocalStorage {
-  constructor (options) {
-    this.storage = getStorage();
-    this.options = Object.assign({
+let VueLocalStorage = {
+  install (Vue, options) {
+    ls.options = Object.assign(ls.options, {
       namespace: ''
     }, options || {});
 
-    if (window.addEventListener) {
-      window.addEventListener('storage', change, false);
-    } else if (window.attachEvent) {
-      window.attachEvent('onstorage', change);
-    } else {
-      window.onstorage = change;
-    }
-
-    Object.defineProperty(this, 'length', {
-      get () {
-        return this.storage.length;
-      }
-    });
-  }
-
-  install (Vue, options) {
-    this.options = Object.assign(this.options, options || {});
-    let _this = this;
-    Vue.localStorage = _this;
-    Vue.ls = _this;
-    Object.defineProperty(Vue.prototype, '$localStorage', {
-      get () {
-        return _this;
-      }
-    });
+    Vue.ls = ls;
     Object.defineProperty(Vue.prototype, '$ls', {
       get () {
-        return _this;
+        return ls;
       }
     });
   }
+};
 
-  set (name, value, expire = null) {
-    this.storage.setItem(
-      this.options.namespace + name,
-      JSON.stringify({value: value, expire: expire !== null ? new Date().getTime() + expire : null})
-    );
-  }
-
-  get (name, def = null) {
-    let item = this.storage.getItem(this.options.namespace + name);
-
-    if (item !== null) {
-      let data = JSON.parse(item);
-
-      if (data.expire === null) {
-        return data.value;
-      }
-
-      if (data.expire >= new Date().getTime()) {
-        return data.value;
-      }
-
-      this.remove(name);
-    }
-
-    return def;
-  }
-
-  key (index) {
-    return this.storage.key(index);
-  }
-
-  remove (name) {
-    return this.storage.removeItem(this.options.namespace + name);
-  }
-
-  clear () {
-    if (this.length === 0) {
-      return;
-    }
-
-    for (let i = 0; i < this.length; i++) {
-      let key = this.storage.key(i);
-      let regexp = new RegExp(`^${this.options.namespace}.+`, 'i');
-
-      if (regexp.test(key) === false) {
-        continue;
-      }
-
-      this.storage.removeItem(key);
-    }
-  }
-
-  on (name, callback) {
-    if (listeners[name]) {
-      listeners[name].push(callback);
-    } else {
-      listeners[name] = [callback];
-    }
-  }
-
-  off (name, callback) {
-    let ns = listeners[name];
-
-    if (ns.length > 1) {
-      ns.splice(ns.indexOf(callback), 1);
-    } else {
-      listeners[name] = [];
-    }
-  }
+if (typeof window !== 'undefined') {
+  window.VueLocalStorage = VueLocalStorage;
 }
 
-if (typeof window !== 'undefined' && typeof window.Vue !== 'undefined') {
-  window.Vue.use(new VueLocalStorage());
-}
+export default VueLocalStorage;

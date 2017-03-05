@@ -1,6 +1,6 @@
 {
   "name": "vue-ls",
-  "version": "1.2.7",
+  "version": "2.0.0",
   "description": "Vue plugin for work with LocalStorage from Vue context",
   "main": "dist/vue-ls.js",
   "jsnext:main": "src/index.js",
@@ -37,6 +37,7 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.18.2",
+    "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-polyfill": "^6.23.0",
@@ -59,7 +60,8 @@
     "ignore": [
       "node_modules",
       "bower_components",
-      "dist"
+      "dist",
+      "test"
     ]
   },
   "ava": {
@@ -71,8 +73,7 @@
     ],
     "require": [
       "babel-register",
-      "babel-polyfill",
-      "./test/mock/browser.js"
+      "babel-polyfill"
     ]
   }
 }

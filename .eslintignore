@@ -1,4 +1,5 @@
 /test
 /dist
 /node_modules
+coverage
 gulpfile.js

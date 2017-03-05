@@ -18,9 +18,10 @@ gulp.task('js', function () {
           runtimeHelpers: true,
           externalHelpers: false,
           exclude: 'node_modules/**',
-          presets: [["es2015", {"modules": false}]],
+          presets: [['es2015', {'modules': false}]],
           plugins: [
-            "transform-object-assign"
+            'transform-object-assign',
+            'external-helpers'
           ]
         })
       ]
