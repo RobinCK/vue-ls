@@ -39,7 +39,7 @@ npm install vue-ls --save
 #### Yarn
 
 ``` bash
-yarn install vue-ls
+yarn add vue-ls
 ```
 
 #### Bower
