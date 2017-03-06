@@ -98,11 +98,9 @@ new Vue({
 #### Global
 
 - `Vue.ls`
-- `Vue.localStorage` #alias
  
 #### Context
 - `this.$ls`
-- `this.$localStorage` #alias
 
 ## API
 
