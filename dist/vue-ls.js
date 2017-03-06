@@ -204,21 +204,21 @@ var Storage = function () {
   }, {
     key: 'on',
     value: function on(name, callback) {
-      if (eventListeners[name]) {
-        eventListeners[name].push(callback);
+      if (eventListeners[this.options.namespace + name]) {
+        eventListeners[this.options.namespace + name].push(callback);
       } else {
-        eventListeners[name] = [callback];
+        eventListeners[this.options.namespace + name] = [callback];
       }
     }
   }, {
     key: 'off',
     value: function off(name, callback) {
-      var ns = eventListeners[name];
+      var ns = eventListeners[this.options.namespace + name];
 
       if (ns.length > 1) {
         ns.splice(ns.indexOf(callback), 1);
       } else {
-        eventListeners[name] = [];
+        eventListeners[this.options.namespace + name] = [];
       }
     }
   }]);
