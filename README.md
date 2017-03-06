@@ -24,6 +24,7 @@ This plugin has been developed thanks to the inspiration of the [local-storage](
 ## Example
 
 [Vue 1.x](https://jsfiddle.net/Robin_ck/Lvb2ah5p/)
+
 [Vue 2.x](https://jsfiddle.net/Robin_ck/6x1akv1L/) 
 
 ## Install
