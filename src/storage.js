@@ -16,7 +16,7 @@ function change (e) {
   }
 
   function emit (listener) {
-    listener(JSON.parse(e.newValue).value, JSON.parse(e.oldValue).value, e.url || e.uri);
+    listener(e.newValue ? JSON.parse(e.newValue).value : e.newValue, e.oldValue ? JSON.parse(e.oldValue).value : e.oldValue, e.url || e.uri);
   }
 }
 
