@@ -1,6 +1,6 @@
 {
   "name": "vue-ls",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Vue plugin for work with LocalStorage from Vue context",
   "main": "dist/vue-ls.js",
   "authors": [
