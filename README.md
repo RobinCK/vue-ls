@@ -7,6 +7,8 @@ This plugin has been developed thanks to the inspiration of the [local-storage](
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg)](https://github.com/Flet/semistandard)
 [![Build Status](https://img.shields.io/travis/RobinCK/vue-ls.svg)](https://travis-ci.org/RobinCK/vue-ls)
 [![Coverage Status](https://coveralls.io/repos/github/RobinCK/vue-ls/badge.svg?branch=master)](https://coveralls.io/github/RobinCK/vue-ls?branch=master)
+[![VueJS 1.x](https://img.shields.io/badge/vuejs-1.x-brightgreen.svg)](https://github.com/RobinCK/vue-ls)
+[![VueJS 2.x](https://img.shields.io/badge/vuejs-2.x-brightgreen.svg)](https://github.com/RobinCK/vue-ls)
 
 
 [![Code Climate](https://codeclimate.com/github/RobinCK/vue-ls/badges/gpa.svg)](https://codeclimate.com/github/RobinCK/vue-ls)
