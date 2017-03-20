@@ -41,6 +41,11 @@ class Storage {
     }, options || {});
 
     Object.defineProperty(this, 'length', {
+      /**
+       * Define length property
+       *
+       * @return {number}
+       */
       get () {
         return this.storage.length;
       }

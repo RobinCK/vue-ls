@@ -65,6 +65,11 @@ const memoryStorage = {
 };
 
 Object.defineProperty(memoryStorage, 'length', {
+  /**
+   * Define length property
+   *
+   * @return {number}
+   */
   get () {
     return Object.keys(ls).length;
   }

@@ -15,6 +15,11 @@ let VueLocalStorage = {
 
     Vue.ls = ls;
     Object.defineProperty(Vue.prototype, '$ls', {
+      /**
+       * Define $ls property
+       *
+       * @return {Storage}
+       */
       get () {
         return ls;
       }
