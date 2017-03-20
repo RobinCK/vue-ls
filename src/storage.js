@@ -1,5 +1,10 @@
 const eventListeners = {};
 
+/**
+ * Event callback
+ *
+ * @param {Object} e
+ */
 function change (e) {
   if (!e) {
     e = window.event;
@@ -20,7 +25,14 @@ function change (e) {
   }
 }
 
+/**
+ * Storage Bridge
+ */
 class Storage {
+  /**
+   * @param {Object} storage
+   * @param {Object} options
+   */
   constructor (storage, options) {
     this.storage = storage;
     this.options = Object.assign({
@@ -47,6 +59,13 @@ class Storage {
     }
   }
 
+  /**
+   * Set item
+   *
+   * @param {string} name
+   * @param {*} value
+   * @param {number} expire - seconds
+   */
   set (name, value, expire = null) {
     this.storage.setItem(
       this.options.namespace + name,
@@ -54,6 +73,13 @@ class Storage {
     );
   }
 
+  /**
+   * Get item
+   *
+   * @param {string} name
+   * @param {*} def - default value
+   * @returns {*}
+   */
   get (name, def = null) {
     let item = this.storage.getItem(this.options.namespace + name);
 
@@ -74,14 +100,29 @@ class Storage {
     return def;
   }
 
+  /**
+   * Get item by key
+   *
+   * @param {number} index
+   * @return {*}
+   */
   key (index) {
     return this.storage.key(index);
   }
 
+  /**
+   * Remove item
+   *
+   * @param {string} name
+   * @return {boolean}
+   */
   remove (name) {
     return this.storage.removeItem(this.options.namespace + name);
   }
 
+  /**
+   * Clear storage
+   */
   clear () {
     if (this.length === 0) {
       return;
@@ -105,6 +146,12 @@ class Storage {
     }
   }
 
+  /**
+   * Add storage change event
+   *
+   * @param {string} name
+   * @param {Function} callback
+   */
   on (name, callback) {
     if (eventListeners[this.options.namespace + name]) {
       eventListeners[this.options.namespace + name].push(callback);
@@ -113,6 +160,12 @@ class Storage {
     }
   }
 
+  /**
+   * Remove storage change event
+   *
+   * @param {string} name
+   * @param {Function} callback
+   */
   off (name, callback) {
     let ns = eventListeners[this.options.namespace + name];
 

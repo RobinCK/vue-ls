@@ -1,6 +1,13 @@
 import ls from './localStorage';
 
 let VueLocalStorage = {
+  /**
+   * Install plugin
+   *
+   * @param {Object} Vue
+   * @param {Object} options
+   * @returns {Storage}
+   */
   install (Vue, options) {
     ls.options = Object.assign(ls.options, {
       namespace: ''
