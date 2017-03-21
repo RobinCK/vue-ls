@@ -1,5 +1,5 @@
 import test from 'ava';
-import './helpers/setup-browser-env'
+import './helpers/setupBrowserEnv'
 import Ls from '../src/index';
 import Vue from 'vue';
 

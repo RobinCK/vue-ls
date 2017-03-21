@@ -1,16 +1,11 @@
 import test from 'ava';
-import './helpers/setupBrowserEnv'
+import './helpers/setupOldBrowserEnv'
 import Ls from '../src/index';
 import {change} from '../src/storage';
 import Vue from 'vue';
 
 Vue.use(Ls);
 
-test.beforeEach(() => {
-  window.localStorage.clear();
-});
-
-//mock-browser not supported storage event
 test('Add/Remove event', t => {
   t.plan(2);
 
