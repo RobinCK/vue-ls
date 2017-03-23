@@ -6,3 +6,6 @@ bower_components
 npm-debug.log
 .nyc_output
 coverage
+reports
+selenium-debug.log
+local.log

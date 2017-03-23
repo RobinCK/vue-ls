@@ -9,19 +9,19 @@
 <body>
     <h1>Synchronized tab counter</h1>
     <div id="app">
-        counter: {{counter}}
+        counter: <span id="count">{{counter}}</span>
         <div>
-            <button type="button" @click="increment()">Increment</button>
-            <button type="button" @click="decrement()">Decrement</button>
+            <button id="increment" type="button" @click="increment()">Increment</button>
+            <button id="decrement" type="button" @click="decrement()">Decrement</button>
         </div>
     </div>
 
     <script type="text/javascript" src="https://unpkg.com/vue@2.2.1"></script>
     <script type="text/javascript" src="../../dist/vue-ls.js"></script>
     <script type="text/javascript">
-        Vue.use(VueLocalStorage);
+        window.Vue.use(VueLocalStorage);
 
-        new Vue({
+        new window.Vue({
             el: '#app',
             data: function () {
                 return {

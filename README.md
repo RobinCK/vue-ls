@@ -4,7 +4,7 @@ Vue plugin for work with LocalStorage from Vue context
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)[![VueJS 1.x](https://img.shields.io/badge/vuejs-1.x-brightgreen.svg?style=flat-square)](https://github.com/RobinCK/vue-ls)[![VueJS 2.x](https://img.shields.io/badge/vuejs-2.x-brightgreen.svg?style=flat-square)](https://github.com/RobinCK/vue-ls)[![Build Status](https://img.shields.io/travis/RobinCK/vue-ls.svg?style=flat-square)](https://travis-ci.org/RobinCK/vue-ls)[![Coverage Status](https://img.shields.io/coveralls/RobinCK/vue-ls.svg?style=flat-square)](https://coveralls.io/github/RobinCK/vue-ls?branch=master)[![Code Climate](https://img.shields.io/codeclimate/github/RobinCK/vue-ls.svg?style=flat-square)](https://codeclimate.com/github/RobinCK/vue-ls)[![Inline docs](http://inch-ci.org/github/RobinCK/vue-ls.svg?branch=master&style=flat-square)](http://inch-ci.org/github/RobinCK/vue-ls)
 
-[![Dependencies](https://david-dm.org/robinck/vue-ls.svg?style=flat-square)](https://david-dm.org/robinck/vue-ls)[![devDependencies](https://david-dm.org/robinck/vue-ls/dev-status.svg?style=flat-square)](https://david-dm.org/robinck/vue-ls#info=devDependencies&view=table)[![Bower version](https://img.shields.io/bower/v/vue-ls.svg?style=flat-square)](https://github.com/RobinCK/vue-ls)[![NPM version](https://img.shields.io/npm/v/vue-ls.svg?style=flat-square)](https://www.npmjs.com/package/vue-ls)[![npm](https://img.shields.io/npm/l/vue-ls.svg?style=flat-square)](https://github.com/RobinCK/vue-ls/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/dt/vue-ls.svg)](https://github.com/RobinCK/vue-ls)[![Dependencies](https://david-dm.org/robinck/vue-ls.svg?style=flat-square)](https://david-dm.org/robinck/vue-ls)[![devDependencies](https://david-dm.org/robinck/vue-ls/dev-status.svg?style=flat-square)](https://david-dm.org/robinck/vue-ls#info=devDependencies&view=table)[![Bower version](https://img.shields.io/bower/v/vue-ls.svg?style=flat-square)](https://github.com/RobinCK/vue-ls)[![NPM version](https://img.shields.io/npm/v/vue-ls.svg?style=flat-square)](https://www.npmjs.com/package/vue-ls)[![npm](https://img.shields.io/npm/l/vue-ls.svg?style=flat-square)](https://github.com/RobinCK/vue-ls/blob/master/LICENSE)
 
 
 [![NPM](https://nodei.co/npm/vue-ls.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-ls/)
@@ -125,6 +125,21 @@ Listen for changes persisted against `name` on other tabs. Triggers `callback` w
 #### `Vue.ls.off(name, callback)`
 
 Removes a listener previously attached with `Vue.ls.on(name, callback)`.
+
+## Testing
+
+- `npm run test` - run unit test
+- `npm run test:browserstack` - run browser test
+  - `npm run test:browserstack:chrome`
+  - `npm run test:browserstack:ie`
+  - `npm run test:browserstack:edge`
+  - `npm run test:browserstack:firefox`
+  - `npm run test:browserstack:safari`
+- `npm run test:chrome` - run browser test in chrome
+- `npm run test:phantomjs` - run browser test in phantomjs
+
+Testing Supported By<br>
+<img width="200" src="https://cloud.githubusercontent.com/assets/10226014/23826496/a9ef6b8e-06a5-11e7-9282-9b8525646358.png">
 
 ## Note
 Some browsers don't support the storage event, and most of the browsers that do support it will only call it when the storage is changed by a different window. So, open your page up in two windows. Click the links in one window and you will probably see the event in the other.
