@@ -5,6 +5,6 @@ engines:
   	enabled: false
     config:
     	languages:
-      - javascript
+        - javascript
 exclude_paths:
   - "nightwatch.conf.js"
