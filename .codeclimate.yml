@@ -7,4 +7,4 @@ engines:
     	languages:
       - javascript
 exclude_paths:
-- "./nightwatch.conf.js"
+  - "./nightwatch.conf.js"
