@@ -2,9 +2,9 @@ engines:
   eslint:
     enabled: true
   duplication:
-  	enabled: false
+    enabled: false
     config:
-    	languages:
+      languages:
         - javascript
 exclude_paths:
   - "nightwatch.conf.js"
