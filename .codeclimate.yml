@@ -1,2 +1,17 @@
+engines:
+  eslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - javascript
+ratings:
+   paths:
+   - "src/**/*"
 exclude_paths:
-  - "nightwatch.conf.js"
+- "dist/**.js"
+- "examples/**/*"
+- "test/**/*"
+- "nightwatch.conf.js"
+
