@@ -35,7 +35,7 @@
     "circle.yml",
     "yarn.lock",
     "package.json",
-    "bower.json",
+    ".codeclimate.yml",
     "node_modules",
     "bower_components",
     "CHANGELOG.md",

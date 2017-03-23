@@ -9,3 +9,4 @@ _config.yml
 bower.json
 circle.yml
 CHANGELOG.md
+.codeclimate.yml
