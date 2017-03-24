@@ -13,6 +13,7 @@ script:
 
 after_success:
   - npm run coveralls
+  - npm run codecov
 
 notifications:
   email: false
