@@ -1,15 +1,15 @@
-# vue-ls
-
 <div align="center">
   <img width="200" alt="vue-ls logo" src="https://cdn.rawgit.com/RobinCK/0ef39abfff9a44061cee5b2c072e892e/raw/e2b95a57825ac9b8e845609ff9fc5fdaae37b55a/logo.svg">
 </div>
 
-Vue plugin for work with LocalStorage from Vue context
 
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)[![VueJS 1.x](https://img.shields.io/badge/vuejs-1.x-brightgreen.svg?style=flat-square)](https://github.com/RobinCK/vue-ls)[![VueJS 2.x](https://img.shields.io/badge/vuejs-2.x-brightgreen.svg?style=flat-square)](https://github.com/RobinCK/vue-ls)[![Build Status](https://img.shields.io/travis/RobinCK/vue-ls.svg?style=flat-square)](https://travis-ci.org/RobinCK/vue-ls)[![Coverage Status](https://img.shields.io/coveralls/RobinCK/vue-ls.svg?style=flat-square)](https://coveralls.io/github/RobinCK/vue-ls?branch=master)[![Code Climate](https://img.shields.io/codeclimate/github/RobinCK/vue-ls.svg?style=flat-square)](https://codeclimate.com/github/RobinCK/vue-ls)[![Inline docs](http://inch-ci.org/github/RobinCK/vue-ls.svg?branch=master&style=flat-square)](http://inch-ci.org/github/RobinCK/vue-ls)
 
 [![npm](https://img.shields.io/npm/dt/vue-ls.svg)](https://github.com/RobinCK/vue-ls)[![Dependencies](https://david-dm.org/robinck/vue-ls.svg?style=flat-square)](https://david-dm.org/robinck/vue-ls)[![devDependencies](https://david-dm.org/robinck/vue-ls/dev-status.svg?style=flat-square)](https://david-dm.org/robinck/vue-ls#info=devDependencies&view=table)[![Bower version](https://img.shields.io/bower/v/vue-ls.svg?style=flat-square)](https://github.com/RobinCK/vue-ls)[![NPM version](https://img.shields.io/npm/v/vue-ls.svg?style=flat-square)](https://www.npmjs.com/package/vue-ls)[![npm](https://img.shields.io/npm/l/vue-ls.svg?style=flat-square)](https://github.com/RobinCK/vue-ls/blob/master/LICENSE)
 
+# vue-ls
+
+Vue plugin for work with LocalStorage from Vue context
 
 [![NPM](https://nodei.co/npm/vue-ls.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-ls/)
 
