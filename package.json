@@ -24,7 +24,10 @@
     "lint": "node_modules/.bin/eslint ./",
     "hint": "node_modules/.bin/jshint",
     "report": "npm test && node_modules/.bin/nyc report --reporter=html",
-    "coveralls": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
+    "coveralls": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls",
+    "patch": "npm version patch && bower version patch && git push origin master --follow-tags && npm publish",
+    "minor": "npm version minor && bower version minor && git push origin master --follow-tags && npm publish",
+    "major": "npm version major && bower version major && git push origin master --follow-tags && npm publish"
   },
   "dependencies": {},
   "keywords": [
