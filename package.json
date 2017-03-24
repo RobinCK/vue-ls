@@ -4,8 +4,14 @@
   "description": "Vue plugin for work with LocalStorage from Vue context",
   "main": "dist/vue-ls.js",
   "jsnext:main": "src/index.js",
+  "module": "dist/vue-ls.esm.js",
+  "unpkg": "dist/vue-ls.min.js",
+  "files": [
+    "src",
+    "dist/*.js"
+  ],
   "scripts": {
-    "build": "node_modules/.bin/gulp",
+    "build": "node_modules/.bin/gulp js && node_modules/.bin/rollup src/index.js --format es --output dist/vue-ls.esm.js",
     "test": "node_modules/.bin/nyc node_modules/.bin/ava --tap --esnext",
     "test:browserstack": "RUN_ON_BSTACK=true BSTACK_LOCAL=true node_modules/.bin/gulp test --env bstack_chrome_50,bstack_chrome_57,bstack_ie_9,bstack_ie_11,bstack_edge_13,bstack_edge_14,bstack_firefox_40,bstack_firefox_52,bstack_safari_8,bstack_safari_10",
     "test:browserstack:chrome": "RUN_ON_BSTACK=true BSTACK_LOCAL=true node_modules/.bin/gulp test --env bstack_chrome_50,bstack_chrome_57",
@@ -68,6 +74,7 @@
     "nightwatch": "^0.9.14",
     "nyc": "^10.1.2",
     "phantomjs": "^2.1.7",
+    "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.7.1",
     "selenium-server": "^3.3.1",
     "serve-static": "^1.12.1",

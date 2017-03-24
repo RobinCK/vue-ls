@@ -7,14 +7,37 @@
 var ls$1 = {};
 
 var memoryStorage = {
+  /**
+   * Get item
+   *
+   * @param {string} name
+   * @returns {*}
+   */
   getItem: function getItem(name) {
     return name in ls$1 ? ls$1[name] : null;
   },
+
+
+  /**
+   * Set item
+   *
+   * @param {string} name
+   * @param {*} value
+   * @returns {boolean}
+   */
   setItem: function setItem(name, value) {
     ls$1[name] = value;
 
     return true;
   },
+
+
+  /**
+   * Remove item
+   *
+   * @param {string} name
+   * @returns {boolean}
+   */
   removeItem: function removeItem(name) {
     var found = name in ls$1;
 
@@ -24,11 +47,26 @@ var memoryStorage = {
 
     return false;
   },
+
+
+  /**
+   * Clear storage
+   *
+   * @returns {boolean}
+   */
   clear: function clear() {
     ls$1 = {};
 
     return true;
   },
+
+
+  /**
+   * Get item by key
+   *
+   * @param {number} index
+   * @returns {*}
+   */
   key: function key(index) {
     var keys = Object.keys(ls$1);
 
@@ -37,6 +75,11 @@ var memoryStorage = {
 };
 
 Object.defineProperty(memoryStorage, 'length', {
+  /**
+   * Define length property
+   *
+   * @return {number}
+   */
   get: function get() {
     return Object.keys(ls$1).length;
   }
@@ -88,6 +131,11 @@ var _extends = Object.assign || function (target) {
 
 var eventListeners = {};
 
+/**
+ * Event callback
+ *
+ * @param {Object} e
+ */
 function change(e) {
   if (!e) {
     e = window.event;
@@ -108,7 +156,15 @@ function change(e) {
   }
 }
 
+/**
+ * Storage Bridge
+ */
+
 var Storage = function () {
+  /**
+   * @param {Object} storage
+   * @param {Object} options
+   */
   function Storage(storage, options) {
     classCallCheck(this, Storage);
 
@@ -119,6 +175,11 @@ var Storage = function () {
     }, options || {});
 
     Object.defineProperty(this, 'length', {
+      /**
+       * Define length property
+       *
+       * @return {number}
+       */
       get: function get$$1() {
         return this.storage.length;
       }
@@ -137,6 +198,15 @@ var Storage = function () {
     }
   }
 
+  /**
+   * Set item
+   *
+   * @param {string} name
+   * @param {*} value
+   * @param {number} expire - seconds
+   */
+
+
   createClass(Storage, [{
     key: 'set',
     value: function set$$1(name, value) {
@@ -144,6 +214,15 @@ var Storage = function () {
 
       this.storage.setItem(this.options.namespace + name, JSON.stringify({ value: value, expire: expire !== null ? new Date().getTime() + expire : null }));
     }
+
+    /**
+     * Get item
+     *
+     * @param {string} name
+     * @param {*} def - default value
+     * @returns {*}
+     */
+
   }, {
     key: 'get',
     value: function get$$1(name) {
@@ -167,16 +246,37 @@ var Storage = function () {
 
       return def;
     }
+
+    /**
+     * Get item by key
+     *
+     * @param {number} index
+     * @return {*}
+     */
+
   }, {
     key: 'key',
     value: function key(index) {
       return this.storage.key(index);
     }
+
+    /**
+     * Remove item
+     *
+     * @param {string} name
+     * @return {boolean}
+     */
+
   }, {
     key: 'remove',
     value: function remove(name) {
       return this.storage.removeItem(this.options.namespace + name);
     }
+
+    /**
+     * Clear storage
+     */
+
   }, {
     key: 'clear',
     value: function clear() {
@@ -201,6 +301,14 @@ var Storage = function () {
         this.storage.removeItem(removedKeys[_key]);
       }
     }
+
+    /**
+     * Add storage change event
+     *
+     * @param {string} name
+     * @param {Function} callback
+     */
+
   }, {
     key: 'on',
     value: function on(name, callback) {
@@ -210,6 +318,14 @@ var Storage = function () {
         eventListeners[this.options.namespace + name] = [callback];
       }
     }
+
+    /**
+     * Remove storage change event
+     *
+     * @param {string} name
+     * @param {Function} callback
+     */
+
   }, {
     key: 'off',
     value: function off(name, callback) {
@@ -229,6 +345,13 @@ var store = typeof window !== 'undefined' && 'localStorage' in window ? window.l
 var storageObject = new Storage(store);
 
 var VueLocalStorage = {
+  /**
+   * Install plugin
+   *
+   * @param {Object} Vue
+   * @param {Object} options
+   * @returns {Storage}
+   */
   install: function install(Vue, options) {
     storageObject.options = _extends(storageObject.options, {
       namespace: ''
@@ -236,6 +359,11 @@ var VueLocalStorage = {
 
     Vue.ls = storageObject;
     Object.defineProperty(Vue.prototype, '$ls', {
+      /**
+       * Define $ls property
+       *
+       * @return {Storage}
+       */
       get: function get$$1() {
         return storageObject;
       }
