@@ -62,9 +62,9 @@ gulp.task('http:stop', function (done) {
 gulp.task('e2e', gulp.series(['http:start'], function () {
   var env = args.env || 'phantomjs';
 
-  return gulp.src('nightwatch.conf.js')
+  return gulp.src('./build/nightwatch.config.js')
     .pipe(nightwatch({
-      configFile: 'nightwatch.conf.js',
+      configFile: './build/nightwatch.config.js',
       cliArgs: ['--env ' + env]
     }));
 }));

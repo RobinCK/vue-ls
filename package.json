@@ -20,7 +20,10 @@
     "test:browserstack:firefox": "RUN_ON_BSTACK=true BSTACK_LOCAL=true node_modules/.bin/gulp test --env bstack_firefox_40,bstack_firefox_52",
     "test:browserstack:safari": "RUN_ON_BSTACK=true BSTACK_LOCAL=true node_modules/.bin/gulp test --env bstack_safari_8,bstack_safari_10",
     "test:phantomjs": "RUN_ON_BSTACK=false node_modules/.bin/gulp test --env phantomjs",
-    "test:chrome": "RUN_ON_BSTACK=false node_modules/.bin/gulp test --env chrome",
+    "test:e2e": "RUN_ON_BSTACK=false node_modules/.bin/gulp test --env chrome",
+    "test:unit": "node_modules/.bin/karma start build/karma.dev.config.js",
+    "test:sauce": "npm run sauce -- 0 && npm run sauce -- 1 && npm run sauce -- 2 && npm run sauce -- 3 && npm run sauce -- 4 && npm run sauce -- 5",
+    "sauce": "node_modules/.bin/karma start build/karma.sauce.config.js",
     "lint": "node_modules/.bin/eslint ./",
     "hint": "node_modules/.bin/jshint",
     "report": "npm test && node_modules/.bin/nyc report --reporter=html",
@@ -53,7 +56,9 @@
   "homepage": "https://github.com/RobinCK/vue-ls#readme",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.18.2",
+    "ava": "jamestalmage/ava#karma-ava",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
@@ -73,21 +78,31 @@
     "gulp-sourcemaps": "^2.4.1",
     "gulp-uglify": "^2.0.1",
     "gulp-util": "^3.0.8",
+    "jasmine": "^2.5.3",
+    "jasmine-core": "^2.5.2",
     "jshint": "^2.9.4",
+    "karma": "^1.5.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-sauce-launcher": "^1.1.0",
+    "karma-webpack": "^2.0.3",
     "mock-browser": "^0.92.12",
     "nightwatch": "^0.9.14",
     "nyc": "^10.1.2",
     "phantomjs": "^2.1.7",
+    "remove": "^0.1.5",
     "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.7.1",
     "selenium-server": "^3.3.1",
     "serve-static": "^1.12.1",
-    "vue": "^2.2.4"
+    "vue": "^2.2.4",
+    "webpack": "^2.3.1"
   },
   "semistandard": {
     "ignore": [
       "node_modules",
       "bower_components",
+      "build",
       "dist",
       "test"
     ]
@@ -97,7 +112,7 @@
       "babelrc": true
     },
     "files": [
-      "./test/unit/*.js"
+      "./test/unit/ava/*.js"
     ],
     "require": [
       "babel-register",

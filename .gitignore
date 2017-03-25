@@ -9,3 +9,4 @@ coverage
 reports
 selenium-debug.log
 local.log
+sauce_connect.log

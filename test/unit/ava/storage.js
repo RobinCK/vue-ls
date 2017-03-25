@@ -1,6 +1,6 @@
 import test from 'ava';
 import './helpers/setupBrowserEnv'
-import Ls from '../../src/index';
+import Ls from '../../../src/index';
 import Vue from 'vue';
 
 const namespace = 'test__';

@@ -1,7 +1,7 @@
 import test from 'ava';
-import './helpers/setupIEBrowserEnv'
-import Ls from '../../src/index';
-import {change} from '../../src/storage';
+import './helpers/setupOldBrowserEnv'
+import Ls from '../../../src/index';
+import {change} from '../../../src/storage';
 import Vue from 'vue';
 
 Vue.use(Ls);
