@@ -5,7 +5,7 @@
 
 [![npm](https://img.shields.io/npm/dt/vue-ls.svg?style=flat-square)](https://github.com/RobinCK/vue-ls)[![Dependencies](https://david-dm.org/robinck/vue-ls.svg?style=flat-square)](https://david-dm.org/robinck/vue-ls)[![devDependencies](https://david-dm.org/robinck/vue-ls/dev-status.svg?style=flat-square)](https://david-dm.org/robinck/vue-ls#info=devDependencies&view=table)[![Bower version](https://img.shields.io/bower/v/vue-ls.svg?style=flat-square)](https://github.com/RobinCK/vue-ls)[![NPM version](https://img.shields.io/npm/v/vue-ls.svg?style=flat-square)](https://www.npmjs.com/package/vue-ls)[![npm](https://img.shields.io/npm/l/vue-ls.svg?style=flat-square)](https://github.com/RobinCK/vue-ls/blob/master/LICENSE)
 
-[![Build Status](https://saucelabs.com/browser-matrix/Robin_ck.svg)](https://saucelabs.com/)
+[![Build Status](https://cdn.rawgit.com/RobinCK/65849005c282a0e59d93b7e8ce05b980/raw/72ec5d77d535103016832f4aa592e93e4b83f9ee/browsers_support.svg)](https://saucelabs.com/beta/builds/1defc2f5e76e4478817fc085438416d3)
 </div>
 
 # vue-ls
