@@ -79,7 +79,7 @@ new Vue({
         Vue.ls.get('boo', 10); //if not set boo returned default 10
         
         let callback = (val, oldVal, uri) => {
-          console.log('localStorage chnage', val);
+          console.log('localStorage change', val);
         } 
         
         Vue.ls.on('foo', callback) //watch change foo key and triggered callback
