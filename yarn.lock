@@ -646,14 +646,13 @@ babel-helpers@^6.23.0:
     babel-runtime "^6.22.0"
     babel-template "^6.23.0"
 
-babel-loader@^6.4.1:
-  version "6.4.1"
-  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-6.4.1.tgz#0b34112d5b0748a8dcdbf51acf6f9bd42d50b8ca"
+babel-loader@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-7.0.0.tgz#2e43a66bee1fff4470533d0402c8a4532fafbaf7"
   dependencies:
     find-cache-dir "^0.1.1"
-    loader-utils "^0.2.16"
+    loader-utils "^1.0.2"
     mkdirp "^0.5.1"
-    object-assign "^4.0.1"
 
 babel-messages@^6.23.0:
   version "6.23.0"
@@ -1296,9 +1295,9 @@ browserify-zlib@^0.1.4:
   dependencies:
     pako "~0.2.0"
 
-"browserstack-automate@github:RobinCK/browserstack-integration-nodejs#master":
+"browserstack-automate@https://github.com/browserstack/browserstack-integration-nodejs.git#master":
   version "1.0.1"
-  resolved "https://codeload.github.com/RobinCK/browserstack-integration-nodejs/tar.gz/10d3f4647480b9d4af84599128096b463bb8822d"
+  resolved "https://github.com/browserstack/browserstack-integration-nodejs.git#70530416687cc07d00bb8e4eea4efd75045d03a8"
   dependencies:
     browserstack-local "^1.2.0"
 
@@ -3972,6 +3971,14 @@ loader-utils@^0.2.16, loader-utils@^0.2.5:
     emojis-list "^2.0.0"
     json5 "^0.5.0"
     object-assign "^4.0.1"
+
+loader-utils@^1.0.2:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.1.0.tgz#c98aef488bcceda2ffb5e2de646d6a754429f5cd"
+  dependencies:
+    big.js "^3.1.3"
+    emojis-list "^2.0.0"
+    json5 "^0.5.0"
 
 lodash._arraycopy@^3.0.0:
   version "3.0.0"
