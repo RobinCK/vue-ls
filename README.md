@@ -18,7 +18,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/vue-ls"><img src="https://img.shields.io/npm/dm/vue-ls.svg?style=flat-square"></a>
   <a href="https://david-dm.org/robinck/vue-ls"><img src="https://img.shields.io/david/RobinCk/vue-ls.svg?style=flat-square"></a>
-  <a href="https://david-dm.org/robinck/vue-ls#info=devDependencies&view=table"><img src="https://img.shields.io/david/dev/RobinCk/vue-ls.svg?style=flat-square"></a>
+  <a href="https://david-dm.org/robinck/vue-ls?type=dev"><img src="https://img.shields.io/david/dev/RobinCk/vue-ls.svg?style=flat-square"></a>
   <a href="https://github.com/RobinCK/vue-ls"><img src="https://img.shields.io/bower/v/vue-ls.svg?style=flat-square"></a>
   <a href="https://www.npmjs.com/package/vue-ls"><img src="https://img.shields.io/npm/v/vue-ls.svg?style=flat-square"></a>
   <a href="https://github.com/RobinCK/vue-ls/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/vue-ls.svg?style=flat-square"></a>
