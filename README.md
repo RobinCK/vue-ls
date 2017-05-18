@@ -1,4 +1,4 @@
-<div align="center">
+<p align="center">
   <img width="130" alt="vue-ls logo" src="https://cdn.rawgit.com/RobinCK/0ef39abfff9a44061cee5b2c072e892e/raw/e2b95a57825ac9b8e845609ff9fc5fdaae37b55a/logo.svg">
   
   [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)[![VueJS 1.x](https://img.shields.io/badge/vuejs-1.x-brightgreen.svg?style=flat-square)](https://github.com/RobinCK/vue-ls)[![VueJS 2.x](https://img.shields.io/badge/vuejs-2.x-brightgreen.svg?style=flat-square)](https://github.com/RobinCK/vue-ls)[![Build Status](https://img.shields.io/travis/RobinCK/vue-ls.svg?style=flat-square)](https://travis-ci.org/RobinCK/vue-ls)[![Coverage Status](https://img.shields.io/coveralls/RobinCK/vue-ls.svg?style=flat-square)](https://coveralls.io/github/RobinCK/vue-ls?branch=master)[![Code Climate](https://img.shields.io/codeclimate/github/RobinCK/vue-ls.svg?style=flat-square)](https://codeclimate.com/github/RobinCK/vue-ls)[![Inline docs](http://inch-ci.org/github/RobinCK/vue-ls.svg?branch=master&style=flat-square)](http://inch-ci.org/github/RobinCK/vue-ls)
@@ -6,7 +6,7 @@
 [![npm](https://img.shields.io/npm/dm/vue-ls.svg?style=flat-square)](https://www.npmjs.com/package/vue-ls)[![Dependencies](https://img.shields.io/david/RobinCk/vue-ls.svg?style=flat-square)](https://david-dm.org/robinck/vue-ls)[![devDependencies](https://img.shields.io/david/dev/RobinCk/vue-ls.svg?style=flat-square)](https://david-dm.org/robinck/vue-ls#info=devDependencies&view=table)[![Bower version](https://img.shields.io/bower/v/vue-ls.svg?style=flat-square)](https://github.com/RobinCK/vue-ls)[![NPM version](https://img.shields.io/npm/v/vue-ls.svg?style=flat-square)](https://www.npmjs.com/package/vue-ls)[![npm](https://img.shields.io/npm/l/vue-ls.svg?style=flat-square)](https://github.com/RobinCK/vue-ls/blob/master/LICENSE)
 
 [![Build Status](https://cdn.rawgit.com/RobinCK/65849005c282a0e59d93b7e8ce05b980/raw/72ec5d77d535103016832f4aa592e93e4b83f9ee/browsers_support.svg)](https://saucelabs.com/beta/builds/1defc2f5e76e4478817fc085438416d3)
-</div>
+</p>
 
 # vue-ls
 
