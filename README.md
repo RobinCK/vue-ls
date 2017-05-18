@@ -36,7 +36,7 @@ Vue plugin for work with LocalStorage from Vue context
 
 [![NPM](https://nodei.co/npm/vue-ls.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-ls/)
 
-## Example
+## jsFiddle Example
 
 [Vue 1.x](https://jsfiddle.net/Robin_ck/Lvb2ah5p/)
 
@@ -46,6 +46,8 @@ Vue plugin for work with LocalStorage from Vue context
 #### CDN
 
 Recommended: https://unpkg.com/vue-ls, which will reflect the latest version as soon as it is published to npm. You can also browse the source of the npm package at https://unpkg.com/vue-ls/
+
+Also available on <a href="https://cdn.jsdelivr.net/npm/vue-ls@latest">jsDelivr</a> or <a href="https://cdnjs.com/libraries/vue-ls">cdnjs<a/>, but these two services take some time to sync so the latest release may not be available yet.
 
 #### NPM
 
