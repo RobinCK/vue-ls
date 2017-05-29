@@ -78,7 +78,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-rollup": "^2.11.0",
     "gulp-sourcemaps": "^2.4.1",
-    "gulp-uglify": "^2.0.1",
+    "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "jasmine": "^2.5.3",
     "jasmine-core": "^2.5.2",
