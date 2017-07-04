@@ -71,7 +71,7 @@
     "chromedriver": "^2.28.0",
     "connect": "^3.6.0",
     "coveralls": "^2.11.16",
-    "eslint": "^3.16.1",
+    "eslint": "^4.1.1",
     "get-gulp-args": "^0.0.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-nightwatch": "^0.3.2",
@@ -90,15 +90,15 @@
     "karma-webpack": "^2.0.3",
     "mock-browser": "^0.92.12",
     "nightwatch": "^0.9.14",
-    "nyc": "^10.1.2",
+    "nyc": "^11.0.3",
     "phantomjs": "^2.1.7",
     "remove": "^0.1.5",
-    "rollup": "^0.41.6",
+    "rollup": "^0.43.0",
     "rollup-plugin-babel": "^2.7.1",
     "selenium-server": "^3.3.1",
     "serve-static": "^1.12.1",
     "vue": "^2.2.4",
-    "webpack": "^2.3.1"
+    "webpack": "^3.0.0"
   },
   "semistandard": {
     "ignore": [

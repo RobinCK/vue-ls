@@ -32,6 +32,12 @@ test('Get item', t => {
   t.is(Vue.ls.get('get_item_test'), 'val');
 });
 
+test('Get item try', t => {
+  window.localStorage.setItem(`${namespace}get_item_test`, ';');
+
+  t.is(Vue.ls.get('get_item_test', 1), 1);
+});
+
 test('Get default value', t => {
   t.is(Vue.ls.get('undefined_item_test', 10), 10);
 });

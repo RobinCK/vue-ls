@@ -89,17 +89,21 @@ class Storage {
     let item = this.storage.getItem(this.options.namespace + name);
 
     if (item !== null) {
-      let data = JSON.parse(item);
+      try {
+        let data = JSON.parse(item);
 
-      if (data.expire === null) {
-        return data.value;
+        if (data.expire === null) {
+          return data.value;
+        }
+
+        if (data.expire >= new Date().getTime()) {
+          return data.value;
+        }
+
+        this.remove(name);
+      } catch (err) {
+        return def;
       }
-
-      if (data.expire >= new Date().getTime()) {
-        return data.value;
-      }
-
-      this.remove(name);
     }
 
     return def;
