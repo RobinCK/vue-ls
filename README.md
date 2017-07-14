@@ -176,5 +176,6 @@ Some browsers don't support the storage event, and most of the browsers that do 
 The assumption is that your page will already know all interactions with localStorage in its own window and only needs notification when a different window changes things. This, of course, is a foolish assumption. But.
 
 
+
 ## License
 MIT © [Igor Ognichenko](https://github.com/RobinCK)
