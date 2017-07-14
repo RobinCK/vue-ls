@@ -175,7 +175,7 @@ Some browsers don't support the storage event, and most of the browsers that do 
 
 The assumption is that your page will already know all interactions with localStorage in its own window and only needs notification when a different window changes things. This, of course, is a foolish assumption. But.
 
-
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2FRobinCK%2Fvue-ls.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2FRobinCK%2Fvue-ls?ref=badge_large)
 
 ## License
 MIT © [Igor Ognichenko](https://github.com/RobinCK)
