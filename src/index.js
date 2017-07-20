@@ -9,9 +9,9 @@ const VueLocalStorage = {
    * @returns {Storage}
    */
   install(Vue, options) {
-    ls.options = Object.assign(ls.options, {
+    ls.setOptions(Object.assign(ls.options, {
       namespace: '',
-    }, options || {});
+    }, options || {}));
 
     Vue.ls = ls; // eslint-disable-line
     Object.defineProperty(Vue.prototype, '$ls', {

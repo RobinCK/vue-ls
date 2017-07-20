@@ -36,14 +36,13 @@ function change(event) {
 class Storage {
   /**
    * @param {Object} storage
-   * @param {Object} options
    */
-  constructor(storage, options) {
+  constructor(storage) {
     this.storage = storage;
-    this.options = Object.assign({
+    this.options = {
       namespace: '',
       events: ['storage'],
-    }, options || {});
+    };
 
     Object.defineProperty(this, 'length', {
       /**
@@ -67,6 +66,10 @@ class Storage {
         }
       }
     }
+  }
+
+  setOptions(options = {}) {
+    this.options = Object.assign(this.options, options);
   }
 
   /**
@@ -194,5 +197,4 @@ class Storage {
 export {
   Storage,
   change,
-  eventListeners,
 };

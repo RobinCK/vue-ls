@@ -161,16 +161,15 @@ function change(event) {
 var Storage = function () {
   /**
    * @param {Object} storage
-   * @param {Object} options
    */
-  function Storage(storage, options) {
+  function Storage(storage) {
     classCallCheck(this, Storage);
 
     this.storage = storage;
-    this.options = _extends({
+    this.options = {
       namespace: '',
       events: ['storage']
-    }, options || {});
+    };
 
     Object.defineProperty(this, 'length', {
       /**
@@ -196,16 +195,23 @@ var Storage = function () {
     }
   }
 
-  /**
-   * Set item
-   *
-   * @param {string} name
-   * @param {*} value
-   * @param {number} expire - seconds
-   */
-
-
   createClass(Storage, [{
+    key: 'setOptions',
+    value: function setOptions() {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      this.options = _extends(this.options, options);
+    }
+
+    /**
+     * Set item
+     *
+     * @param {string} name
+     * @param {*} value
+     * @param {number} expire - seconds
+     */
+
+  }, {
     key: 'set',
     value: function set$$1(name, value) {
       var expire = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
@@ -355,9 +361,9 @@ var VueLocalStorage = {
    * @returns {Storage}
    */
   install: function install(Vue, options) {
-    storageObject.options = _extends(storageObject.options, {
+    storageObject.setOptions(_extends(storageObject.options, {
       namespace: ''
-    }, options || {});
+    }, options || {}));
 
     Vue.ls = storageObject; // eslint-disable-line
     Object.defineProperty(Vue.prototype, '$ls', {
