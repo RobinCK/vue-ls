@@ -20,21 +20,17 @@ export default class {
   static emit(event) {
     const e = event || window.event;
 
+    const getValue = (data) => {
+      try {
+        return JSON.parse(data).value;
+      } catch (err) {
+        return data;
+      }
+    };
+
     const fire = (listener) => {
-      let newValue;
-      let oldValue;
-
-      try {
-        newValue = JSON.parse(e.newValue).value;
-      } catch (err) {
-        newValue = e.newValue;
-      }
-
-      try {
-        oldValue = JSON.parse(e.oldValue).value;
-      } catch (err) {
-        oldValue = e.oldValue;
-      }
+      const newValue = getValue(e.newValue);
+      const oldValue = getValue(e.oldValue);
 
       listener(newValue, oldValue, e.url || e.uri);
     };
