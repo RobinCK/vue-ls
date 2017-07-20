@@ -1,8 +1,6 @@
 .editorconfig
 .gitignore
 .npmignore
-.jshintignore
-.jshintrc
 .idea/
 .git/
 _config.yml

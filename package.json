@@ -24,7 +24,6 @@
     "test:sauce": "npm run sauce -- 0 && npm run sauce -- 1 && npm run sauce -- 2 && npm run sauce -- 3 && npm run sauce -- 4 && npm run sauce -- 5",
     "sauce": "node_modules/.bin/karma start build/karma.sauce.config.js",
     "lint": "node_modules/.bin/eslint ./",
-    "hint": "node_modules/.bin/jshint",
     "report": "npm test && node_modules/.bin/nyc report --reporter=html",
     "coveralls": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls",
     "codecov": "./node_modules/.bin/nyc report --reporter=lcovonly && codecov -t $CODECOV_TOKEN",
@@ -60,6 +59,7 @@
   "devDependencies": {
     "ava": "jamestalmage/ava#karma-ava",
     "babel-core": "^6.24.0",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^7.0.0",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
@@ -71,7 +71,12 @@
     "chromedriver": "^2.28.0",
     "connect": "^3.6.0",
     "coveralls": "^2.11.16",
-    "eslint": "^4.1.1",
+    "eslint": "^4.2.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
     "get-gulp-args": "^0.0.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-nightwatch": "^0.3.2",
@@ -82,7 +87,6 @@
     "gulp-util": "^3.0.8",
     "jasmine": "^2.5.3",
     "jasmine-core": "^2.5.2",
-    "jshint": "^2.9.4",
     "karma": "^1.5.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.1.0",
@@ -98,7 +102,7 @@
     "selenium-server": "^3.3.1",
     "serve-static": "^1.12.1",
     "vue": "^2.2.4",
-    "webpack": "^3.0.0"
+    "webpack": "^3.3.0"
   },
   "semistandard": {
     "ignore": [

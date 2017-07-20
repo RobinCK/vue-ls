@@ -1,5 +1,5 @@
 import memoryStorage from './memoryStorage';
-import {Storage} from './storage';
+import { Storage } from './storage';
 
 const store = typeof window !== 'undefined' && 'localStorage' in window
   ? window.localStorage

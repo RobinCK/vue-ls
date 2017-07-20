@@ -7,7 +7,7 @@ const memoryStorage = {
    * @param {string} name
    * @returns {*}
    */
-  getItem (name) {
+  getItem(name) {
     return name in ls ? ls[name] : null;
   },
 
@@ -18,7 +18,7 @@ const memoryStorage = {
    * @param {*} value
    * @returns {boolean}
    */
-  setItem (name, value) {
+  setItem(name, value) {
     ls[name] = value;
 
     return true;
@@ -30,8 +30,8 @@ const memoryStorage = {
    * @param {string} name
    * @returns {boolean}
    */
-  removeItem (name) {
-    var found = name in ls;
+  removeItem(name) {
+    const found = name in ls;
 
     if (found) {
       return delete ls[name];
@@ -45,7 +45,7 @@ const memoryStorage = {
    *
    * @returns {boolean}
    */
-  clear () {
+  clear() {
     ls = {};
 
     return true;
@@ -57,11 +57,11 @@ const memoryStorage = {
    * @param {number} index
    * @returns {*}
    */
-  key (index) {
-    let keys = Object.keys(ls);
+  key(index) {
+    const keys = Object.keys(ls);
 
     return typeof keys[index] !== 'undefined' ? keys[index] : null;
-  }
+  },
 };
 
 Object.defineProperty(memoryStorage, 'length', {
@@ -70,9 +70,9 @@ Object.defineProperty(memoryStorage, 'length', {
    *
    * @return {number}
    */
-  get () {
+  get() {
     return Object.keys(ls).length;
-  }
+  },
 });
 
 export default memoryStorage;

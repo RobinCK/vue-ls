@@ -1,6 +1,6 @@
 import ls from './localStorage';
 
-let VueLocalStorage = {
+const VueLocalStorage = {
   /**
    * Install plugin
    *
@@ -8,23 +8,23 @@ let VueLocalStorage = {
    * @param {Object} options
    * @returns {Storage}
    */
-  install (Vue, options) {
+  install(Vue, options) {
     ls.options = Object.assign(ls.options, {
-      namespace: ''
+      namespace: '',
     }, options || {});
 
-    Vue.ls = ls;
+    Vue.ls = ls; // eslint-disable-line
     Object.defineProperty(Vue.prototype, '$ls', {
       /**
        * Define $ls property
        *
        * @return {Storage}
        */
-      get () {
+      get() {
         return ls;
-      }
+      },
     });
-  }
+  },
 };
 
 if (typeof window !== 'undefined') {

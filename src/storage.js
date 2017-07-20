@@ -3,25 +3,25 @@ const eventListeners = {};
 /**
  * Event callback
  *
- * @param {Object} e
+ * @param {Object} event
  */
-function change (e) {
-  if (!e) {
-    e = window.event;
-  }
+function change(event) {
+  const e = event || window.event;
+
+  const emit = (listener) => {
+    listener(e.newValue
+      ? JSON.parse(e.newValue).value
+      : (e.newValue, e.oldValue ? JSON.parse(e.oldValue).value : e.oldValue), e.url || e.uri);
+  };
 
   if (typeof e === 'undefined' || typeof e.key === 'undefined') {
     return;
   }
 
-  let all = eventListeners[e.key];
+  const all = eventListeners[e.key];
 
   if (typeof all !== 'undefined') {
     all.forEach(emit);
-  }
-
-  function emit (listener) {
-    listener(e.newValue ? JSON.parse(e.newValue).value : e.newValue, e.oldValue ? JSON.parse(e.oldValue).value : e.oldValue, e.url || e.uri);
   }
 }
 
@@ -33,11 +33,11 @@ class Storage {
    * @param {Object} storage
    * @param {Object} options
    */
-  constructor (storage, options) {
+  constructor(storage, options) {
     this.storage = storage;
     this.options = Object.assign({
       namespace: '',
-      events: ['storage']
+      events: ['storage'],
     }, options || {});
 
     Object.defineProperty(this, 'length', {
@@ -46,13 +46,13 @@ class Storage {
        *
        * @return {number}
        */
-      get () {
+      get() {
         return this.storage.length;
-      }
+      },
     });
 
     if (typeof window !== 'undefined') {
-      for (let i in this.options.events) {
+      for (const i in this.options.events) {
         if (window.addEventListener) {
           window.addEventListener(this.options.events[i], change, false);
         } else if (window.attachEvent) {
@@ -71,10 +71,10 @@ class Storage {
    * @param {*} value
    * @param {number} expire - seconds
    */
-  set (name, value, expire = null) {
+  set(name, value, expire = null) {
     this.storage.setItem(
       this.options.namespace + name,
-      JSON.stringify({value: value, expire: expire !== null ? new Date().getTime() + expire : null})
+      JSON.stringify({ value, expire: expire !== null ? new Date().getTime() + expire : null }),
     );
   }
 
@@ -85,12 +85,12 @@ class Storage {
    * @param {*} def - default value
    * @returns {*}
    */
-  get (name, def = null) {
-    let item = this.storage.getItem(this.options.namespace + name);
+  get(name, def = null) {
+    const item = this.storage.getItem(this.options.namespace + name);
 
     if (item !== null) {
       try {
-        let data = JSON.parse(item);
+        const data = JSON.parse(item);
 
         if (data.expire === null) {
           return data.value;
@@ -115,7 +115,7 @@ class Storage {
    * @param {number} index
    * @return {*}
    */
-  key (index) {
+  key(index) {
     return this.storage.key(index);
   }
 
@@ -125,23 +125,23 @@ class Storage {
    * @param {string} name
    * @return {boolean}
    */
-  remove (name) {
+  remove(name) {
     return this.storage.removeItem(this.options.namespace + name);
   }
 
   /**
    * Clear storage
    */
-  clear () {
+  clear() {
     if (this.length === 0) {
       return;
     }
 
-    let removedKeys = [];
+    const removedKeys = [];
 
     for (let i = 0; i < this.length; i++) {
-      let key = this.storage.key(i);
-      let regexp = new RegExp(`^${this.options.namespace}.+`, 'i');
+      const key = this.storage.key(i);
+      const regexp = new RegExp(`^${this.options.namespace}.+`, 'i');
 
       if (regexp.test(key) === false) {
         continue;
@@ -150,7 +150,7 @@ class Storage {
       removedKeys.push(key);
     }
 
-    for (let key in removedKeys) {
+    for (const key in removedKeys) {
       this.storage.removeItem(removedKeys[key]);
     }
   }
@@ -161,7 +161,7 @@ class Storage {
    * @param {string} name
    * @param {Function} callback
    */
-  on (name, callback) {
+  on(name, callback) {
     if (eventListeners[this.options.namespace + name]) {
       eventListeners[this.options.namespace + name].push(callback);
     } else {
@@ -175,8 +175,8 @@ class Storage {
    * @param {string} name
    * @param {Function} callback
    */
-  off (name, callback) {
-    let ns = eventListeners[this.options.namespace + name];
+  off(name, callback) {
+    const ns = eventListeners[this.options.namespace + name];
 
     if (ns.length > 1) {
       ns.splice(ns.indexOf(callback), 1);
@@ -189,5 +189,5 @@ class Storage {
 export {
   Storage,
   change,
-  eventListeners
+  eventListeners,
 };

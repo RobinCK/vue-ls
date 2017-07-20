@@ -28,8 +28,6 @@
     ".git",
     ".bowerrc",
     ".gitignore",
-    ".jshintignore",
-    ".jshintrc",
     ".travis.yml",
     ".babelrc",
     ".editorconfig",
