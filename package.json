@@ -97,7 +97,7 @@
     "nyc": "^11.0.3",
     "phantomjs": "^2.1.7",
     "remove": "^0.1.5",
-    "rollup": "^0.43.0",
+    "rollup": "^0.45.2",
     "rollup-plugin-babel": "^2.7.1",
     "selenium-server": "^3.3.1",
     "serve-static": "^1.12.1",
