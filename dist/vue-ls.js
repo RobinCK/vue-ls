@@ -140,7 +140,7 @@ function change(event) {
   var e = event || window.event;
 
   var emit = function emit(listener) {
-    listener(e.newValue ? JSON.parse(e.newValue).value : (e.newValue, e.oldValue ? JSON.parse(e.oldValue).value : e.oldValue), e.url || e.uri);
+    listener(e.newValue ? JSON.parse(e.newValue).value : e.newValue, e.oldValue ? JSON.parse(e.oldValue).value : e.oldValue, e.url || e.uri);
   };
 
   if (typeof e === 'undefined' || typeof e.key === 'undefined') {
