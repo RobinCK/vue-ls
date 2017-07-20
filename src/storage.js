@@ -71,7 +71,7 @@ class Storage {
   /**
    * Set Options
    *
-   * @param options
+   * @param {Object} options
    */
   setOptions(options = {}) {
     this.options = Object.assign(this.options, options);
