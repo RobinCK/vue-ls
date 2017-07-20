@@ -1,7 +1,7 @@
 import test from 'ava';
 import './helpers/setupBrowserEnv'
 import Ls from '../../../src/index';
-import {change} from '../../../src/storage';
+import StorageEvent from '../../../src/event';
 import Vue from 'vue';
 
 Vue.use(Ls);
@@ -12,7 +12,7 @@ test.beforeEach(() => {
 
 //mock-browser not supported storage event
 test('Add/Remove event', t => {
-  t.plan(2);
+  t.plan(4);
 
   Vue.ls.on('item_one_test', () => {});
   Vue.ls.on('item_two_test', () => {});
@@ -23,9 +23,23 @@ test('Add/Remove event', t => {
   });
   Vue.ls.off('item_two_test', () => {});
   Vue.ls.off('item_one_test', () => {});
+  Vue.ls.off('item_one_test', () => {});
 
-  change({key: 'item_three_test', newValue: JSON.stringify({value: 'val', expire: null}), oldValue: JSON.stringify({value: 'old_val', expire: null})});
-  change({key: 'item_undefined_test', newValue: JSON.stringify({value: 'val', expire: null}), oldValue: JSON.stringify({value: 'old_val', expire: null})});
-  change();
+  StorageEvent.emit({
+    key: 'item_three_test',
+    newValue: JSON.stringify({ value: 'val', expire: null }),
+    oldValue: JSON.stringify({ value: 'old_val', expire: null }),
+  });
+  StorageEvent.emit({
+    key: 'item_undefined_test',
+    newValue: JSON.stringify({ value: 'val', expire: null }),
+    oldValue: JSON.stringify({ value: 'old_val', expire: null }),
+  });
+  StorageEvent.emit({
+    key: 'item_three_test',
+    newValue: 'val',
+    oldValue: 'old_val',
+  });
+  StorageEvent.emit();
 });
 

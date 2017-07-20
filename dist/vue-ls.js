@@ -129,41 +129,79 @@ var _extends = Object.assign || function (target) {
   return target;
 };
 
-var eventListeners = {};
+var listeners = {};
 
-/**
- * Event callback
- *
- * @param {Object} event
- */
-function change(event) {
-  var e = event || window.event;
-
-  var emit = function emit(listener) {
-    listener(e.newValue ? JSON.parse(e.newValue).value : e.newValue, e.oldValue ? JSON.parse(e.oldValue).value : e.oldValue, e.url || e.uri);
-  };
-
-  if (typeof e === 'undefined' || typeof e.key === 'undefined') {
-    return;
+var _class$2 = function () {
+  function _class() {
+    classCallCheck(this, _class);
   }
 
-  var all = eventListeners[e.key];
+  createClass(_class, null, [{
+    key: 'on',
+    value: function on(name, callback) {
+      if (typeof listeners[name] === 'undefined') {
+        listeners[name] = [];
+      }
 
-  if (typeof all !== 'undefined') {
-    all.forEach(emit);
-  }
-}
+      listeners[name].push(callback);
+    }
+  }, {
+    key: 'off',
+    value: function off(name, callback) {
+      if (listeners[name].length) {
+        listeners[name].splice(listeners[name].indexOf(callback), 1);
+      } else {
+        listeners[name] = [];
+      }
+    }
+  }, {
+    key: 'emit',
+    value: function emit(event) {
+      var e = event || window.event;
+
+      var fire = function fire(listener) {
+        var newValue = void 0;
+        var oldValue = void 0;
+
+        try {
+          newValue = JSON.parse(e.newValue).value;
+        } catch (err) {
+          newValue = e.newValue;
+        }
+
+        try {
+          oldValue = JSON.parse(e.oldValue).value;
+        } catch (err) {
+          oldValue = e.oldValue;
+        }
+
+        listener(newValue, oldValue, e.url || e.uri);
+      };
+
+      if (typeof e === 'undefined' || typeof e.key === 'undefined') {
+        return;
+      }
+
+      var all = listeners[e.key];
+
+      if (typeof all !== 'undefined') {
+        all.forEach(fire);
+      }
+    }
+  }]);
+  return _class;
+}();
 
 /**
  * Storage Bridge
  */
 
-var Storage = function () {
+var _class$1 = function () {
   /**
    * @param {Object} storage
    */
-  function Storage(storage) {
-    classCallCheck(this, Storage);
+  function _class(storage) {
+    classCallCheck(this, _class);
 
     this.storage = storage;
     this.options = {
@@ -185,11 +223,11 @@ var Storage = function () {
     if (typeof window !== 'undefined') {
       for (var i in this.options.events) {
         if (window.addEventListener) {
-          window.addEventListener(this.options.events[i], change, false);
+          window.addEventListener(this.options.events[i], _class$2.emit, false);
         } else if (window.attachEvent) {
-          window.attachEvent('on' + this.options.events[i], change);
+          window.attachEvent('on' + this.options.events[i], _class$2.emit);
         } else {
-          window['on' + this.options.events[i]] = change;
+          window['on' + this.options.events[i]] = _class$2.emit;
         }
       }
     }
@@ -202,7 +240,7 @@ var Storage = function () {
    */
 
 
-  createClass(Storage, [{
+  createClass(_class, [{
     key: 'setOptions',
     value: function setOptions() {
       var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -327,11 +365,7 @@ var Storage = function () {
   }, {
     key: 'on',
     value: function on(name, callback) {
-      if (eventListeners[this.options.namespace + name]) {
-        eventListeners[this.options.namespace + name].push(callback);
-      } else {
-        eventListeners[this.options.namespace + name] = [callback];
-      }
+      _class$2.on(this.options.namespace + name, callback);
     }
 
     /**
@@ -344,20 +378,14 @@ var Storage = function () {
   }, {
     key: 'off',
     value: function off(name, callback) {
-      var ns = eventListeners[this.options.namespace + name];
-
-      if (ns.length > 1) {
-        ns.splice(ns.indexOf(callback), 1);
-      } else {
-        eventListeners[this.options.namespace + name] = [];
-      }
+      _class$2.off(this.options.namespace + name, callback);
     }
   }]);
-  return Storage;
+  return _class;
 }();
 
 var store = typeof window !== 'undefined' && 'localStorage' in window ? window.localStorage : memoryStorage;
-var storageObject = new Storage(store);
+var ls = new _class$1(store);
 
 var VueLocalStorage = {
   /**
@@ -368,11 +396,11 @@ var VueLocalStorage = {
    * @returns {Storage}
    */
   install: function install(Vue, options) {
-    storageObject.setOptions(_extends(storageObject.options, {
+    ls.setOptions(_extends(ls.options, {
       namespace: ''
     }, options || {}));
 
-    Vue.ls = storageObject; // eslint-disable-line
+    Vue.ls = ls; // eslint-disable-line
     Object.defineProperty(Vue.prototype, '$ls', {
       /**
        * Define $ls property
@@ -380,7 +408,7 @@ var VueLocalStorage = {
        * @return {Storage}
        */
       get: function get$$1() {
-        return storageObject;
+        return ls;
       }
     });
   }

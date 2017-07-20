@@ -1,39 +1,9 @@
-const eventListeners = {};
-
-/**
- * Event callback
- *
- * @param {Object} event
- */
-function change(event) {
-  const e = event || window.event;
-
-  const emit = (listener) => {
-    listener(
-      e.newValue
-        ? JSON.parse(e.newValue).value
-        : e.newValue,
-      e.oldValue
-        ? JSON.parse(e.oldValue).value
-        : e.oldValue
-      , e.url || e.uri);
-  };
-
-  if (typeof e === 'undefined' || typeof e.key === 'undefined') {
-    return;
-  }
-
-  const all = eventListeners[e.key];
-
-  if (typeof all !== 'undefined') {
-    all.forEach(emit);
-  }
-}
+import StorageEvent from './event';
 
 /**
  * Storage Bridge
  */
-class Storage {
+export default class {
   /**
    * @param {Object} storage
    */
@@ -58,11 +28,11 @@ class Storage {
     if (typeof window !== 'undefined') {
       for (const i in this.options.events) {
         if (window.addEventListener) {
-          window.addEventListener(this.options.events[i], change, false);
+          window.addEventListener(this.options.events[i], StorageEvent.emit, false);
         } else if (window.attachEvent) {
-          window.attachEvent(`on${this.options.events[i]}`, change);
+          window.attachEvent(`on${this.options.events[i]}`, StorageEvent.emit);
         } else {
-          window[`on${this.options.events[i]}`] = change;
+          window[`on${this.options.events[i]}`] = StorageEvent.emit;
         }
       }
     }
@@ -175,11 +145,7 @@ class Storage {
    * @param {Function} callback
    */
   on(name, callback) {
-    if (eventListeners[this.options.namespace + name]) {
-      eventListeners[this.options.namespace + name].push(callback);
-    } else {
-      eventListeners[this.options.namespace + name] = [callback];
-    }
+    StorageEvent.on(this.options.namespace + name, callback);
   }
 
   /**
@@ -189,17 +155,6 @@ class Storage {
    * @param {Function} callback
    */
   off(name, callback) {
-    const ns = eventListeners[this.options.namespace + name];
-
-    if (ns.length > 1) {
-      ns.splice(ns.indexOf(callback), 1);
-    } else {
-      eventListeners[this.options.namespace + name] = [];
-    }
+    StorageEvent.off(this.options.namespace + name, callback);
   }
 }
-
-export {
-  Storage,
-  change,
-};

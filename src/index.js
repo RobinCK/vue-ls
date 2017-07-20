@@ -1,4 +1,11 @@
-import ls from './localStorage';
+import Memory from './memory';
+import Storage from './storage';
+
+const store = typeof window !== 'undefined' && 'localStorage' in window
+  ? window.localStorage
+  : Memory
+;
+const ls = new Storage(store);
 
 const VueLocalStorage = {
   /**
