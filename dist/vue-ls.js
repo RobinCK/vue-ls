@@ -195,6 +195,13 @@ var Storage = function () {
     }
   }
 
+  /**
+   * Set Options
+   *
+   * @param {Object} options
+   */
+
+
   createClass(Storage, [{
     key: 'setOptions',
     value: function setOptions() {
