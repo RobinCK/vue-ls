@@ -1,6 +1,15 @@
 const listeners = {};
 
+/**
+ * Event class
+ */
 export default class {
+  /**
+   * Add storage change event
+   *
+   * @param {string} name
+   * @param {Function} callback
+   */
   static on(name, callback) {
     if (typeof listeners[name] === 'undefined') {
       listeners[name] = [];
@@ -9,6 +18,12 @@ export default class {
     listeners[name].push(callback);
   }
 
+  /**
+   * Remove storage change event
+   *
+   * @param {string} name
+   * @param {Function} callback
+   */
   static off(name, callback) {
     if (listeners[name].length) {
       listeners[name].splice(listeners[name].indexOf(callback), 1);
@@ -17,6 +32,11 @@ export default class {
     }
   }
 
+  /**
+   * Emit event
+   *
+   * @param {Object} event
+   */
   static emit(event) {
     const e = event || window.event;
 
