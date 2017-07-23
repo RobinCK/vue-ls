@@ -22,6 +22,7 @@
   <a href="https://github.com/RobinCK/vue-ls"><img src="https://img.shields.io/bower/v/vue-ls.svg?style=flat-square"></a>
   <a href="https://www.npmjs.com/package/vue-ls"><img src="https://img.shields.io/npm/v/vue-ls.svg?style=flat-square"></a>
   <a href="https://github.com/RobinCK/vue-ls/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/vue-ls.svg?style=flat-square"></a>
+  <a href="https://cdnjs.com/libraries/vue-ls"><img src="https://img.shields.io/cdnjs/v/jquery.svg"></a>
 
 </p>
 
