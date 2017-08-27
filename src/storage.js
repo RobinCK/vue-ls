@@ -57,7 +57,7 @@ export default class {
   set(name, value, expire = null) {
     this.storage.setItem(
       this.options.namespace + name,
-      JSON.stringify({ value, expire: expire !== null ? new Date().getTime() + expire : null }),
+      JSON.stringify({ value, expire: expire !== null ? new Date().getTime() + expire : null })
     );
   }
 
