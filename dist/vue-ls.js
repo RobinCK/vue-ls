@@ -131,6 +131,10 @@ var _extends = Object.assign || function (target) {
 
 var listeners = {};
 
+/**
+ * Event class
+ */
+
 var _class$2 = function () {
   function _class() {
     classCallCheck(this, _class);
@@ -138,6 +142,13 @@ var _class$2 = function () {
 
   createClass(_class, null, [{
     key: 'on',
+
+    /**
+     * Add storage change event
+     *
+     * @param {string} name
+     * @param {Function} callback
+     */
     value: function on(name, callback) {
       if (typeof listeners[name] === 'undefined') {
         listeners[name] = [];
@@ -145,6 +156,14 @@ var _class$2 = function () {
 
       listeners[name].push(callback);
     }
+
+    /**
+     * Remove storage change event
+     *
+     * @param {string} name
+     * @param {Function} callback
+     */
+
   }, {
     key: 'off',
     value: function off(name, callback) {
@@ -154,26 +173,29 @@ var _class$2 = function () {
         listeners[name] = [];
       }
     }
+
+    /**
+     * Emit event
+     *
+     * @param {Object} event
+     */
+
   }, {
     key: 'emit',
     value: function emit(event) {
       var e = event || window.event;
 
+      var getValue = function getValue(data) {
+        try {
+          return JSON.parse(data).value;
+        } catch (err) {
+          return data;
+        }
+      };
+
       var fire = function fire(listener) {
-        var newValue = void 0;
-        var oldValue = void 0;
-
-        try {
-          newValue = JSON.parse(e.newValue).value;
-        } catch (err) {
-          newValue = e.newValue;
-        }
-
-        try {
-          oldValue = JSON.parse(e.oldValue).value;
-        } catch (err) {
-          oldValue = e.oldValue;
-        }
+        var newValue = getValue(e.newValue);
+        var oldValue = getValue(e.oldValue);
 
         listener(newValue, oldValue, e.url || e.uri);
       };
