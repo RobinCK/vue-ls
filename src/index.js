@@ -3,8 +3,7 @@ import Storage from './storage';
 
 const store = typeof window !== 'undefined' && 'localStorage' in window
   ? window.localStorage
-  : Memory
-;
+  : Memory;
 const ls = new Storage(store);
 
 const VueLocalStorage = {

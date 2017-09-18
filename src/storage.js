@@ -55,10 +55,12 @@ export default class {
    * @param {number} expire - seconds
    */
   set(name, value, expire = null) {
-    this.storage.setItem(
-      this.options.namespace + name,
-      JSON.stringify({ value, expire: expire !== null ? new Date().getTime() + expire : null })
-    );
+    const stringifyValue = JSON.stringify({
+      value,
+      expire: expire !== null ? new Date().getTime() + expire : null,
+    });
+
+    this.storage.setItem(this.options.namespace + name, stringifyValue);
   }
 
   /**

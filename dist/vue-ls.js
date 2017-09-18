@@ -400,7 +400,12 @@ var _class = function () {
     value: function set$$1(name, value) {
       var expire = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
 
-      this.storage.setItem(this.options.namespace + name, JSON.stringify({ value: value, expire: expire !== null ? new Date().getTime() + expire : null }));
+      var stringifyValue = JSON.stringify({
+        value: value,
+        expire: expire !== null ? new Date().getTime() + expire : null
+      });
+
+      this.storage.setItem(this.options.namespace + name, stringifyValue);
     }
 
     /**

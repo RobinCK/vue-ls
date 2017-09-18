@@ -1,19 +1,18 @@
 module.exports = {
-  root: true,
-  parser: 'babel-eslint',
-  parserOptions: {
-    sourceType: 'module'
+  "root": true,
+  "parser": 'babel-eslint',
+  "parserOptions": {
+    "sourceType": 'module'
   },
-  env: {
-    browser: true,
+  "env": {
+    "browser": true
   },
-  extends: 'airbnb-base',
-  plugins: [],
-  globals: {
-    "window": true,
+  "extends": 'airbnb-base',
+  "plugins": [],
+  "globals": {
+    "window": true
   },
-  'settings': {},
-  'rules': {
+  "rules": {
     "no-cond-assign": 0,
     "no-plusplus": 0,
     "no-restricted-syntax": 0,
@@ -29,7 +28,7 @@ module.exports = {
     "no-lonely-if": 0,
     "no-underscore-dangle": 0,
     'import/extensions': ['error', 'always', {
-      'js': 'never',
+      "js": "never"
     }]
   }
 };
