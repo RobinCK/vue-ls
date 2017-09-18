@@ -20,9 +20,9 @@ gulp.task('js', function () {
   return gulp.src('./src/index.js')
     .pipe(rollup({
       allowRealFiles: true,
-      entry: './src/index.js',
+      input: './src/index.js',
       format: 'umd',
-      moduleName: 'vue-ls',
+      name: 'vue-ls',
       plugins: [
         babel({
           babelrc: false,

@@ -85,6 +85,123 @@ Object.defineProperty(memoryStorage, 'length', {
   }
 });
 
+var asyncGenerator = function () {
+  function AwaitValue(value) {
+    this.value = value;
+  }
+
+  function AsyncGenerator(gen) {
+    var front, back;
+
+    function send(key, arg) {
+      return new Promise(function (resolve, reject) {
+        var request = {
+          key: key,
+          arg: arg,
+          resolve: resolve,
+          reject: reject,
+          next: null
+        };
+
+        if (back) {
+          back = back.next = request;
+        } else {
+          front = back = request;
+          resume(key, arg);
+        }
+      });
+    }
+
+    function resume(key, arg) {
+      try {
+        var result = gen[key](arg);
+        var value = result.value;
+
+        if (value instanceof AwaitValue) {
+          Promise.resolve(value.value).then(function (arg) {
+            resume("next", arg);
+          }, function (arg) {
+            resume("throw", arg);
+          });
+        } else {
+          settle(result.done ? "return" : "normal", result.value);
+        }
+      } catch (err) {
+        settle("throw", err);
+      }
+    }
+
+    function settle(type, value) {
+      switch (type) {
+        case "return":
+          front.resolve({
+            value: value,
+            done: true
+          });
+          break;
+
+        case "throw":
+          front.reject(value);
+          break;
+
+        default:
+          front.resolve({
+            value: value,
+            done: false
+          });
+          break;
+      }
+
+      front = front.next;
+
+      if (front) {
+        resume(front.key, front.arg);
+      } else {
+        back = null;
+      }
+    }
+
+    this._invoke = send;
+
+    if (typeof gen.return !== "function") {
+      this.return = undefined;
+    }
+  }
+
+  if (typeof Symbol === "function" && Symbol.asyncIterator) {
+    AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
+      return this;
+    };
+  }
+
+  AsyncGenerator.prototype.next = function (arg) {
+    return this._invoke("next", arg);
+  };
+
+  AsyncGenerator.prototype.throw = function (arg) {
+    return this._invoke("throw", arg);
+  };
+
+  AsyncGenerator.prototype.return = function (arg) {
+    return this._invoke("return", arg);
+  };
+
+  return {
+    wrap: function (fn) {
+      return function () {
+        return new AsyncGenerator(fn.apply(this, arguments));
+      };
+    },
+    await: function (value) {
+      return new AwaitValue(value);
+    }
+  };
+}();
+
+
+
+
+
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -135,7 +252,7 @@ var listeners = {};
  * Event class
  */
 
-var _class$2 = function () {
+var _class$1 = function () {
   function _class() {
     classCallCheck(this, _class);
   }
@@ -218,7 +335,7 @@ var _class$2 = function () {
  * Storage Bridge
  */
 
-var _class$1 = function () {
+var _class = function () {
   /**
    * @param {Object} storage
    */
@@ -245,11 +362,11 @@ var _class$1 = function () {
     if (typeof window !== 'undefined') {
       for (var i in this.options.events) {
         if (window.addEventListener) {
-          window.addEventListener(this.options.events[i], _class$2.emit, false);
+          window.addEventListener(this.options.events[i], _class$1.emit, false);
         } else if (window.attachEvent) {
-          window.attachEvent('on' + this.options.events[i], _class$2.emit);
+          window.attachEvent('on' + this.options.events[i], _class$1.emit);
         } else {
-          window['on' + this.options.events[i]] = _class$2.emit;
+          window['on' + this.options.events[i]] = _class$1.emit;
         }
       }
     }
@@ -387,7 +504,7 @@ var _class$1 = function () {
   }, {
     key: 'on',
     value: function on(name, callback) {
-      _class$2.on(this.options.namespace + name, callback);
+      _class$1.on(this.options.namespace + name, callback);
     }
 
     /**
@@ -400,14 +517,14 @@ var _class$1 = function () {
   }, {
     key: 'off',
     value: function off(name, callback) {
-      _class$2.off(this.options.namespace + name, callback);
+      _class$1.off(this.options.namespace + name, callback);
     }
   }]);
   return _class;
 }();
 
 var store = typeof window !== 'undefined' && 'localStorage' in window ? window.localStorage : memoryStorage;
-var ls = new _class$1(store);
+var ls = new _class(store);
 
 var VueLocalStorage = {
   /**
