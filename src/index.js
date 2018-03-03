@@ -1,25 +1,9 @@
 import Memory from './memory';
 import Storage from './storage';
 
-let store;
-['localStorage', 'sessionStorage'].forEach((v) => {
-  if (store) {
-    return;
-  }
-
-  try {
-    store = typeof window !== 'undefined' && v in window ? window[v] : undefined;
-  } catch (e) {
-    console.log(`${v} Error ${e.toString()}`); // eslint-disable-line
-  }
-});
-
-if (!store) {
-  store = Memory;
-}
-
-const ls = new Storage(store);
-
+/**
+ * @type {{install: (function(Object, Object): Storage)}}
+ */
 const VueLocalStorage = {
   /**
    * Install plugin
@@ -29,12 +13,45 @@ const VueLocalStorage = {
    * @returns {Storage}
    */
   install(Vue, options) {
+    const _options = {
+      ...options,
+      storage: options.storage || 'local',
+      name: options.name || 'ls',
+    };
+
+    if (_options.storage && ['memory', 'local', 'session'].indexOf(_options.storage) === -1) {
+      throw new Error(`Vue-ls: Storage "${_options.storage}" is not supported`);
+    }
+
+    let store = null;
+
+    switch(_options.storage) { // eslint-disable-line
+      case 'local': store = typeof window !== 'undefined' && 'localStorage' in window
+        ? window.localStorage
+        : null;
+        break;
+
+      case 'session': store = typeof window !== 'undefined' && 'sessionStorage' in window
+        ? window.sessionStorage
+        : null;
+        break;
+      case 'memory': store = Memory;
+        break;
+    }
+
+    if (!store) {
+      store = Memory;
+      console.error(`Vue-ls: Storage "${_options.storage}" is not supported your system, use memory storage`);
+    }
+
+    const ls = new Storage(store);
+
     ls.setOptions(Object.assign(ls.options, {
       namespace: '',
-    }, options || {}));
+    }, _options || {}));
 
-    Vue.ls = ls; // eslint-disable-line
-    Object.defineProperty(Vue.prototype, '$ls', {
+    Vue[_options.name] = ls; // eslint-disable-line
+    Object.defineProperty(Vue.prototype, `$${_options.name}`, {
       /**
        * Define $ls property
        *
