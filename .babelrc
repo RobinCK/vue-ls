@@ -1,14 +1,28 @@
 {
   "presets": [
-    [
-      "es2015",
-      {
-        "modules": false
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": [
+          "> 1%",
+          "Chrome >= 14",
+          "Safari >= 4",
+          "Firefox >= 4",
+          "Opera >= 10",
+          "Edge >= 41",
+          "ie >= 9",
+          "iOS >= 6",
+          "ChromeAndroid >= 4",
+          "OperaMobile >= 12"
+        ]
       }
-    ]
+    }]
+  ],
+  "ignore": [
+    "dist/*.js",
+    "packages/**/*.js"
   ],
   "plugins": [
-    "transform-object-assign",
-    "transform-es2015-modules-commonjs"
+    "transform-object-assign"
   ]
 }
