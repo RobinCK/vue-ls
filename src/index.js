@@ -13,11 +13,10 @@ const VueLocalStorage = {
    * @returns {Storage}
    */
   install(Vue, options) {
-    const _options = {
-      ...options,
+    const _options = Object.assign({}, options, {
       storage: options.storage || 'local',
       name: options.name || 'ls',
-    };
+    });
 
     if (_options.storage && ['memory', 'local', 'session'].indexOf(_options.storage) === -1) {
       throw new Error(`Vue-ls: Storage "${_options.storage}" is not supported`);
