@@ -2,13 +2,22 @@ import Memory from './memory';
 import Storage from './storage';
 
 let store;
-['localStorage', 'sessionStorage'].forEach( v => {
-  if (store) return; 
+['localStorage', 'sessionStorage'].forEach((v) => {
+  if (store) {
+    return;
+  }
+
   try {
     store = typeof window !== 'undefined' && v in window ? window[v] : undefined;
-  } catch (e) { console.log(v + ' error: ' + e) }
-})
-if (!store) store = Memory;
+  } catch (e) {
+    console.log(`${v} Error ${e.toString()}`); // eslint-disable-line
+  }
+});
+
+if (!store) {
+  store = Memory;
+}
+
 const ls = new Storage(store);
 
 const VueLocalStorage = {
