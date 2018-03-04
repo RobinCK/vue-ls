@@ -1,10 +1,10 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
-	(global['vue-ls'] = factory());
+	(global.VueLocalStorage = factory());
 }(this, (function () { 'use strict';
 
-var ls$1 = {};
+var ls = {};
 
 var memoryStorage = {
   /**
@@ -14,7 +14,7 @@ var memoryStorage = {
    * @returns {*}
    */
   getItem: function getItem(name) {
-    return name in ls$1 ? ls$1[name] : null;
+    return name in ls ? ls[name] : null;
   },
 
 
@@ -26,7 +26,7 @@ var memoryStorage = {
    * @returns {boolean}
    */
   setItem: function setItem(name, value) {
-    ls$1[name] = value;
+    ls[name] = value;
 
     return true;
   },
@@ -39,10 +39,10 @@ var memoryStorage = {
    * @returns {boolean}
    */
   removeItem: function removeItem(name) {
-    var found = name in ls$1;
+    var found = name in ls;
 
     if (found) {
-      return delete ls$1[name];
+      return delete ls[name];
     }
 
     return false;
@@ -55,7 +55,7 @@ var memoryStorage = {
    * @returns {boolean}
    */
   clear: function clear() {
-    ls$1 = {};
+    ls = {};
 
     return true;
   },
@@ -68,7 +68,7 @@ var memoryStorage = {
    * @returns {*}
    */
   key: function key(index) {
-    var keys = Object.keys(ls$1);
+    var keys = Object.keys(ls);
 
     return typeof keys[index] !== 'undefined' ? keys[index] : null;
   }
@@ -81,170 +81,13 @@ Object.defineProperty(memoryStorage, 'length', {
    * @return {number}
    */
   get: function get() {
-    return Object.keys(ls$1).length;
+    return Object.keys(ls).length;
   }
 });
 
-var asyncGenerator = function () {
-  function AwaitValue(value) {
-    this.value = value;
-  }
+var _createClass$1 = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-  function AsyncGenerator(gen) {
-    var front, back;
-
-    function send(key, arg) {
-      return new Promise(function (resolve, reject) {
-        var request = {
-          key: key,
-          arg: arg,
-          resolve: resolve,
-          reject: reject,
-          next: null
-        };
-
-        if (back) {
-          back = back.next = request;
-        } else {
-          front = back = request;
-          resume(key, arg);
-        }
-      });
-    }
-
-    function resume(key, arg) {
-      try {
-        var result = gen[key](arg);
-        var value = result.value;
-
-        if (value instanceof AwaitValue) {
-          Promise.resolve(value.value).then(function (arg) {
-            resume("next", arg);
-          }, function (arg) {
-            resume("throw", arg);
-          });
-        } else {
-          settle(result.done ? "return" : "normal", result.value);
-        }
-      } catch (err) {
-        settle("throw", err);
-      }
-    }
-
-    function settle(type, value) {
-      switch (type) {
-        case "return":
-          front.resolve({
-            value: value,
-            done: true
-          });
-          break;
-
-        case "throw":
-          front.reject(value);
-          break;
-
-        default:
-          front.resolve({
-            value: value,
-            done: false
-          });
-          break;
-      }
-
-      front = front.next;
-
-      if (front) {
-        resume(front.key, front.arg);
-      } else {
-        back = null;
-      }
-    }
-
-    this._invoke = send;
-
-    if (typeof gen.return !== "function") {
-      this.return = undefined;
-    }
-  }
-
-  if (typeof Symbol === "function" && Symbol.asyncIterator) {
-    AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
-      return this;
-    };
-  }
-
-  AsyncGenerator.prototype.next = function (arg) {
-    return this._invoke("next", arg);
-  };
-
-  AsyncGenerator.prototype.throw = function (arg) {
-    return this._invoke("throw", arg);
-  };
-
-  AsyncGenerator.prototype.return = function (arg) {
-    return this._invoke("return", arg);
-  };
-
-  return {
-    wrap: function (fn) {
-      return function () {
-        return new AsyncGenerator(fn.apply(this, arguments));
-      };
-    },
-    await: function (value) {
-      return new AwaitValue(value);
-    }
-  };
-}();
-
-
-
-
-
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
-var createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
-
-
-
-
-
-
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-
-    for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }
-
-  return target;
-};
+function _classCallCheck$1(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var listeners = {};
 
@@ -254,10 +97,10 @@ var listeners = {};
 
 var _class$1 = function () {
   function _class() {
-    classCallCheck(this, _class);
+    _classCallCheck$1(this, _class);
   }
 
-  createClass(_class, null, [{
+  _createClass$1(_class, null, [{
     key: 'on',
 
     /**
@@ -328,8 +171,15 @@ var _class$1 = function () {
       }
     }
   }]);
+
   return _class;
 }();
+
+var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
  * Storage Bridge
@@ -340,7 +190,7 @@ var _class = function () {
    * @param {Object} storage
    */
   function _class(storage) {
-    classCallCheck(this, _class);
+    _classCallCheck(this, _class);
 
     this.storage = storage;
     this.options = {
@@ -354,7 +204,7 @@ var _class = function () {
        *
        * @return {number}
        */
-      get: function get$$1() {
+      get: function get() {
         return this.storage.length;
       }
     });
@@ -379,12 +229,12 @@ var _class = function () {
    */
 
 
-  createClass(_class, [{
+  _createClass(_class, [{
     key: 'setOptions',
     value: function setOptions() {
       var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-      this.options = _extends(this.options, options);
+      this.options = _extends$1(this.options, options);
     }
 
     /**
@@ -397,7 +247,7 @@ var _class = function () {
 
   }, {
     key: 'set',
-    value: function set$$1(name, value) {
+    value: function set(name, value) {
       var expire = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
 
       var stringifyValue = JSON.stringify({
@@ -418,7 +268,7 @@ var _class = function () {
 
   }, {
     key: 'get',
-    value: function get$$1(name) {
+    value: function get(name) {
       var def = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
       var item = this.storage.getItem(this.options.namespace + name);
@@ -525,12 +375,15 @@ var _class = function () {
       _class$1.off(this.options.namespace + name, callback);
     }
   }]);
+
   return _class;
 }();
 
-var store = typeof window !== 'undefined' && 'localStorage' in window ? window.localStorage : memoryStorage;
-var ls = new _class(store);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+/**
+ * @type {{install: (function(Object, Object): Storage)}}
+ */
 var VueLocalStorage = {
   /**
    * Install plugin
@@ -539,19 +392,53 @@ var VueLocalStorage = {
    * @param {Object} options
    * @returns {Storage}
    */
-  install: function install(Vue, options) {
+  install: function install(Vue) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    var _options = _extends({}, options, {
+      storage: !!options.storage ? options.storage : 'local',
+      name: options.name || 'ls'
+    });
+
+    if (_options.storage && ['memory', 'local', 'session'].indexOf(_options.storage) === -1) {
+      throw new Error('Vue-ls: Storage "' + _options.storage + '" is not supported');
+    }
+
+    var store = null;
+
+    switch (_options.storage) {// eslint-disable-line
+      case 'local':
+        store = typeof window !== 'undefined' && 'localStorage' in window ? window.localStorage : null;
+        break;
+
+      case 'session':
+        store = typeof window !== 'undefined' && 'sessionStorage' in window ? window.sessionStorage : null;
+        break;
+      case 'memory':
+        store = memoryStorage;
+        break;
+    }
+
+    if (!store) {
+      store = memoryStorage;
+      // eslint-disable-next-line
+      console.error('Vue-ls: Storage "' + _options.storage + '" is not supported your system, use memory storage');
+    }
+
+    var ls = new _class(store);
+
     ls.setOptions(_extends(ls.options, {
       namespace: ''
-    }, options || {}));
+    }, _options || {}));
 
-    Vue.ls = ls; // eslint-disable-line
-    Object.defineProperty(Vue.prototype, '$ls', {
+    Vue[_options.name] = ls; // eslint-disable-line
+    Object.defineProperty(Vue.prototype, '$' + _options.name, {
       /**
        * Define $ls property
        *
        * @return {Storage}
        */
-      get: function get$$1() {
+      get: function get() {
         return ls;
       }
     });

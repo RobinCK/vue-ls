@@ -6,7 +6,7 @@ import Vue from 'vue';
 
 Vue.use(Ls);
 
-test('Add/Remove event', t => {
+test('Add/Remove event', (t) => {
   t.plan(2);
 
   Vue.ls.on('item_one_test', () => {});
