@@ -110,7 +110,10 @@
   },
   "ava": {
     "babel": {
-      "babelrc": true
+      "babelrc": true,
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
     },
     "tap": true,
     "files": [

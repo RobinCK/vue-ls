@@ -5,7 +5,29 @@ export default {
   input: 'src/index.js',
   plugins: [
     babel({
-      babelrc: true,
+      babelrc: false,
+      presets: [
+        ["env", {
+          modules: false,
+          targets: {
+            browsers: [
+              "> 1%",
+              "Chrome >= 14",
+              "Safari >= 4",
+              "Firefox >= 4",
+              "Opera >= 10",
+              "Edge >= 41",
+              "ie >= 9",
+              "iOS >= 6",
+              "ChromeAndroid >= 4",
+              "OperaMobile >= 12"
+            ]
+          }
+        }]
+      ],
+      plugins: [
+        "transform-object-assign"
+      ],
       runtimeHelpers: true,
       externalHelpers: false,
       exclude: 'node_modules/**',

@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
-	(global['vue-ls'] = factory());
+	(global.VueLocalStorage = factory());
 }(this, (function () { 'use strict';
 
 var ls = {};
@@ -392,9 +392,11 @@ var VueLocalStorage = {
    * @param {Object} options
    * @returns {Storage}
    */
-  install: function install(Vue, options) {
+  install: function install(Vue) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
     var _options = _extends({}, options, {
-      storage: options.storage || 'local',
+      storage: !!options.storage ? options.storage : 'local',
       name: options.name || 'ls'
     });
 
@@ -419,6 +421,7 @@ var VueLocalStorage = {
 
     if (!store) {
       store = memoryStorage;
+      // eslint-disable-next-line
       console.error('Vue-ls: Storage "' + _options.storage + '" is not supported your system, use memory storage');
     }
 
