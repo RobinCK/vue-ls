@@ -34,5 +34,4 @@ gulp.task('e2e', gulp.series(['http:start'], function () {
 }));
 
 gulp.task('test', gulp.series(['e2e', 'http:stop']));
-
 gulp.task('default', gulp.parallel('js'));
