@@ -11,7 +11,7 @@ test.beforeEach(() => {
 });
 
 //mock-browser not supported storage event
-test('Add/Remove event', t => {
+test('Add/Remove event', (t) => {
   t.plan(4);
 
   Vue.ls.on('item_one_test', () => {});
