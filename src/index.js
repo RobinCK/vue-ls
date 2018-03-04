@@ -25,14 +25,18 @@ const VueLocalStorage = {
     let store = null;
 
     switch(_options.storage) { // eslint-disable-line
-      case 'local': store = typeof window !== 'undefined' && 'localStorage' in window
-        ? window.localStorage
-        : null;
+      case 'local':
+        store = typeof window !== 'undefined' && 'localStorage' in window
+          ? window.localStorage
+          : null
+        ;
         break;
 
-      case 'session': store = typeof window !== 'undefined' && 'sessionStorage' in window
-        ? window.sessionStorage
-        : null;
+      case 'session':
+        store = typeof window !== 'undefined' && 'sessionStorage' in window
+          ? window.sessionStorage
+          : null
+        ;
         break;
       case 'memory': store = Memory;
         break;
