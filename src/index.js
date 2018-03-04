@@ -12,7 +12,7 @@ const VueLocalStorage = {
    * @param {Object} options
    * @returns {Storage}
    */
-  install(Vue, options) {
+  install(Vue, options = {}) {
     const _options = Object.assign({}, options, {
       storage: options.storage || 'local',
       name: options.name || 'ls',
