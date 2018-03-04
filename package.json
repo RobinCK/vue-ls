@@ -60,6 +60,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
     "babel-loader": "^7.0.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -108,7 +109,9 @@
     ]
   },
   "ava": {
-    "babel": false,
+    "babel": {
+      "babelrc": true
+    },
     "tap": true,
     "files": [
       "./test/unit/ava/*.js"
