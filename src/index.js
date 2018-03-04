@@ -44,6 +44,7 @@ const VueLocalStorage = {
 
     if (!store) {
       store = Memory;
+      // eslint-disable-next-line
       console.error(`Vue-ls: Storage "${_options.storage}" is not supported your system, use memory storage`);
     }
 

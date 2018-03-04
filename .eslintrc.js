@@ -13,6 +13,7 @@ module.exports = {
     "window": true
   },
   "rules": {
+    "semi-style": 0,
     "no-cond-assign": 0,
     "no-plusplus": 0,
     "no-restricted-syntax": 0,
