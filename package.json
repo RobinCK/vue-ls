@@ -1,6 +1,6 @@
 {
   "name": "vue-ls",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Vue plugin for work with LocalStorage from Vue context",
   "main": "dist/vue-ls.js",
   "jsnext:main": "src/index.js",
