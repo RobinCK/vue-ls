@@ -50,6 +50,9 @@
     "CHANGELOG.md",
     "test",
     "tests",
+    ".hound.yml",
+    ".jshintignore",
+    ".jshintrc",
     "build"
   ]
 }
