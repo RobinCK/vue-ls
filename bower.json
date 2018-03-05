@@ -53,6 +53,11 @@
     ".hound.yml",
     ".jshintignore",
     ".jshintrc",
+    ".nvmrc",
+    "Dockerfile",
+    "docker-compose.yml",
+    ".gitattributes",
+    ".dockerignore",
     "build"
   ]
 }
