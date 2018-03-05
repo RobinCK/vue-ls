@@ -1,7 +1,5 @@
 <p align="center">
-
-  <img width="130" alt="vue-ls logo" src="https://cdn.rawgit.com/RobinCK/0ef39abfff9a44061cee5b2c072e892e/raw/e2b95a57825ac9b8e845609ff9fc5fdaae37b55a/logo.svg">
-  
+  <img width="130" height="" alt="vue-ls logo" src="https://cdn.rawgit.com/RobinCK/0ef39abfff9a44061cee5b2c072e892e/raw/e2b95a57825ac9b8e845609ff9fc5fdaae37b55a/logo.svg">
 </p>
 
 <p align="center">
