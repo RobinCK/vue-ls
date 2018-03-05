@@ -34,7 +34,7 @@
 
 # vue-ls
 
-Vue plugin for work with LocalStorage from Vue context
+Vue plugin for work with local storage, session storage and memory storage from Vue context
 
 [![NPM](https://nodei.co/npm/vue-ls.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-ls/)
 
@@ -87,7 +87,9 @@ Vue localStorage API.
 import VueLocalStorage from 'vue-ls';
 
 options = {
-  namespace: 'vuejs__'
+  namespace: 'vuejs__', // key prefix
+  name: 'ls', // name variable Vue.[ls] or this.[$ls],
+  storage: 'local', // storage name session, local, memory
 };
 
 Vue.use(VueLocalStorage, options);
