@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
-	(global.VueLocalStorage = factory());
+	(global.VueStorage = factory());
 }(this, (function () { 'use strict';
 
 var ls = {};
@@ -384,7 +384,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /**
  * @type {{install: (function(Object, Object): Storage)}}
  */
-var VueLocalStorage = {
+var VueStorage = {
   /**
    * Install plugin
    *
@@ -396,7 +396,7 @@ var VueLocalStorage = {
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     var _options = _extends({}, options, {
-      storage: !!options.storage ? options.storage : 'local',
+      storage: options.storage || 'local',
       name: options.name || 'ls'
     });
 
@@ -446,9 +446,9 @@ var VueLocalStorage = {
 };
 
 if (typeof window !== 'undefined') {
-  window.VueLocalStorage = VueLocalStorage;
+  window.VueStorage = VueStorage;
 }
 
-return VueLocalStorage;
+return VueStorage;
 
 })));

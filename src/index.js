@@ -4,7 +4,7 @@ import Storage from './storage';
 /**
  * @type {{install: (function(Object, Object): Storage)}}
  */
-const VueLocalStorage = {
+const VueStorage = {
   /**
    * Install plugin
    *
@@ -69,7 +69,7 @@ const VueLocalStorage = {
 };
 
 if (typeof window !== 'undefined') {
-  window.VueLocalStorage = VueLocalStorage;
+  window.VueStorage = VueStorage;
 }
 
-export default VueLocalStorage;
+export default VueStorage;

@@ -37,6 +37,6 @@ export default {
   output: {
     file: process.env.NODE_ENV === 'production' ? 'dist/vue-ls.min.js' : 'dist/vue-ls.js',
     format: 'umd',
-    name: 'VueLocalStorage',
+    name: 'VueStorage',
   }
 };
