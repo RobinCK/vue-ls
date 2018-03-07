@@ -381,6 +381,9 @@ var _class = function () {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+// eslint-disable-next-line
+var _global = typeof window !== 'undefined' ? window : global || {};
+
 /**
  * @type {{install: (function(Object, Object): Storage)}}
  */
@@ -408,11 +411,11 @@ var VueStorage = {
 
     switch (_options.storage) {// eslint-disable-line
       case 'local':
-        store = typeof window !== 'undefined' && 'localStorage' in window ? window.localStorage : null;
+        store = 'localStorage' in _global ? _global.localStorage : null;
         break;
 
       case 'session':
-        store = typeof window !== 'undefined' && 'sessionStorage' in window ? window.sessionStorage : null;
+        store = 'sessionStorage' in _global ? _global.sessionStorage : null;
         break;
       case 'memory':
         store = memoryStorage;
@@ -445,9 +448,7 @@ var VueStorage = {
   }
 };
 
-if (typeof window !== 'undefined') {
-  window.VueStorage = VueStorage;
-}
+_global.VueStorage = VueStorage;
 
 return VueStorage;
 

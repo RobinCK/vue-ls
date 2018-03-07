@@ -1,6 +1,9 @@
 import Memory from './memory';
 import Storage from './storage';
 
+// eslint-disable-next-line
+const _global = (typeof window !== 'undefined' ? window : global || {});
+
 /**
  * @type {{install: (function(Object, Object): Storage)}}
  */
@@ -26,15 +29,15 @@ const VueStorage = {
 
     switch(_options.storage) { // eslint-disable-line
       case 'local':
-        store = typeof window !== 'undefined' && 'localStorage' in window
-          ? window.localStorage
+        store = 'localStorage' in _global
+          ? _global.localStorage
           : null
         ;
         break;
 
       case 'session':
-        store = typeof window !== 'undefined' && 'sessionStorage' in window
-          ? window.sessionStorage
+        store = 'sessionStorage' in _global
+          ? _global.sessionStorage
           : null
         ;
         break;
@@ -68,8 +71,6 @@ const VueStorage = {
   },
 };
 
-if (typeof window !== 'undefined') {
-  window.VueStorage = VueStorage;
-}
+_global.VueStorage = VueStorage;
 
 export default VueStorage;
