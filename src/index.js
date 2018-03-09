@@ -1,11 +1,11 @@
-import Memory from './memory';
-import Storage from './storage';
+import MemoryStorage from './MemoryStorage';
+import WebStorage from './WebStorage';
 
 // eslint-disable-next-line
 const _global = (typeof window !== 'undefined' ? window : global || {});
 
 /**
- * @type {{install: (function(Object, Object): Storage)}}
+ * @type {{install: (function(Object, Object): WebStorage)}}
  */
 const VueStorage = {
   /**
@@ -13,7 +13,7 @@ const VueStorage = {
    *
    * @param {Object} Vue
    * @param {Object} options
-   * @returns {Storage}
+   * @returns {WebStorage}
    */
   install(Vue, options = {}) {
     const _options = Object.assign({}, options, {
@@ -41,17 +41,17 @@ const VueStorage = {
           : null
         ;
         break;
-      case 'memory': store = Memory;
+      case 'memory': store = MemoryStorage;
         break;
     }
 
     if (!store) {
-      store = Memory;
+      store = MemoryStorage;
       // eslint-disable-next-line
       console.error(`Vue-ls: Storage "${_options.storage}" is not supported your system, use memory storage`);
     }
 
-    const ls = new Storage(store);
+    const ls = new WebStorage(store);
 
     ls.setOptions(Object.assign(ls.options, {
       namespace: '',
@@ -62,7 +62,7 @@ const VueStorage = {
       /**
        * Define $ls property
        *
-       * @return {Storage}
+       * @return {WebStorage}
        */
       get() {
         return ls;
