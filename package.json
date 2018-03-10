@@ -102,6 +102,7 @@
     "remove": "^0.1.5",
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-local-resolve": "^1.0.7",
     "rollup-plugin-uglify": "^3.0.0",
     "selenium-server": "^3.3.1",
     "serve-static": "^1.12.1",

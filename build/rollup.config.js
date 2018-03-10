@@ -1,9 +1,11 @@
 import babel from 'rollup-plugin-babel';
 import uglify from 'rollup-plugin-uglify';
+import localResolve from 'rollup-plugin-local-resolve';
 
 export default {
   input: 'src/index.js',
   plugins: [
+    localResolve(),
     babel({
       babelrc: false,
       presets: [
