@@ -1,5 +1,6 @@
-import { MemoryStorage } from './MemoryStorage';
+import { CookieStorageInterface } from './CookieStorageInterface';
+import { MemoryStorageInterface } from './MemoryStorageInterface';
 import { WebStorage } from './WebStorage';
 import { WebStorageEvent } from './WebStorageEvent';
 
-export { MemoryStorage, WebStorage, WebStorageEvent };
+export { CookieStorageInterface, MemoryStorageInterface, WebStorage, WebStorageEvent };

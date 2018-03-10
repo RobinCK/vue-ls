@@ -1,6 +1,12 @@
-let ls = {};
+const $cookie = {
+  get: () => document.cookie,
+  set: (value) => {
+    document.cookie = value;
+  },
+  data: {}, // metadata associated to the cookies
+};
 
-export class MemoryStorage {
+export class CookieStorageInterface {
   /**
    * Get item
    *
@@ -8,7 +14,6 @@ export class MemoryStorage {
    * @returns {*}
    */
   static getItem(name) {
-    return name in ls ? ls[name] : null;
   }
 
   /**
@@ -19,9 +24,6 @@ export class MemoryStorage {
    * @returns {boolean}
    */
   static setItem(name, value) {
-    ls[name] = value;
-
-    return true;
   }
 
   /**
@@ -31,13 +33,6 @@ export class MemoryStorage {
    * @returns {boolean}
    */
   static removeItem(name) {
-    const found = name in ls;
-
-    if (found) {
-      return delete ls[name];
-    }
-
-    return false;
   }
 
   /**
@@ -46,9 +41,6 @@ export class MemoryStorage {
    * @returns {boolean}
    */
   static clear() {
-    ls = {};
-
-    return true;
   }
 
   /**
@@ -58,9 +50,6 @@ export class MemoryStorage {
    * @returns {*}
    */
   static key(index) {
-    const keys = Object.keys(ls);
-
-    return typeof keys[index] !== 'undefined' ? keys[index] : null;
   }
 
   /**
@@ -69,6 +58,5 @@ export class MemoryStorage {
    * @return {number}
    */
   static get length() {
-    return Object.keys(ls).length;
   }
 }
