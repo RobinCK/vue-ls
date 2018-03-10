@@ -1,8 +1,9 @@
+import Vue from 'vue';
 import test from 'ava';
+
 import './helpers/setupOldBrowserEnv'
 import Ls from '../../../src/index';
-import WebStorageEvent from '../../../src/WebStorageEvent';
-import Vue from 'vue';
+import { WebStorageEvent } from '../../../src/storage';
 
 Vue.use(Ls);
 

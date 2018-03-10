@@ -1,15 +1,15 @@
 let ls = {};
 
-const memoryStorage = {
+export class MemoryStorage {
   /**
    * Get item
    *
    * @param {string} name
    * @returns {*}
    */
-  getItem(name) {
+  static getItem(name) {
     return name in ls ? ls[name] : null;
-  },
+  }
 
   /**
    * Set item
@@ -18,11 +18,11 @@ const memoryStorage = {
    * @param {*} value
    * @returns {boolean}
    */
-  setItem(name, value) {
+  static setItem(name, value) {
     ls[name] = value;
 
     return true;
-  },
+  }
 
   /**
    * Remove item
@@ -30,7 +30,7 @@ const memoryStorage = {
    * @param {string} name
    * @returns {boolean}
    */
-  removeItem(name) {
+  static removeItem(name) {
     const found = name in ls;
 
     if (found) {
@@ -38,18 +38,18 @@ const memoryStorage = {
     }
 
     return false;
-  },
+  }
 
   /**
    * Clear storage
    *
    * @returns {boolean}
    */
-  clear() {
+  static clear() {
     ls = {};
 
     return true;
-  },
+  }
 
   /**
    * Get item by key
@@ -57,22 +57,18 @@ const memoryStorage = {
    * @param {number} index
    * @returns {*}
    */
-  key(index) {
+  static key(index) {
     const keys = Object.keys(ls);
 
     return typeof keys[index] !== 'undefined' ? keys[index] : null;
-  },
-};
+  }
 
-Object.defineProperty(memoryStorage, 'length', {
   /**
    * Define length property
    *
    * @return {number}
    */
-  get() {
+  static get length() {
     return Object.keys(ls).length;
-  },
-});
-
-export default memoryStorage;
+  }
+}

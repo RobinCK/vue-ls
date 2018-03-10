@@ -1,9 +1,9 @@
-import WebStorageEvent from './WebStorageEvent';
+import { WebStorageEvent } from './';
 
 /**
  * Storage Bridge
  */
-export default class {
+export class WebStorage {
   /**
    * @param {Object} storage
    */

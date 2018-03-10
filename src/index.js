@@ -1,5 +1,4 @@
-import MemoryStorage from './MemoryStorage';
-import WebStorage from './WebStorage';
+import { MemoryStorage, WebStorage } from './storage';
 
 // eslint-disable-next-line
 const _global = (typeof window !== 'undefined' ? window : global || {});

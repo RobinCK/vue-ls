@@ -28,6 +28,7 @@ module.exports = {
     "no-extra-boolean-cast": 0,
     "no-lonely-if": 0,
     "no-underscore-dangle": 0,
+    "import/prefer-default-export": 0,
     'import/extensions': ['error', 'always', {
       "js": "never"
     }]
