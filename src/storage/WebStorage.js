@@ -1,9 +1,9 @@
-import StorageEvent from './event';
+import { WebStorageEvent } from './';
 
 /**
  * Storage Bridge
  */
-export default class {
+export class WebStorage {
   /**
    * @param {Object} storage
    */
@@ -28,11 +28,11 @@ export default class {
     if (typeof window !== 'undefined') {
       for (const i in this.options.events) {
         if (window.addEventListener) {
-          window.addEventListener(this.options.events[i], StorageEvent.emit, false);
+          window.addEventListener(this.options.events[i], WebStorageEvent.emit, false);
         } else if (window.attachEvent) {
-          window.attachEvent(`on${this.options.events[i]}`, StorageEvent.emit);
+          window.attachEvent(`on${this.options.events[i]}`, WebStorageEvent.emit);
         } else {
-          window[`on${this.options.events[i]}`] = StorageEvent.emit;
+          window[`on${this.options.events[i]}`] = WebStorageEvent.emit;
         }
       }
     }
@@ -147,7 +147,7 @@ export default class {
    * @param {Function} callback
    */
   on(name, callback) {
-    StorageEvent.on(this.options.namespace + name, callback);
+    WebStorageEvent.on(this.options.namespace + name, callback);
   }
 
   /**
@@ -157,6 +157,6 @@ export default class {
    * @param {Function} callback
    */
   off(name, callback) {
-    StorageEvent.off(this.options.namespace + name, callback);
+    WebStorageEvent.off(this.options.namespace + name, callback);
   }
 }
