@@ -79,4 +79,4 @@ class MemoryStorageInterface {
 
 const MemoryStorage = new MemoryStorageInterface();
 
-export MemoryStorage;
+export { MemoryStorage };

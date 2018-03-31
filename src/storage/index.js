@@ -1,9 +1,9 @@
-import { MemoryStorageInterface } from './MemoryStorageInterface';
+import { MemoryStorage } from './MemoryStorage';
 import { WebStorage } from './WebStorage';
 import { WebStorageEvent } from './WebStorageEvent';
 
 export {
-  MemoryStorageInterface,
+  MemoryStorage,
   WebStorage,
   WebStorageEvent,
 };

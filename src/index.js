@@ -1,4 +1,4 @@
-import { MemoryStorageInterface, WebStorage } from './storage';
+import { MemoryStorage, WebStorage } from './storage';
 
 // eslint-disable-next-line
 const _global = (typeof window !== 'undefined' ? window : global || {});
@@ -40,12 +40,12 @@ const VueStorage = {
           : null
         ;
         break;
-      case 'memory': store = MemoryStorageInterface;
+      case 'memory': store = MemoryStorage;
         break;
     }
 
     if (!store) {
-      store = MemoryStorageInterface;
+      store = MemoryStorage;
       // eslint-disable-next-line
       console.error(`Vue-ls: Storage "${_options.storage}" is not supported your system, use memory storage`);
     }

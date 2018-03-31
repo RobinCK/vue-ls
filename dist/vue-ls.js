@@ -10,20 +10,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var ls = {};
 
-var MemoryStorage = function () {
-  function MemoryStorage() {
-    _classCallCheck(this, MemoryStorage);
+var MemoryStorageInterface = function () {
+  function MemoryStorageInterface() {
+    _classCallCheck(this, MemoryStorageInterface);
+
+    Object.defineProperty(this, 'length', {
+      /**
+       * Define length property
+       *
+       * @return {number}
+       */
+      get: function get() {
+        return Object.keys(ls).length;
+      }
+    });
   }
 
-  _createClass(MemoryStorage, null, [{
-    key: 'getItem',
+  /**
+   * Get item
+   *
+   * @param {string} name
+   * @returns {*}
+   */
 
-    /**
-     * Get item
-     *
-     * @param {string} name
-     * @returns {*}
-     */
+
+  _createClass(MemoryStorageInterface, [{
+    key: 'getItem',
     value: function getItem(name) {
       return name in ls ? ls[name] : null;
     }
@@ -91,22 +103,12 @@ var MemoryStorage = function () {
 
       return typeof keys[index] !== 'undefined' ? keys[index] : null;
     }
-
-    /**
-     * Define length property
-     *
-     * @return {number}
-     */
-
-  }, {
-    key: 'length',
-    get: function get() {
-      return Object.keys(ls).length;
-    }
   }]);
 
-  return MemoryStorage;
+  return MemoryStorageInterface;
 }();
+
+var MemoryStorage = new MemoryStorageInterface();
 
 var _extends$1 = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
