@@ -1,6 +1,7 @@
-import test from 'ava';
-import Ls from '../../../src/index';
 import Vue from 'vue';
+import test from 'ava';
+
+import Ls from '../../../src/index';
 
 test('Test exception storage', (t) => {
   try {

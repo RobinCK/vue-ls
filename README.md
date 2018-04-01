@@ -34,7 +34,7 @@
 
 # vue-ls
 
-Vue plugin for work with LocalStorage from Vue context
+Vue plugin for work with local storage, session storage and memory storage from Vue context
 
 [![NPM](https://nodei.co/npm/vue-ls.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-ls/)
 
@@ -81,19 +81,21 @@ npm run build
 
 ## Usage
 
-Vue localStorage API.
+Vue storage API.
 
 ``` js
-import VueLocalStorage from 'vue-ls';
+import Storage from 'vue-ls';
 
 options = {
-  namespace: 'vuejs__'
+  namespace: 'vuejs__', // key prefix
+  name: 'ls', // name variable Vue.[ls] or this.[$ls],
+  storage: 'local', // storage name session, local, memory
 };
 
-Vue.use(VueLocalStorage, options);
+Vue.use(Storage, options);
 
 //or
-//Vue.use(VueLocalStorage);
+//Vue.use(Storage);
 
 new Vue({
     el: '#app',
@@ -127,30 +129,30 @@ new Vue({
 
 #### `Vue.ls.get(name, def)`
 
-Returns value under `name` in local storage. Internally parses the value from JSON before returning it.
+Returns value under `name` in storage. Internally parses the value from JSON before returning it.
 
 - `def`: default null, returned if not set `name`.
 
 #### `Vue.ls.set(name, value, expire)`
 
-Persists `value` under `name` in local storage. Internally converts the `value` to JSON.
+Persists `value` under `name` in storage. Internally converts the `value` to JSON.
 
 - `expire`: default null, life time in milliseconds `name`
 
 #### `Vue.ls.remove(name)`
 
-Removes `name` from local storage. Returns `true` if the property was successfully deleted, and `false` otherwise.
+Removes `name` from storage. Returns `true` if the property was successfully deleted, and `false` otherwise.
 
 #### `Vue.ls.clear()`
 
-Clears local storage.
+Clears storage.
 
 #### `Vue.ls.on(name, callback)`
 
 Listen for changes persisted against `name` on other tabs. Triggers `callback` when a change occurs, passing the following arguments.
 
-- `newValue`: the current value for `name` in local storage, parsed from the persisted JSON
-- `oldValue`: the old value for `name` in local storage, parsed from the persisted JSON
+- `newValue`: the current value for `name` in storage, parsed from the persisted JSON
+- `oldValue`: the old value for `name` in storage, parsed from the persisted JSON
 - `url`: the url for the tab where the modification came from
 
 #### `Vue.ls.off(name, callback)`
@@ -176,6 +178,13 @@ Testing Supported By<br>
 Some browsers don't support the storage event, and most of the browsers that do support it will only call it when the storage is changed by a different window. So, open your page up in two windows. Click the links in one window and you will probably see the event in the other.
 
 The assumption is that your page will already know all interactions with localStorage in its own window and only needs notification when a different window changes things. This, of course, is a foolish assumption. But.
+
+## Other my Vue JS plugins
+
+| Project | Status | Description |
+|---------|--------|-------------|
+| [vue-gallery](https://github.com/RobinCK/vue-gallery)    | ![npm](https://img.shields.io/npm/v/vue-gallery.svg)  | VueJS responsive and customizable image and video gallery |
+| [vue-popper](https://github.com/RobinCK/vue-popper)      | ![npm](https://img.shields.io/npm/v/vue-popperjs.svg) | VueJS popover component based on <a href="https://popper.js.org/">popper.js</a> |
 
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2FRobinCK%2Fvue-ls.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2FRobinCK%2Fvue-ls?ref=badge_large)

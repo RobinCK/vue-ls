@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  example:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vue-ls
+    ports:
+      - '3000:3000'

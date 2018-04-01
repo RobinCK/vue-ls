@@ -3,7 +3,7 @@ const listeners = {};
 /**
  * Event class
  */
-export default class {
+export class WebStorageEvent {
   /**
    * Add storage change event
    *

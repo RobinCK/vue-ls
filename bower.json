@@ -1,6 +1,6 @@
 {
   "name": "vue-ls",
-  "version": "2.3.3",
+  "version": "3.0.3",
   "description": "Vue plugin for work with LocalStorage from Vue context",
   "main": "dist/vue-ls.js",
   "authors": [
@@ -8,18 +8,26 @@
   ],
   "license": "MIT",
   "keywords": [
+    "storage",
+    "localstorage",
+    "local-storage",
     "vue-localstorage",
     "vuejs-localstorage",
     "vue-local-storage",
     "vuejs-local-storage",
+    "memorystroage",
+    "sessionstorage",
+    "session-storage",
+    "vue-sessionstorage",
+    "vuejs-sessionstorage",
+    "vue-session-storage",
+    "vuejs-session-storage",
+    "memory-stroage",
     "vue-ls",
     "vue",
     "vuejs",
     "vue-plugin",
-    "localstorage",
-    "local-storage",
     "watch",
-    "persistance",
     "es6-modules"
   ],
   "homepage": "https://github.com/RobinCK/vue-ls",
@@ -42,6 +50,14 @@
     "CHANGELOG.md",
     "test",
     "tests",
+    ".hound.yml",
+    ".jshintignore",
+    ".jshintrc",
+    ".nvmrc",
+    "Dockerfile",
+    "docker-compose.yml",
+    ".gitattributes",
+    ".dockerignore",
     "build"
   ]
 }

@@ -1,6 +1,19 @@
 let ls = {};
 
-const memoryStorage = {
+class MemoryStorageInterface {
+  constructor() {
+    Object.defineProperty(this, 'length', {
+      /**
+       * Define length property
+       *
+       * @return {number}
+       */
+      get() {
+        return Object.keys(ls).length;
+      },
+    });
+  }
+
   /**
    * Get item
    *
@@ -9,7 +22,7 @@ const memoryStorage = {
    */
   getItem(name) {
     return name in ls ? ls[name] : null;
-  },
+  }
 
   /**
    * Set item
@@ -22,7 +35,7 @@ const memoryStorage = {
     ls[name] = value;
 
     return true;
-  },
+  }
 
   /**
    * Remove item
@@ -38,7 +51,7 @@ const memoryStorage = {
     }
 
     return false;
-  },
+  }
 
   /**
    * Clear storage
@@ -49,7 +62,7 @@ const memoryStorage = {
     ls = {};
 
     return true;
-  },
+  }
 
   /**
    * Get item by key
@@ -61,18 +74,9 @@ const memoryStorage = {
     const keys = Object.keys(ls);
 
     return typeof keys[index] !== 'undefined' ? keys[index] : null;
-  },
-};
+  }
+}
 
-Object.defineProperty(memoryStorage, 'length', {
-  /**
-   * Define length property
-   *
-   * @return {number}
-   */
-  get() {
-    return Object.keys(ls).length;
-  },
-});
+const MemoryStorage = new MemoryStorageInterface();
 
-export default memoryStorage;
+export { MemoryStorage };
