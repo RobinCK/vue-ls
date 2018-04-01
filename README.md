@@ -34,6 +34,8 @@
 
 # vue-ls
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/RobinCK/vue-ls.svg)](https://greenkeeper.io/)
+
 Vue plugin for work with local storage, session storage and memory storage from Vue context
 
 [![NPM](https://nodei.co/npm/vue-ls.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-ls/)
