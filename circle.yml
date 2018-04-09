@@ -1,6 +1,6 @@
 machine:
   node:
-    version: 4.7.3
+    version: 8
   environment:
     YARN_VERSION: 0.20.3
     PATH: "${PATH}:${HOME}/.yarn/bin:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"

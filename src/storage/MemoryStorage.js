@@ -1,3 +1,5 @@
+/* eslint class-methods-use-this: off */
+
 let ls = {};
 
 class MemoryStorageInterface {
