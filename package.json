@@ -112,7 +112,7 @@
     "webpack": "^4.5.0"
   },
   "peerDependecies": {
-    "vue": "^2.2.4",
+    "vue": "^2.2.4"
   }, 
   "semistandard": {
     "ignore": [
