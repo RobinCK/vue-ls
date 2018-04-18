@@ -109,9 +109,11 @@
     "rollup-plugin-uglify": "^3.0.0",
     "selenium-server": "^3.3.1",
     "serve-static": "^1.12.1",
-    "vue": "^2.2.4",
     "webpack": "^4.5.0"
   },
+  "peerDependecies": {
+    "vue": "^2.2.4",
+  }, 
   "semistandard": {
     "ignore": [
       "node_modules",
