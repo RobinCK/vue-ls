@@ -104,7 +104,7 @@ new Vue({
     mounted: function() {
         Vue.ls.set('foo', 'boo');
         //Set expire for item
-        Vue.ls.set('foo', 'boo', 60 * 60 * 1000); //expiry 1 hour
+        Vue.ls.set('foo', 'boo', 60 * 60); //expiry 1 hour
         Vue.ls.get('foo');
         Vue.ls.get('boo', 10); //if not set boo returned default 10
         
