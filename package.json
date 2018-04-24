@@ -99,7 +99,7 @@
     "karma-sauce-launcher": "^1.1.0",
     "karma-webpack": "^3.0.0",
     "mock-browser": "^0.92.12",
-    "nightwatch": "^0.9.14",
+    "nightwatch": "^1.0.1",
     "nyc": "^11.0.3",
     "phantomjs": "^2.1.7",
     "remove": "^0.1.5",
