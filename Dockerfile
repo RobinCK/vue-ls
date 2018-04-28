@@ -2,7 +2,7 @@ FROM node:8.9.4-alpine as builder
 
 WORKDIR /app
 
-RUN npm install -g node-static
+RUN npm install -g node-static vue
 COPY ./examples ./examples
 COPY ./dist ./dist
 
