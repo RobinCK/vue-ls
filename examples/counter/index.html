@@ -9,47 +9,71 @@
 <body>
     <h1>Synchronized tab counter</h1>
     <div id="app">
-        counter: <span id="count">{{counter}}</span>
-        <div>
-            <button id="increment" type="button" @click="increment()">Increment</button>
-            <button id="decrement" type="button" @click="decrement()">Decrement</button>
-        </div>
+      localStorage: {{localCounter}} <br>
+      sessionCounter: {{sessionCounter}}
+      <div>
+        <button type="button" @click="increment()">Increment</button>
+        <button type="button" @click="decrement()">Decrement</button>
+      </div>
     </div>
 
+
     <script type="text/javascript" src="https://unpkg.com/vue@2.2.1"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js"></script>
     <script type="text/javascript" src="../../dist/vue-ls.js"></script>
     <script type="text/javascript">
-        window.Vue.use(VueStorage);
+      Vue.use(_.clone(VueStorage), {
+        name: 'ss',
+        storage: 'session',
+      });
 
-        new window.Vue({
-            el: '#app',
-            data: function () {
-                return {
-                    counter: 0
-                };
-            },
-            watch: {
-                counter: function (val) {
-                    this.$ls.set('counter', val)
-                }
-            },
-            created: function () {
-                this.counter = this.$ls.get('counter', 0);
-                var _this = this;
-                this.$ls.on('counter', function (val) {
-                    _this.counter = val;
-                });
-            },
-            methods: {
-                increment: function () {
-                    this.counter++;
-                },
+      Vue.use(_.clone(VueStorage), {
+        name: 'ls',
+        storage: 'local',
+      });
 
-                decrement: function () {
-                    this.counter--;
-                }
-            }
-        });
+      new Vue({
+        el: '#app',
+        data: function() {
+          return {
+            localCounter: 0,
+            sessionCounter: 0,
+          };
+        },
+        watch: {
+          localCounter: function(val) {
+            this.$ls.set('localCounter', val)
+          },
+          sessionCounter: function(val) {
+            this.$ss.set('sessionCounter', val)
+          }
+        },
+        created: function() {
+          this.localCounter = this.$ls.get('localCounter', 0);
+          var _this = this;
+          this.$ls.on('localCounter', function(val) {
+            _this.localCounter = val;
+          });
+
+          this.sessionCounter = this.$ss.get('sessionCounter', 0);
+          var _this = this;
+          this.$ss.on('sessionCounter', function(val) {
+            _this.sessionCounter = val;
+          });
+        },
+        methods: {
+          increment: function() {
+            this.localCounter++;
+            this.sessionCounter++;
+          },
+
+          decrement: function() {
+            this.localCounter--;
+            this.sessionCounter--;
+          }
+        }
+      });
+
     </script>
 </body>
 </html>
