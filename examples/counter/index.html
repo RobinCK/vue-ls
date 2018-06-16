@@ -9,11 +9,11 @@
 <body>
     <h1>Synchronized tab counter</h1>
     <div id="app">
-      localStorage: {{localCounter}} <br>
+      localStorage: <span id="count">{{localCounter}}</span> <br>
       sessionCounter: {{sessionCounter}}
       <div>
-        <button type="button" @click="increment()">Increment</button>
-        <button type="button" @click="decrement()">Decrement</button>
+        <button id="increment" type="button" @click="increment()">Increment</button>
+        <button id="decrement" type="button" @click="decrement()">Decrement</button>
       </div>
     </div>
 
