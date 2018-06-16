@@ -1,5 +1,5 @@
 import babel from 'rollup-plugin-babel';
-import uglify from 'rollup-plugin-uglify';
+import {uglify} from 'rollup-plugin-uglify';
 import localResolve from 'rollup-plugin-local-resolve';
 
 export default {
