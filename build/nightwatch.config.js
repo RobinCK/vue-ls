@@ -1,5 +1,6 @@
 require('browserstack-automate').Nightwatch();
-var seleniumServer = require('selenium-server');
+
+const seleniumServer = require('selenium-server');
 
 module.exports = {
   'src_folders': [
