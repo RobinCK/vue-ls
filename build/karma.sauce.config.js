@@ -1,6 +1,6 @@
-var base = require('./karma.config.js');
+const base = require('./karma.config.js');
 
-var batches = [
+const batches = [
   {
     sl_ie_9: {
       base: 'SauceLabs',
