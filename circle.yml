@@ -15,6 +15,7 @@ dependencies:
     - ~/.cache/yarn
   override:
     - NODE_ENV=dev yarn install
+    - yarn add vue
 
 compile:
   override:
