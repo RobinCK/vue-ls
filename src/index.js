@@ -20,7 +20,7 @@ const VueStorage = {
       name: options.name || 'ls',
     });
 
-    if (_options.storage && ['memory', 'local', 'session'].indexOf(_options.storage) === -1) {
+    if (_options.storage && ['memory', 'local', 'session', 'auto'].indexOf(_options.storage) === -1) {
       throw new Error(`Vue-ls: Storage "${_options.storage}" is not supported`);
     }
 
@@ -40,6 +40,17 @@ const VueStorage = {
           : null
         ;
         break;
+
+      case 'auto':
+        if ('localStorage' in _global) {
+          store = _global.localStorage;
+        } else if ('sessionStorage' in _global) {
+          store = _global.sessionStorage;
+        } else {
+          store = MemoryStorage;
+        }
+        break;
+
       case 'memory': store = MemoryStorage;
         break;
     }
