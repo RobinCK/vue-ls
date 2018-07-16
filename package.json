@@ -89,7 +89,7 @@
     "eslint-plugin-standard": "^3.1.0",
     "get-gulp-args": "^0.0.1",
     "gulp": "4.0.0",
-    "gulp-nightwatch": "^0.3.2",
+    "gulp-nightwatch": "^1.0.1",
     "gulp-util": "^3.0.8",
     "jasmine": "^3.1.0",
     "jasmine-core": "^3.1.0",
