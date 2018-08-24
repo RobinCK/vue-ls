@@ -4,6 +4,7 @@ Thumbs.db
 node_modules
 bower_components
 npm-debug.log
+yarn-error.log
 .nyc_output
 coverage
 reports
