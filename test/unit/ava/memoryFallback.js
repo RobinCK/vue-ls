@@ -14,12 +14,14 @@ test.beforeEach(() => {
 });
 
 test('Set/Get item', (t) => {
+  Vue.ls.storage.clear(); // fix for ava-beta-8
   Vue.ls.set('set_item_test', 'val');
 
   t.is(Vue.ls.get('set_item_test'), 'val');
 });
 
 test('Remove item', (t) => {
+  Vue.ls.storage.clear(); // fix for ava-beta-8
   Vue.ls.set('remove_item_test', 'val');
   Vue.ls.remove('remove_item_test');
 
@@ -27,10 +29,12 @@ test('Remove item', (t) => {
 });
 
 test('Removing non-existent itset_item_testen', (t) => {
+  Vue.ls.storage.clear(); // fix for ava-beta-8
   t.is(Vue.ls.remove('remove_item_test'), false);
 });
 
 test('Get key by index', (t) => {
+  Vue.ls.storage.clear(); // fix for ava-beta-8
   t.plan(2);
 
   Vue.ls.set('key_item_one_test', 'val_one');
@@ -41,6 +45,7 @@ test('Get key by index', (t) => {
 });
 
 test('Clear', (t) => {
+  Vue.ls.storage.clear(); // fix for ava-beta-8
   Vue.ls.set('item_test', 'val');
   Vue.ls.clear();
 
