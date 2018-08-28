@@ -104,7 +104,7 @@
     "phantomjs": "^2.1.7",
     "remove": "^0.1.5",
     "rollup": "^0.64.0",
-    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-babel": "^4.0.1",
     "rollup-plugin-local-resolve": "^1.0.7",
     "rollup-plugin-uglify": "^4.0.0",
     "selenium-server": "^3.12.0",
