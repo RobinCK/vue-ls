@@ -106,7 +106,7 @@
     "rollup": "^0.65.0",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-local-resolve": "^1.0.7",
-    "rollup-plugin-uglify": "^4.0.0",
+    "rollup-plugin-uglify": "^5.0.0",
     "selenium-server": "^3.12.0",
     "serve-static": "^1.13.2",
     "vue": "^2.5.16",
