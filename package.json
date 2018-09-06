@@ -10,7 +10,7 @@
     "dist/*.js"
   ],
   "scripts": {
-    "build": "node_modules/.bin/rollup -c ./build/rollup.config.js && NODE_ENV=production node_modules/.bin/rollup -c ./build/rollup.config.js",
+    "build": "node_modules/.bin/rollup -c ./build/rollup.config.js --name VueStorage && NODE_ENV=production node_modules/.bin/rollup -c ./build/rollup.config.js --name VueStorage",
     "test": "NODE_ENV=test node_modules/.bin/nyc node_modules/.bin/ava",
     "test:browserstack": "RUN_ON_BSTACK=true BSTACK_LOCAL=true node_modules/.bin/gulp test --env bstack_chrome_50,bstack_chrome_57,bstack_ie_9,bstack_ie_11,bstack_edge_13,bstack_edge_14,bstack_firefox_40,bstack_firefox_52,bstack_safari_8,bstack_safari_10",
     "test:browserstack:chrome": "RUN_ON_BSTACK=true BSTACK_LOCAL=true node_modules/.bin/gulp test --env bstack_chrome_50,bstack_chrome_57",
@@ -69,15 +69,16 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "ava": "^0.25.0",
-    "babel-core": "^6.26.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "ava": "^1.0.0-beta.8",
     "babel-eslint": "^9.0.0",
-    "babel-loader": "^8.0.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "babel-plugin-transform-object-assign": "^6.22.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
+    "babel-loader": "^8.0.2",
     "browserstack-automate": "^1.0.2",
     "chromedriver": "^2.41.0",
     "connect": "^3.6.6",
@@ -96,20 +97,20 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.2",
     "karma-sauce-launcher": "^1.2.0",
-    "karma-webpack": "^3.0.1",
+    "karma-webpack": "^3.0.2",
     "mock-browser": "^0.92.14",
     "nightwatch": "^1.0.1",
-    "nyc": "^12.0.2",
+    "nyc": "^13.0.1",
     "phantomjs": "^2.1.7",
     "remove": "^0.1.5",
-    "rollup": "^0.65.0",
-    "rollup-plugin-babel": "^4.0.1",
+    "rollup": "^0.65.2",
+    "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-local-resolve": "^1.0.7",
     "rollup-plugin-uglify": "^5.0.0",
     "selenium-server": "^3.14.0",
     "serve-static": "^1.13.2",
     "vue": "^2.5.17",
-    "webpack": "^4.17.1"
+    "webpack": "^4.17.2"
   },
   "semistandard": {
     "ignore": [
@@ -122,9 +123,8 @@
   },
   "ava": {
     "babel": {
-      "babelrc": true,
-      "plugins": [
-        "transform-es2015-modules-commonjs"
+      "extensions": [
+        "js"
       ]
     },
     "tap": true,
@@ -132,8 +132,8 @@
       "./test/unit/ava/*.js"
     ],
     "require": [
-      "babel-register",
-      "babel-polyfill"
+      "@babel/register",
+      "@babel/polyfill"
     ]
   }
 }
