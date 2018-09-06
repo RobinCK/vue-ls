@@ -1,4 +1,4 @@
-import { WebStorageEvent } from './';
+import { WebStorageEvent } from './WebStorageEvent';
 
 /**
  * Storage Bridge

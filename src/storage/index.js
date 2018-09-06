@@ -1,9 +1,3 @@
-import { MemoryStorage } from './MemoryStorage';
-import { WebStorage } from './WebStorage';
-import { WebStorageEvent } from './WebStorageEvent';
-
-export {
-  MemoryStorage,
-  WebStorage,
-  WebStorageEvent,
-};
+export * from './MemoryStorage';
+export * from './WebStorage';
+export * from './WebStorageEvent';
