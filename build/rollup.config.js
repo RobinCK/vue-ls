@@ -9,7 +9,7 @@ export default {
     babel({
       babelrc: false,
       presets: [
-        ["env", {
+        ["@babel/preset-env", {
           modules: false,
           targets: {
             browsers: [
@@ -26,9 +26,6 @@ export default {
             ]
           }
         }]
-      ],
-      plugins: [
-        "transform-object-assign"
       ],
       runtimeHelpers: true,
       externalHelpers: false,

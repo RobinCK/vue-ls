@@ -1,6 +1,6 @@
 {
   "presets": [
-    ["env", {
+    ["@babel/preset-env", {
       "modules": false,
       "targets": {
         "browsers": [
@@ -23,7 +23,8 @@
     "packages/**/*.js"
   ],
   "plugins": [
-    "transform-es2015-modules-commonjs",
-    "transform-object-assign"
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-modules-commonjs"
   ]
 }
