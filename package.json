@@ -91,6 +91,7 @@
     "gulp": "4.0.0",
     "gulp-nightwatch": "^0.3.2",
     "gulp-util": "^3.0.8",
+    "husky": "^1.1.2",
     "jasmine": "^3.2.0",
     "jasmine-core": "^3.2.1",
     "karma": "^3.0.0",
