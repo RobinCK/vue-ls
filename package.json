@@ -86,7 +86,7 @@
     "eslint": "^5.5.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.0",
+    "eslint-plugin-node": "^8.0.0",
     "get-gulp-args": "^0.0.1",
     "gulp": "4.0.0",
     "gulp-nightwatch": "^0.3.2",
