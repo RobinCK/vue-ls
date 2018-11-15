@@ -12,6 +12,7 @@
   <a href="https://coveralls.io/github/RobinCK/vue-ls?branch=master"><img src="https://img.shields.io/coveralls/RobinCK/vue-ls.svg?style=flat-square"></a>
   <a href="https://codeclimate.com/github/RobinCK/vue-ls"><img src="https://img.shields.io/codeclimate/github/RobinCK/vue-ls.svg?style=flat-square"></a>
   <a href="http://inch-ci.org/github/RobinCK/vue-ls"><img src="https://inch-ci.org/github/RobinCK/vue-ls.svg?branch=master&style=flat-squar"></a>
+  <a href="https://houndci.com"><img src="https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg"></a>
   
 </p>
 
