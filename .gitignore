@@ -9,5 +9,6 @@ yarn-error.log
 coverage
 reports
 selenium-debug.log
+selenium-server.log
 local.log
 sauce_connect.log
