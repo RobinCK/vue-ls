@@ -10,7 +10,6 @@
   <a href="https://github.com/RobinCK/vue-ls"><img src="https://img.shields.io/badge/vuejs-2.x-brightgreen.svg?style=flat-square"></a>
   <a href="https://travis-ci.org/RobinCK/vue-ls"><img src="https://img.shields.io/travis/RobinCK/vue-ls.svg?style=flat-square"></a>
   <a href="https://coveralls.io/github/RobinCK/vue-ls?branch=master"><img src="https://img.shields.io/coveralls/RobinCK/vue-ls.svg?style=flat-square"></a>
-  <a href="https://codeclimate.com/github/RobinCK/vue-ls"><img src="https://img.shields.io/codeclimate/github/RobinCK/vue-ls.svg?style=flat-square"></a>
   <a href="http://inch-ci.org/github/RobinCK/vue-ls"><img src="https://inch-ci.org/github/RobinCK/vue-ls.svg?branch=master&style=flat-squar"></a>
   <a href="https://houndci.com"><img src="https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg"></a>
   
@@ -20,12 +19,10 @@
   <a href="https://www.npmjs.com/package/vue-ls"><img src="https://img.shields.io/npm/dm/vue-ls.svg?style=flat-square"></a>
   <a href="https://david-dm.org/robinck/vue-ls"><img src="https://img.shields.io/david/RobinCk/vue-ls.svg?style=flat-square"></a>
   <a href="https://david-dm.org/robinck/vue-ls?type=dev"><img src="https://img.shields.io/david/dev/RobinCk/vue-ls.svg?style=flat-square"></a>
-  <a href="https://github.com/RobinCK/vue-ls"><img src="https://img.shields.io/bower/v/vue-ls.svg?style=flat-square"></a>
   <a href="https://www.npmjs.com/package/vue-ls"><img src="https://img.shields.io/npm/v/vue-ls.svg?style=flat-square"></a>
   <a href="https://cdnjs.com/libraries/vue-ls"><img src="https://img.shields.io/cdnjs/v/vue-ls.svg"></a>
   <a href="https://github.com/RobinCK/vue-ls/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/vue-ls.svg?style=flat-square"></a>
-  
-
+ 
 </p>
 
 <p align="center">
