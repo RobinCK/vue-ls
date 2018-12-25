@@ -97,7 +97,7 @@
     "karma": "^3.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^2.0.0",
-    "karma-sauce-launcher": "^1.2.0",
+    "karma-sauce-launcher": "^2.0.0",
     "karma-webpack": "^3.0.2",
     "mock-browser": "^0.92.14",
     "nightwatch": "^1.0.1",
