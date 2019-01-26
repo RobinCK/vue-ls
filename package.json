@@ -26,10 +26,7 @@
     "lint": "node_modules/.bin/eslint ./",
     "report": "npm test && node_modules/.bin/nyc report --reporter=html",
     "coveralls": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls",
-    "codecov": "./node_modules/.bin/nyc report --reporter=lcovonly && codecov -t $CODECOV_TOKEN",
-    "patch": "npm version patch --no-git-tag-version && git add package.json && git commit -m 'update version' && git push origin master && bower version patch && git push origin master --follow-tags && npm publish",
-    "minor": "npm version minor --no-git-tag-version && git add package.json && git commit -m 'update version' && git push origin master && bower version minor && git push origin master --follow-tags && npm publish",
-    "major": "npm version major --no-git-tag-version && git add package.json && git commit -m 'update version' && git push origin master && bower version major && git push origin master --follow-tags && npm publish"
+    "codecov": "./node_modules/.bin/nyc report --reporter=lcovonly && codecov -t $CODECOV_TOKEN"
   },
   "keywords": [
     "storage",
