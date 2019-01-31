@@ -40,7 +40,8 @@ const VueStorage = {
           : null
         ;
         break;
-      case 'memory': store = MemoryStorage;
+      case 'memory': 
+        store = MemoryStorage;
         break;
     }
 
