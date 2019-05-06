@@ -85,7 +85,7 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^9.0.0",
     "get-gulp-args": "^0.0.1",
-    "gulp": "4.0.1",
+    "gulp": "4.0.2",
     "gulp-nightwatch": "^1.1.0",
     "gulp-util": "^3.0.8",
     "husky": "^2.0.0",
