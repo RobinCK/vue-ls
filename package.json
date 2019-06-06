@@ -73,7 +73,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.3.1",
-    "ava": "^1.2.1",
+    "ava": "^2.0.0",
     "babel-eslint": "^10.0.0",
     "babel-loader": "^8.0.5",
     "browserstack-automate": "^1.0.2",
