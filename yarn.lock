@@ -1950,6 +1950,14 @@ chai-nightwatch@0.2.1:
     assertion-error "1.0.0"
     deep-eql "0.1.3"
 
+chai-nightwatch@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/chai-nightwatch/-/chai-nightwatch-0.3.0.tgz#a3506a81942fbed6aed9e0a914ae32be187f9735"
+  integrity sha512-NHpHLKQO0M7uNVJ10qlPIzHN9+6f873kYh6dYAn291a1CVESrrH6crbTJwZ3376trtzb6HPa80QYt3gMTL1o4g==
+  dependencies:
+    assertion-error "1.0.0"
+    deep-eql "0.1.3"
+
 "chainsaw@>=0.0.7 <0.1":
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/chainsaw/-/chainsaw-0.0.9.tgz#11a05102d1c4c785b6d0415d336d5a3a1612913e"
@@ -2839,6 +2847,11 @@ dot-prop@^5.0.0:
   integrity sha512-RTmaF2jx3nOBO2GvtFqjnDLycjFUMqt+2pwRx7JVYa81lDauoj9aNkyrJI2ikR58FbBIchiIlRiGG+muLJ4oHQ==
   dependencies:
     is-obj "^1.0.0"
+
+dotenv@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-7.0.0.tgz#a2be3cd52736673206e8a85fb5210eea29628e7c"
+  integrity sha512-M3NhsLbV1i6HuGzBUH8vXrtxOk+tWmzWKDMbAVSUp3Zsjm7ywFeuwrUXhmhQyRK1q5B5GGy7hcXPbj3bnfZg2g==
 
 duplexer2@0.0.2:
   version "0.0.2"
@@ -5934,7 +5947,7 @@ mkpath@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/mkpath/-/mkpath-1.0.0.tgz#ebb3a977e7af1c683ae6fda12b545a6ba6c5853d"
 
-mocha@^5.1.1:
+mocha@^5.1.1, mocha@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/mocha/-/mocha-5.2.0.tgz#6d8ae508f59167f940f2b5b3c4a612ae50c90ae6"
   dependencies:
@@ -6048,23 +6061,6 @@ nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
 
-nightwatch@^1.0.19:
-  version "1.0.19"
-  resolved "https://registry.yarnpkg.com/nightwatch/-/nightwatch-1.0.19.tgz#f81a357618367e8df068f0f10f5a5ba0af5ed4fb"
-  dependencies:
-    assertion-error "^1.1.0"
-    chai-nightwatch "0.2.1"
-    ejs "^2.5.9"
-    lodash.clone "3.0.3"
-    lodash.defaultsdeep "^4.6.0"
-    lodash.merge "^4.6.1"
-    minimatch "3.0.4"
-    mkpath "1.0.0"
-    optimist "^0.6.1"
-    proxy-agent "^3.0.0"
-  optionalDependencies:
-    mocha "^5.1.1"
-
 nightwatch@^1.0.6:
   version "1.0.14"
   resolved "https://registry.yarnpkg.com/nightwatch/-/nightwatch-1.0.14.tgz#96d9df2118ab5a795c395e6c2dabc0adc347ae5b"
@@ -6081,6 +6077,25 @@ nightwatch@^1.0.6:
     proxy-agent "^3.0.0"
   optionalDependencies:
     mocha "^5.1.1"
+
+nightwatch@^1.1.12:
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/nightwatch/-/nightwatch-1.1.12.tgz#3597c6b5428fec46cd42ef844572516e4d514759"
+  integrity sha512-xbQ+/oXRu/OSyidJ9CKvgM+9FpdFgOl/I/ZS69EBxaQeBFOupCcZJnJr6/zog7YOcpgKNZvzu9L4pXBErRfI1Q==
+  dependencies:
+    assertion-error "^1.1.0"
+    chai-nightwatch "^0.3.0"
+    dotenv "7.0.0"
+    ejs "^2.5.9"
+    lodash.clone "3.0.3"
+    lodash.defaultsdeep "^4.6.0"
+    lodash.merge "^4.6.1"
+    minimatch "3.0.4"
+    mkpath "1.0.0"
+    optimist "^0.6.1"
+    proxy-agent "^3.0.0"
+  optionalDependencies:
+    mocha "^5.2.0"
 
 node-libs-browser@^2.0.0:
   version "2.1.0"
