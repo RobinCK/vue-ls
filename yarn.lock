@@ -813,10 +813,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.4.tgz#46832183115c904410c275e34cf9403992999c32"
   integrity sha512-j8YL2C0fXq7IONwl/Ud5Kt0PeXw22zGERt+HSSnwbKOJVsAGkEz3sFCYwaF9IOuoG1HOtE0vKCj6sXF7Q0+Vaw==
 
-"@types/node@^12.0.2":
-  version "12.0.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.2.tgz#3452a24edf9fea138b48fad4a0a028a683da1e40"
-  integrity sha512-5tabW/i+9mhrfEOUcLDu2xBPsHJ+X5Orqy9FKpale3SjDA17j5AEpYq5vfy3oAeAHGcvANRCO3NV3d2D6q3NiA==
+"@types/node@^12.0.8":
+  version "12.0.8"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.8.tgz#551466be11b2adc3f3d47156758f610bd9f6b1d8"
+  integrity sha512-b8bbUOTwzIY3V5vDTY1fIJ+ePKDUBqt2hC2woVGotdQQhG/2Sh62HOKHrT7ab+VerXAcPyAiTEipPu/FsreUtg==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -7578,13 +7578,13 @@ rollup-pluginutils@^2.3.0:
     estree-walker "^0.5.2"
     micromatch "^2.3.11"
 
-rollup@^1.12.0:
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.12.0.tgz#3e07e7d178bf61fe12325660a037ae0041219d8c"
-  integrity sha512-DFqgTupu9dkoS80AZ4xMgeLCeC96pGRCu1MLlOwRAjJ3qGItw+j4YWcL3/uWbgQO2mnmrAZphxAdjSXYsG5pWA==
+rollup@^1.15.6:
+  version "1.15.6"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.15.6.tgz#caf0ed28d2d78e3a59c1398e5a3695fb600a0ef0"
+  integrity sha512-s3Vn3QJQ5YVFfIG4nXoG9VdL1I37IZsft+4ZyeBhxE0df1kCFz9e+4bEAbR4mKH3pvBO9e9xjdxWPhhIp0r9ow==
   dependencies:
     "@types/estree" "0.0.39"
-    "@types/node" "^12.0.2"
+    "@types/node" "^12.0.8"
     acorn "^6.1.1"
 
 run-async@^2.2.0:
