@@ -79,7 +79,7 @@
     "browserstack-automate": "^1.0.2",
     "chromedriver": "^75.0.0",
     "connect": "^3.6.6",
-    "coveralls": "^3.0.2",
+    "coveralls": "^3.0.5",
     "eslint": "^6.0.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
