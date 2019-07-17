@@ -108,7 +108,7 @@
     "selenium-server": "^3.14.0",
     "serve-static": "^1.13.2",
     "vue": "^2.6.4",
-    "webpack": "^4.29.3"
+    "webpack": "^4.36.1"
   },
   "semistandard": {
     "ignore": [
