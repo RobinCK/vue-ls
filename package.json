@@ -81,7 +81,7 @@
     "connect": "^3.6.6",
     "coveralls": "^3.0.2",
     "eslint": "^6.0.0",
-    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^9.0.0",
     "get-gulp-args": "^0.0.1",
