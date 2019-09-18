@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Flet/semistandard"><img src="https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square"></a>
+  <a href="https://github.com/Flet/semistandard"><a href="https://opencollective.com/vue-ls" alt="Financial Contributors on Open Collective"><img src="https://opencollective.com/vue-ls/all/badge.svg?label=financial+contributors" /></a> <img src="https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square"></a>
   <a href="https://github.com/RobinCK/vue-ls"><img src="https://img.shields.io/badge/vuejs-1.x-brightgreen.svg?style=flat-square"></a>
   <a href="https://github.com/RobinCK/vue-ls"><img src="https://img.shields.io/badge/vuejs-2.x-brightgreen.svg?style=flat-square"></a>
   <a href="https://travis-ci.org/RobinCK/vue-ls"><img src="https://img.shields.io/travis/RobinCK/vue-ls.svg?style=flat-square"></a>
@@ -185,6 +185,36 @@ The assumption is that your page will already know all interactions with localSt
 |---------|--------|-------------|
 | [vue-gallery](https://github.com/RobinCK/vue-gallery)    | ![npm](https://img.shields.io/npm/v/vue-gallery.svg)  | VueJS responsive and customizable image and video gallery |
 | [vue-popper](https://github.com/RobinCK/vue-popper)      | ![npm](https://img.shields.io/npm/v/vue-popperjs.svg) | VueJS popover component based on <a href="https://popper.js.org/">popper.js</a> |
+
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/RobinCK/vue-ls/graphs/contributors"><img src="https://opencollective.com/vue-ls/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/vue-ls/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/vue-ls"><img src="https://opencollective.com/vue-ls/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/vue-ls/contribute)]
+
+<a href="https://opencollective.com/vue-ls/organization/0/website"><img src="https://opencollective.com/vue-ls/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/vue-ls/organization/1/website"><img src="https://opencollective.com/vue-ls/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/vue-ls/organization/2/website"><img src="https://opencollective.com/vue-ls/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/vue-ls/organization/3/website"><img src="https://opencollective.com/vue-ls/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/vue-ls/organization/4/website"><img src="https://opencollective.com/vue-ls/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/vue-ls/organization/5/website"><img src="https://opencollective.com/vue-ls/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/vue-ls/organization/6/website"><img src="https://opencollective.com/vue-ls/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/vue-ls/organization/7/website"><img src="https://opencollective.com/vue-ls/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/vue-ls/organization/8/website"><img src="https://opencollective.com/vue-ls/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/vue-ls/organization/9/website"><img src="https://opencollective.com/vue-ls/organization/9/avatar.svg"></a>
 
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2FRobinCK%2Fvue-ls.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2FRobinCK%2Fvue-ls?ref=badge_large)
