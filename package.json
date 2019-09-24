@@ -26,7 +26,8 @@
     "lint": "node_modules/.bin/eslint ./",
     "report": "npm test && node_modules/.bin/nyc report --reporter=html",
     "coveralls": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls",
-    "codecov": "./node_modules/.bin/nyc report --reporter=lcovonly && codecov -t $CODECOV_TOKEN"
+    "codecov": "./node_modules/.bin/nyc report --reporter=lcovonly && codecov -t $CODECOV_TOKEN",
+    "postinstall": "opencollective-postinstall || true"
   },
   "keywords": [
     "storage",
@@ -133,5 +134,12 @@
       "@babel/register",
       "@babel/polyfill"
     ]
+  },
+  "dependencies": {
+    "opencollective-postinstall": "^2.0.2"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/vue-ls"
   }
 }
