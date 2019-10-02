@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Flet/semistandard"><a href="https://opencollective.com/vue-ls" alt="Financial Contributors on Open Collective"><img src="https://opencollective.com/vue-ls/all/badge.svg?label=financial+contributors" /></a> <img src="https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square"></a>
+  <a href="https://opencollective.com/vue-ls" alt="Financial Contributors on Open Collective"><img src="https://opencollective.com/vue-ls/all/badge.svg?label=financial+contributors" /></a>
   <a href="https://github.com/RobinCK/vue-ls"><img src="https://img.shields.io/badge/vuejs-1.x-brightgreen.svg?style=flat-square"></a>
   <a href="https://github.com/RobinCK/vue-ls"><img src="https://img.shields.io/badge/vuejs-2.x-brightgreen.svg?style=flat-square"></a>
   <a href="https://travis-ci.org/RobinCK/vue-ls"><img src="https://img.shields.io/travis/RobinCK/vue-ls.svg?style=flat-square"></a>
