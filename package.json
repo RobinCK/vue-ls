@@ -99,7 +99,7 @@
     "karma-webpack": "^4.0.0",
     "mock-browser": "^0.92.14",
     "nightwatch": "^1.1.12",
-    "nyc": "^14.0.0",
+    "nyc": "^15.0.0",
     "phantomjs": "^2.1.7",
     "remove": "^0.1.5",
     "rollup": "^1.15.6",
