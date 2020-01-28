@@ -733,6 +733,11 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
+"@testim/chrome-version@^1.0.3":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@testim/chrome-version/-/chrome-version-1.0.6.tgz#e56c1a7f463ee6ceab363b69b642681efcedb809"
+  integrity sha512-sudmtuzBC6MduzAZe3dzc8Ehhtr0Wk/nDjCDBOWsZ5noSLBsdUED+NLuq2eUHHDb5B0FqXwTitAzoLoVZNQUeg==
+
 "@types/estree@0.0.39":
   version "0.0.39"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
@@ -1975,11 +1980,12 @@ chrome-trace-event@^1.0.0:
   dependencies:
     tslib "^1.9.0"
 
-chromedriver@^75.0.0:
-  version "75.0.0"
-  resolved "https://registry.yarnpkg.com/chromedriver/-/chromedriver-75.0.0.tgz#a964693440ac2d28af3e25b181f92062e3ae6b82"
-  integrity sha512-bUThqrWQn41agNxV58vT0uxUqDryhNKEcMiJ6Iu0KF8pDDH0vzlnlre9BRz+dO95cwoBAilgwQUx9ig91zIC/Q==
+chromedriver@^79.0.2:
+  version "79.0.2"
+  resolved "https://registry.yarnpkg.com/chromedriver/-/chromedriver-79.0.2.tgz#abcd7f95203e70eef28bb26696281c6f0cc3c1ea"
+  integrity sha512-jwgmcTb4UI2cqDAyJBJlGJ/Y6kRVO1VQ3sBw73fFz0TEqKSZfl61ToM53g+G8m5AWVa4ESFkSXEUfQtFZZ6QTA==
   dependencies:
+    "@testim/chrome-version" "^1.0.3"
     del "^4.1.1"
     extract-zip "^1.6.7"
     mkdirp "^0.5.1"
