@@ -1,25 +1,22 @@
-machine:
-  node:
-    version: 8
-  environment:
-    YARN_VERSION: 0.20.3
-    PATH: "${PATH}:${HOME}/.yarn/bin:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
-dependencies:
-  pre:
-    - |
-      if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
-        curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
-      fi
-  cache_directories:
-    - ~/.yarn
-    - ~/.cache/yarn
-  override:
-    - NODE_ENV=dev yarn install
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/repo
 
-compile:
-  override:
-    - yarn run build
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
 
-test:
-  override:
-    - yarn run test
+      - run: NODE_ENV=dev yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: yarn build
+      - run: yarn test
