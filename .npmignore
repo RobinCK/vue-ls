@@ -1,4 +1,5 @@
 .idea
+.idea
 .git
 .bowerrc
 .gitignore
@@ -25,3 +26,4 @@ docker-compose.yml
 .gitattributes
 .dockerignore
 build
+tests_output

@@ -15,10 +15,11 @@ const VueStorage = {
    * @returns {WebStorage}
    */
   install(Vue, options = {}) {
-    const _options = Object.assign({}, options, {
+    const _options = {
+      ...options,
       storage: options.storage || 'local',
       name: options.name || 'ls',
-    });
+    };
 
     if (_options.storage && ['memory', 'local', 'session'].indexOf(_options.storage) === -1) {
       throw new Error(`Vue-ls: Storage "${_options.storage}" is not supported`);
@@ -71,6 +72,7 @@ const VueStorage = {
   },
 };
 
+// eslint-disable-next-line
 _global.VueStorage = VueStorage;
 
 export default VueStorage;

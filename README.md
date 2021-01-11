@@ -25,7 +25,7 @@
 </p>
 
 <p align="center">
-<a href="https://saucelabs.com/beta/builds/1defc2f5e76e4478817fc085438416d3"><img src="https://cdn.rawgit.com/RobinCK/65849005c282a0e59d93b7e8ce05b980/raw/72ec5d77d535103016832f4aa592e93e4b83f9ee/browsers_support.svg"></a>
+<img src="https://app.saucelabs.com/browser-matrix/Robin_ck.svg">
 
 </p>
 
@@ -168,7 +168,6 @@ Removes a listener previously attached with `Vue.ls.on(name, callback)`.
   - `npm run test:browserstack:firefox`
   - `npm run test:browserstack:safari`
 - `npm run test:chrome` - run browser test in chrome
-- `npm run test:phantomjs` - run browser test in phantomjs
 
 Testing Supported By<br>
 <img width="200" src="https://cdn.rawgit.com/RobinCK/b1435c9cae05437ad9e4c2023aec08e4/raw/4b89e95cd89827935e6e3949d28a4f6ea3e48ee4/browser-stack.svg">

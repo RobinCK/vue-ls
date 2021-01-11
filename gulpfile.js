@@ -26,7 +26,7 @@ gulp.task('http:stop', (done) => {
 });
 
 gulp.task('e2e', gulp.series(['http:start'], () => {
-  const env = args.env || 'phantomjs';
+  const env = args.env;
 
   return gulp.src('./build/nightwatch.config.js')
     .pipe(nightwatch({

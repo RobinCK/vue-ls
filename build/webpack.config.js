@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
+  mode: 'production',
   module: {
     rules: [
       {
@@ -19,5 +20,5 @@ module.exports = {
       }
     })
   ],
-  devtool: '#inline-source-map'
+  devtool: 'inline-source-map'
 };

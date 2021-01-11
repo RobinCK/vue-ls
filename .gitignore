@@ -12,3 +12,4 @@ selenium-debug.log
 selenium-server.log
 local.log
 sauce_connect.log
+tests_output

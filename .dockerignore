@@ -2,6 +2,7 @@
 
 # OS generated files #
 .DS_Store
+tests_output
 ehthumbs.db
 Icon?
 Thumbs.db
