@@ -99,7 +99,6 @@
     "mock-browser": "^0.92.14",
     "nightwatch": "^1.5.1",
     "nyc": "^15.1.0",
-    "remove": "^0.1.5",
     "rollup": "^2.36.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-local-resolve": "^1.0.7",
