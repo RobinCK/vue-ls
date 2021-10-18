@@ -59,7 +59,7 @@ const VueStorage = {
     }, _options || {}));
 
     Vue[_options.name] = ls; // eslint-disable-line
-    Object.defineProperty(Vue.prototype, `$${_options.name}`, {
+    Object.defineProperty(Vue.prototype || Vue.config.globalProperties, `$${_options.name}`, {
       /**
        * Define $ls property
        *
