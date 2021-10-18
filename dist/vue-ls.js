@@ -78,9 +78,7 @@
   /* eslint class-methods-use-this: off */
   var ls = {};
 
-  var MemoryStorageInterface =
-  /*#__PURE__*/
-  function () {
+  var MemoryStorageInterface = /*#__PURE__*/function () {
     function MemoryStorageInterface() {
       _classCallCheck(this, MemoryStorageInterface);
 
@@ -132,7 +130,7 @@
     }, {
       key: "removeItem",
       value: function removeItem(name) {
-        var found = name in ls;
+        var found = (name in ls);
 
         if (found) {
           return delete ls[name];
@@ -177,9 +175,7 @@
    * Event class
    */
 
-  var WebStorageEvent =
-  /*#__PURE__*/
-  function () {
+  var WebStorageEvent = /*#__PURE__*/function () {
     function WebStorageEvent() {
       _classCallCheck(this, WebStorageEvent);
     }
@@ -260,9 +256,7 @@
    * Storage Bridge
    */
 
-  var WebStorage =
-  /*#__PURE__*/
-  function () {
+  var WebStorage = /*#__PURE__*/function () {
     /**
      * @param {Object} storage
      */
@@ -498,7 +492,7 @@
       }, _options || {}));
       Vue[_options.name] = ls; // eslint-disable-line
 
-      Object.defineProperty(Vue.prototype, "$".concat(_options.name), {
+      Object.defineProperty(Vue.prototype || Vue.config.globalProperties, "$".concat(_options.name), {
         /**
          * Define $ls property
          *
