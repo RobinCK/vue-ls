@@ -8,13 +8,12 @@ const _global = (typeof window !== 'undefined' ? window : global || {});
  */
 const VueStorage = {
   /**
-   * Install plugin
+   * use storage
    *
-   * @param {Object} Vue
    * @param {Object} options
    * @returns {WebStorage}
    */
-  install(Vue, options = {}) {
+  useStorage(options) {
     const _options = {
       ...options,
       storage: options.storage || 'local',
@@ -58,7 +57,19 @@ const VueStorage = {
       namespace: '',
     }, _options || {}));
 
+    return { ls, _options };
+  },
+  /**
+   * Install plugin
+   *
+   * @param {Object} Vue
+   * @param {Object} options
+   * @returns {WebStorage}
+   */
+  install(Vue, options = {}) {
+    const { ls, _options } = this.useStorage(options);
     Vue[_options.name] = ls; // eslint-disable-line
+
     Object.defineProperty(Vue.prototype || Vue.config.globalProperties, `$${_options.name}`, {
       /**
        * Define $ls property
