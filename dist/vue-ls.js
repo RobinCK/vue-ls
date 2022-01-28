@@ -78,7 +78,9 @@
   /* eslint class-methods-use-this: off */
   var ls = {};
 
-  var MemoryStorageInterface = /*#__PURE__*/function () {
+  var MemoryStorageInterface =
+  /*#__PURE__*/
+  function () {
     function MemoryStorageInterface() {
       _classCallCheck(this, MemoryStorageInterface);
 
@@ -130,7 +132,7 @@
     }, {
       key: "removeItem",
       value: function removeItem(name) {
-        var found = (name in ls);
+        var found = name in ls;
 
         if (found) {
           return delete ls[name];
@@ -175,7 +177,9 @@
    * Event class
    */
 
-  var WebStorageEvent = /*#__PURE__*/function () {
+  var WebStorageEvent =
+  /*#__PURE__*/
+  function () {
     function WebStorageEvent() {
       _classCallCheck(this, WebStorageEvent);
     }
@@ -256,7 +260,9 @@
    * Storage Bridge
    */
 
-  var WebStorage = /*#__PURE__*/function () {
+  var WebStorage =
+  /*#__PURE__*/
+  function () {
     /**
      * @param {Object} storage
      */
@@ -445,15 +451,12 @@
 
   var VueStorage = {
     /**
-     * Install plugin
+     * use storage
      *
-     * @param {Object} Vue
      * @param {Object} options
      * @returns {WebStorage}
      */
-    install: function install(Vue) {
-      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
+    useStorage: function useStorage(options) {
       var _options = _objectSpread2(_objectSpread2({}, options), {}, {
         storage: options.storage || 'local',
         name: options.name || 'ls'
@@ -490,6 +493,26 @@
       ls.setOptions(Object.assign(ls.options, {
         namespace: ''
       }, _options || {}));
+      return {
+        ls: ls,
+        _options: _options
+      };
+    },
+
+    /**
+     * Install plugin
+     *
+     * @param {Object} Vue
+     * @param {Object} options
+     * @returns {WebStorage}
+     */
+    install: function install(Vue) {
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+      var _this$useStorage = this.useStorage(options),
+          ls = _this$useStorage.ls,
+          _options = _this$useStorage._options;
+
       Vue[_options.name] = ls; // eslint-disable-line
 
       Object.defineProperty(Vue.prototype || Vue.config.globalProperties, "$".concat(_options.name), {
