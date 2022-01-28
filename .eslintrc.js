@@ -13,6 +13,7 @@ module.exports = {
     window: true,
   },
   rules: {
+    'linebreak-style': 'off',
     'semi-style': 0,
     'no-cond-assign': 0,
     'no-plusplus': 0,

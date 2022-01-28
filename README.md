@@ -80,7 +80,7 @@ Vue storage API.
 ``` js
 import Storage from 'vue-ls';
 
-options = {
+const options = {
   namespace: 'vuejs__', // key prefix
   name: 'ls', // name variable Vue.[ls] or this.[$ls],
   storage: 'local', // storage name session, local, memory
@@ -110,6 +110,26 @@ new Vue({
         Vue.ls.remove('foo');
     }
 });
+```
+Use in js file
+``` js
+// localStore.js
+import Storage from 'vue-ls';
+const options = {
+  namespace: 'vuejs__', // key prefix
+  name: 'ls', // name variable Vue.[ls] or this.[$ls],
+  storage: 'local', // storage name session, local, memory
+};
+
+const { ls } = Storage.useStorage(options)
+
+export default ls
+
+// somefile.js
+import ls from 'localStore.js';
+
+ls.set('foo', 'boo');
+ls.get('foo');
 ```
 
 #### Global
