@@ -34,7 +34,8 @@ const VueStorage = {
             : null
           ;
         } catch (e) {
-          // In some situations the browser will throw a security exception when attempting to access
+          // In some situations the browser will
+          // throw a security exception when attempting to access
         }
         break;
 
@@ -45,7 +46,8 @@ const VueStorage = {
             : null
           ;
         } catch (e) {
-          // In some situations the browser will throw a security exception when attempting to access
+          // In some situations the browser will
+          // throw a security exception when attempting to access
         }
         break;
       case 'memory':

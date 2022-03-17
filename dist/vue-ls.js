@@ -471,11 +471,19 @@
       switch (_options.storage) {
         // eslint-disable-line
         case 'local':
-          store = 'localStorage' in _global ? _global.localStorage : null;
+          try {
+            store = 'localStorage' in _global ? _global.localStorage : null;
+          } catch (e) {// In some situations the browser will throw a security exception when attempting to access
+          }
+
           break;
 
         case 'session':
-          store = 'sessionStorage' in _global ? _global.sessionStorage : null;
+          try {
+            store = 'sessionStorage' in _global ? _global.sessionStorage : null;
+          } catch (e) {// In some situations the browser will throw a security exception when attempting to access
+          }
+
           break;
 
         case 'memory':
